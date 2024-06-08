@@ -49,10 +49,10 @@ class RscVANATitleBar: RscBackgroundGUITop
 };
 class RscDisplayArsenal //Path to add code to allready exsisting Rsc class
 {
-	scriptName = "fn_Vana_Init";
+	scriptName = "VANAInit";
 	scriptPath = "VANAInit";
-	onLoad = "['onLoad', _this, 'fn_Vana_Init', 'VANAInit'] call (uinamespace getvariable 'BIS_fnc_initDisplay')"; // calls VANA Script instead of A3
-	onUnload = "['onUnload', _this, 'fn_Vana_Init', 'VANAInit'] call (uinamespace getvariable 'BIS_fnc_initDisplay')"; // calls VANA Script instead of A3
+	onLoad = "['onLoad', _this, 'VANAInit', 'VANAInit'] call (uinamespace getvariable 'BIS_fnc_initDisplay')"; // calls VANA Script instead of A3
+	onUnload = "['onUnload', _this, 'VANAInit', 'VANAInit'] call (uinamespace getvariable 'BIS_fnc_initDisplay')"; // calls VANA Script instead of A3
 	class controls //Path to add code to allready exsisting Rsc class
 	{
 		class Template: RscControlsGroup //Path to add code to allready exsisting Rsc class

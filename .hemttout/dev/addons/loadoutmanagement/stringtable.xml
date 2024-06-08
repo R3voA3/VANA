@@ -2,19 +2,19 @@
 <Project Name="VANA">
 	<Package Name="Mod.ccp">
 		<Key ID="STR_VANA_TOOLTIP">
-			<English>Vana - Loadout Management 0.88</English>
+			<English>VANA - Loadout Management</English>
 		</Key>
 		<Key ID="STR_VANA_TOOLTIPOWNED">
-			<English>Vana - Loadout Management 0.88</English>
+			<English>VANA - Loadout Management</English>
 		</Key>
 		<Key ID="STR_VANA_OVERVIEWTEXT">
-			<English>Vana - Loadout Management 0.88</English>
+			<English>VANA - Loadout Management</English>
 		</Key>
 		<Key ID="STR_VANA_OVERVIEW">
-			<English>Vana Purpose is to add extra loadout sorting options to the Virtual Arsenal.</English>
+			<English>VANA's Purpose is to add extra loadout sorting options to the Virtual Arsenal. The modifiction is fully client-sided. The original mod was created by Eathox.This mod is incompatible with other mods that affect the arsenal.</English>
 		</Key>
 		<Key ID="STR_VANA_ACTIONNAME">
-			<English>Github</English>
+			<English>GitHub</English>
 		</Key>
 	</Package>
 	<Package Name="RscDisplayArsenal">
