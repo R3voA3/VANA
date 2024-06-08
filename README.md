@@ -1,16 +1,14 @@
-# Vana (Alpha)
+# Vana
+Vana's Purpose is to add extra loadout sorting options to the Virtual Arsenal. The modifiction is fully client-sided.
+The original mod was created by *Eathox*
 
-Vana's Purpose is to add extra loadout sorting options to the Virtual Arsenal.
-
-It is Fully client-sided. Nothing special has to be done to use this mod.
-
-Note:
-Loadouts still require unique names, tabs do not.
-
-Compatibility:
+## Compatibility
 This mod is incompatible with other mods that affect the arsenal.
 
-Features:
-Creation of sorting tabs.
-Drag and Drop.
-Loadout Renaming.
+## Features
+- Creation of sorting tabs
+- Drag and drop
+- Loadout renaming
+
+## Notes
+Loadouts still require unique names, tabs do not.
