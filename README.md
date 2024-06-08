@@ -1,5 +1,5 @@
-# Vana
-Vana's Purpose is to add extra loadout sorting options to the Virtual Arsenal. The modifiction is fully client-sided.
+# VANA
+VANA's Purpose is to add extra loadout sorting options to the Virtual Arsenal. The modifiction is fully client-sided.
 The original mod was created by *Eathox*
 
 ## Compatibility
