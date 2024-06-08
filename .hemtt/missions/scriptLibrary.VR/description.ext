@@ -1,0 +1,253 @@
+allowFunctionsRecompile = 1;
+allowFunctionsLog = 1;
+
+#include "CfgFunctions.inc"
+
+import RscTitle;
+import RscEdit;
+import RscCombo;
+import RscXSliderH;
+import RscDisplayAttributes;
+import RscControlsGroupNoScrollbars;
+import RscText;
+import RscToolbox;
+
+#include "\a3\ui_f\hpp\definecommongrids.inc"
+
+class SPE_RscDisplayAttributesModuleDropzone: RscDisplayAttributes
+{
+	onLoad = "['onLoad', _this] call SPE_fnc_moduleDropzone_initDisplay";
+	onUnload = "";
+	class Controls: Controls
+	{
+		class Background: Background
+		{
+			x = GUI_GRID_CENTER_X + 0.5 * 21.5 * GUI_GRID_CENTER_W;
+			w = 21.5 * GUI_GRID_CENTER_W;
+		};
+		class Title: Title
+		{
+			x = GUI_GRID_CENTER_X + 0.5 * 21.5 * GUI_GRID_CENTER_W;
+			w = 21.5 * GUI_GRID_CENTER_W;
+		};
+		class Content: Content
+		{
+			x = GUI_GRID_CENTER_X + 0.5 * 21.5 * GUI_GRID_CENTER_W + 0.5 * GUI_GRID_CENTER_W;
+			w = 21 * GUI_GRID_CENTER_W;
+			class Controls: Controls
+			{
+				class Dropzone: RscControlsGroupNoScrollbars
+				{
+					idc = 36680;
+					x = 0.5 * GUI_GRID_CENTER_W;
+					w = 21 * GUI_GRID_CENTER_W;
+					h = 8.5 * GUI_GRID_CENTER_H;
+					class Controls
+					{
+						class Background: RscText
+						{
+							idc = 502;
+							w = 20.5 * GUI_GRID_CENTER_W;
+							h = 8.5 * GUI_GRID_CENTER_H;
+							colorBackground[] = {1, 1, 1, 0.1};
+						};
+						class TitleDropName: RscText
+						{
+							text = "Dropzone Name";
+							style = 1;
+							x = 0;
+							y = 0.2 * GUI_GRID_CENTER_H;
+							w = 8 * GUI_GRID_CENTER_W;
+							h = 1.2 * GUI_GRID_CENTER_H;
+						};
+						class ValueDropName: RscEdit
+						{
+							idc = 104;
+							text = "Dropzone Alpha";
+							x = 8 * GUI_GRID_CENTER_W;
+							y = 0.2 * GUI_GRID_CENTER_H;
+							w = 12.4 * GUI_GRID_CENTER_W;
+							h = 1.2 * GUI_GRID_CENTER_H;
+						};
+						class TitleSize: TitleDropName
+						{
+							text = "$STR_3DEN_Trigger_Attribute_Size_displayName";
+							y = 1 * 1.4 * GUI_GRID_CENTER_H + 0.2 * GUI_GRID_CENTER_H;
+						};
+						class TitleA: RscText
+						{
+							text = "$STR_3DEN_Axis_A";
+							style = 2;
+							shadow = 0;
+							x = 8 * GUI_GRID_CENTER_W;
+							y = 1 * 1.4 * GUI_GRID_CENTER_H + 0.2 * GUI_GRID_CENTER_H;
+							w = 1.2 * GUI_GRID_CENTER_W;
+							h = 1.2 * GUI_GRID_CENTER_H;
+							colorBackground[] = {0.77, 0.18, 0.1, 1};
+						};
+						class ValueA: RscEdit
+						{
+							idc = 101;
+							text = "0";
+							x = 9.2 * GUI_GRID_CENTER_W;
+							y = 1 * 1.4 * GUI_GRID_CENTER_H + 0.2 * GUI_GRID_CENTER_H;
+							h = 1.2 * GUI_GRID_CENTER_H;
+							w = 5 * GUI_GRID_CENTER_W;
+							onEditChanged = "['onEditChangedA', _this] call SPE_fnc_moduleDropzone_initDisplay";
+						};
+						class TitleB: TitleA
+						{
+							text = "$STR_3DEN_Axis_B";
+							x = 14.2 * GUI_GRID_CENTER_W;
+							colorBackground[] = {0.58, 0.82, 0.22, 1};
+						};
+						class ValueB: ValueA
+						{
+							idc = 102;
+							x = 15.4 * GUI_GRID_CENTER_W;
+							onEditChanged = "['onEditChangedB', _this] call SPE_fnc_moduleDropzone_initDisplay";
+						};
+						class TitleRotation: TitleDropName
+						{
+							text = "$STR_3DEN_Object_Attribute_Rotation_displayName";
+							y = 2 * 1.4 * GUI_GRID_CENTER_H;
+						};
+						class TitleZ: TitleA
+						{
+							text = "$STR_3DEN_Axis_Z";
+							x = 8 * GUI_GRID_CENTER_W;
+							y = 2 * 1.4 * GUI_GRID_CENTER_H + 0.2 * GUI_GRID_CENTER_H;
+							colorBackground[] = {0.26, 0.52, 0.92, 1};
+						};
+						class ValueZ: ValueA
+						{
+							idc = 103;
+							x = 9.2 * GUI_GRID_CENTER_W;
+							y = 2 * 1.4 * GUI_GRID_CENTER_H + 0.2 * GUI_GRID_CENTER_H;
+							w = 5 * GUI_GRID_CENTER_W;
+							onEditChanged = "['onEditChangedZ', _this] call SPE_fnc_moduleDropzone_initDisplay";
+						};
+						class TitleShape: TitleDropName
+						{
+							text = "$STR_3DEN_Trigger_Attribute_Shape_displayName";
+							y = 3 * 1.4 * GUI_GRID_CENTER_H;
+						};
+						class Shape: RscToolbox
+						{
+							idc = 100;
+							style = "0x02 + 0x30 + 0x800";
+							x = 8 * GUI_GRID_CENTER_W;
+							y = 3 * 1.4 * GUI_GRID_CENTER_H + 0.2 * GUI_GRID_CENTER_H;
+							w = 10 * GUI_GRID_CENTER_W;
+							h = 3.6 * GUI_GRID_CENTER_W;
+							rows = 1;
+							columns = 2;
+							strings[] = {"\a3\3DEN\Data\Attributes\Shape\ellipse_ca.paa", "\a3\3DEN\Data\Attributes\Shape\rectangle_ca.paa"};
+							values[] = {0, 1};
+							tooltips[] = {"$STR_3den_attributes_shapetrigger_ellipse", "$STR_3den_attributes_shapetrigger_rectangle"};
+							onToolboxSelChanged = "['onToolboxSelChanged', _this] call SPE_fnc_moduleDropzone_initDisplay";
+							colorBackground[] = {0.2, 0.2, 0.2, 1};
+						};
+						class TitleAlt: TitleSize
+						{
+							text = "$STR_3DEN_Display3DEN_ControlsHint_MoveZ";
+							y = 5 * 1.4 * GUI_GRID_CENTER_H + 0.2 * GUI_GRID_CENTER_H;
+						};
+						class TitleAltZ: TitleA
+						{
+							text = "$STR_3DEN_Axis_Z";
+							y = 5 * 1.4 * GUI_GRID_CENTER_H + 0.2 * GUI_GRID_CENTER_H;
+							x = 8 * GUI_GRID_CENTER_W;
+							colorBackground[] = {0.26, 0.52, 0.92, 1};
+						};
+						class ValueAltZ: ValueZ
+						{
+							idc = 105;
+							y = 5 * 1.4 * GUI_GRID_CENTER_H + 0.2 * GUI_GRID_CENTER_H;
+							onEditChanged = "";
+						};
+					};
+				};
+			};
+		};
+		class ButtonOK: ButtonOK
+		{
+			x = GUI_GRID_CENTER_X + 1.5 * 21.5 * GUI_GRID_CENTER_W - 5 * GUI_GRID_CENTER_W;
+		};
+		class ButtonCancel: ButtonCancel
+		{
+			x = GUI_GRID_CENTER_X + 0.5 * 21.5 * GUI_GRID_CENTER_W;
+		};
+	};
+};
+
+class SPE_RscDisplayAttributesModuleSimulatedParadropNEW: RscDisplayAttributes
+{
+	onLoad = "['onLoad', _this] call SPE_fnc_moduleParadropSim_initDisplay";
+	onUnload = "";
+	class Controls: Controls
+	{
+		class Background: Background{};
+		class Title: Title{};
+		class Content: Content
+		{
+			class Controls: Controls
+			{
+				class Paradrop: RscControlsGroupNoScrollbars
+				{
+					idc = 36680;
+					x = 7 * GUI_GRID_CENTER_W + (safezoneX);
+					y = 10 * GUI_GRID_CENTER_H + (safezoneY + safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2));
+					w = 26 * GUI_GRID_CENTER_W;
+					h = 6 * GUI_GRID_CENTER_H;
+					class controls
+					{
+						class Title: RscText
+						{
+							idc = 501;
+							text = "$STR_A3_WL_ACTION_DROPZONE";
+							w = 26 * GUI_GRID_CENTER_W;
+							h = GUI_GRID_CENTER_H;
+							colorBackground[] = {0, 0, 0, 0.5};
+						};
+						class Background: RscText
+						{
+							idc = 502;
+							y = GUI_GRID_CENTER_H;
+							w = 26 * GUI_GRID_CENTER_W;
+							h = 5 * GUI_GRID_CENTER_H;
+							colorBackground[] = {1, 1, 1, 0.1};
+						};
+						class Dropzone: RscCombo
+						{
+							idc = 503;
+							x = 0.5 * GUI_GRID_CENTER_W;
+							y = 1.25 * GUI_GRID_CENTER_H;
+							w = 25 * GUI_GRID_CENTER_W;
+							h = GUI_GRID_CENTER_H;
+						};
+						class ParaTitle: RscText
+						{
+							idc = 505;
+							text = "Parachute Type:";
+							y = 2.5 * GUI_GRID_CENTER_H;
+							w = 26 * GUI_GRID_CENTER_W;
+							h = GUI_GRID_CENTER_H;
+							colorBackground[] = {0, 0, 0, 0.5};
+						};
+						class ParachuteType: RscCombo
+						{
+							idc = 504;
+							x = 0.5 * GUI_GRID_CENTER_W;
+							y = 3.75 * GUI_GRID_CENTER_H;
+							w = 25 * GUI_GRID_CENTER_W;
+							h = GUI_GRID_CENTER_H;
+						};
+					};
+				};
+			};
+		};
+		class ButtonOK: ButtonOK{};
+		class ButtonCancel: ButtonCancel{};
+	};
+};

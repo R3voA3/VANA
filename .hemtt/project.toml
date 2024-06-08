@@ -1,0 +1,34 @@
+name = "VANA"
+mainprefix = "v"
+prefix = "VANA"
+author = "Eathox, modified by R3vo"
+
+[files]
+include = [
+]
+
+[version]
+major = 1
+minor = 0
+patch = 0
+git_hash = 0
+
+[hemtt.release]
+sign = true
+
+[properties]
+author = "Eathox, modified by R3vo"
+url = ""
+
+# Launched with `hemtt launch`
+[hemtt.launch.default]
+workshop = [
+	"450814997",	# CBA_A3
+	"1751569185",	# Pythia
+	"1387934106",	# 7erra's Editing Extensions
+	"2073243184",	# 3Den Stringtable Viewer
+]
+
+mission = "scriptLibrary.VR" # Mission to launch directly into the editor with
+
+executable = "arma3_x64"

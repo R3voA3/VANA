@@ -1,0 +1,53 @@
+<?xml Version="1.0" Encoding="utf-8"?>
+<Project Name="VANA">
+	<Package Name="Mod.ccp">
+		<Key ID="STR_VANA_TOOLTIP">
+			<English>Vana - Loadout Management 0.88</English>
+		</Key>
+		<Key ID="STR_VANA_TOOLTIPOWNED">
+			<English>Vana - Loadout Management 0.88</English>
+		</Key>
+		<Key ID="STR_VANA_OVERVIEWTEXT">
+			<English>Vana - Loadout Management 0.88</English>
+		</Key>
+		<Key ID="STR_VANA_OVERVIEW">
+			<English>Vana Purpose is to add extra loadout sorting options to the Virtual Arsenal.</English>
+		</Key>
+		<Key ID="STR_VANA_ACTIONNAME">
+			<English>Github</English>
+		</Key>
+	</Package>
+	<Package Name="RscDisplayArsenal">
+		<Container Name="Template">
+			<Key ID="STR_VANA_TEXTNAME_TEXT">
+				<English>Name:</English>
+			</Key>
+			<Key ID="STR_VANA_BUTTONCREATE_TOOLTIP">
+				<English>Create New Tab [Ctrl + N]</English>
+			</Key>
+			<Key ID="STR_VANA_BUTTONRENAME_TOOLTIP">
+				<English>Rename Loadouts/Tabs [Ctrl + E]</English>
+			</Key>
+			<Key ID="STR_VANA_TEMPCHECKBOX_TOOLTIP">
+				<English>Disable delete confirmation (Temporary button)</English>
+			</Key>
+		</Container>
+		<Container Name="VANA_UIPopupControlGroup">
+			<Key ID="STR_VANA_TITLE_TEXT">
+				<English>Vana didn't initialize</English>
+			</Key>
+			<Key ID="STR_VANA_TEXT_TEXT">
+				<English>Something went wrong in the initialization (You wont be able to open the loadout screen)</English>
+			</Key>
+			<Key ID="STR_VANA_BUTTONOK_TEXT">
+				<English>Confirm</English>
+			</Key>
+			<Key ID="STR_VANA_CHECKBOXTEXT_TEXT">
+				<English>Disable Popup.</English>
+			</Key>
+			<Key ID="STR_VANA_HINTTEXT_TEXT">
+				<English>(Loadouts under tabs wont be deleted)</English>
+			</Key>
+		</Container>
+	</Package>
+</Project>
