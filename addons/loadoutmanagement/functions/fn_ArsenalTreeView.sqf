@@ -6,7 +6,7 @@ disableserialization;
 
 #define ShowUI(BOOL)\
   private _ctrlTemplate = _ArsenalDisplay displayctrl IDC_RSCDISPLAYARSENAL_TEMPLATE_TEMPLATE;\
-  _ctrlTemplate ctrlsetfade ([1, 0] select BOOL);\
+  _ctrlTemplate ctrlsetfade (1 - parseNumber BOOL);\
   _ctrlTemplate ctrlcommit 0;\
   _ctrlTemplate ctrlenable BOOL;\
   private _ctrlMouseBlock = _ArsenalDisplay displayctrl IDC_RSCDISPLAYARSENAL_MOUSEBLOCK;\

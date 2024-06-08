@@ -20,7 +20,7 @@ _tvData = toLower (_ctrlTV tvData _targetTV);
 _tvName = _ctrlTV tvText _targetTV;
 
 _ctrlTV tvSetText [_targetTV, _Name];
-if (_tvData isequalto "tvloadout") then
+if (_tvData == "tvloadout") then
 {
 	//rename loadout in profile data
 	_LoadoutData = profilenamespace getVariable ["bis_fnc_saveInventory_Data",[]];

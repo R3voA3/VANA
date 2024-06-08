@@ -365,7 +365,7 @@ switch _mode do {
 				_idc = _x;
 				_ctrlIcon = _display displayctrl (IDC_RSCDISPLAYARSENAL_ICON + _idc);
 				_ctrlTab = _display displayctrl (IDC_RSCDISPLAYARSENAL_TAB + _idc);
-				_mode = if (_idc in [IDCS_LEFT]) then {"TabSelectLeft"} else {"TabSelectRight"};
+				_mode = ["TabSelectRight", "TabSelectLeft"] select (_idc in [IDCS_LEFT]);
 				{
 					_x ctrladdeventhandler ["buttonclick",format ["with uinamespace do {['%2',[ctrlparent (_this select 0),%1]] call %3;};",_idc,_mode,_function]];
 					_x ctrladdeventhandler ["mousezchanged","with uinamespace do {['MouseZChanged',_this] call BIS_fnc_arsenal;};"];
@@ -588,7 +588,7 @@ switch _mode do {
 
 			//--- Export to script
 			case (_key == DIK_C): {
-				_mode = if (_shift) then {"config"} else {"init"};
+				_mode = ["init", "config"] select _shift;
 				if (BIS_fnc_arsenal_type == 0) then {
 					if (_ctrl) then {['buttonExport',[_display,_mode]] call BIS_fnc_arsenal;};
 				} else {

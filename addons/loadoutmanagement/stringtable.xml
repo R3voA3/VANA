@@ -11,7 +11,7 @@
 			<English>VANA - Loadout Management</English>
 		</Key>
 		<Key ID="STR_VANA_OVERVIEW">
-			<English>VANA's Purpose is to add extra loadout sorting options to the Virtual Arsenal. The modifiction is fully client-sided. The original mod was created by Eathox.This mod is incompatible with other mods that affect the arsenal.</English>
+			<English>VANA's purpose is to add extra loadout sorting options to the Virtual Arsenal. The modifiction is fully client-sided. The original mod was created by Eathox.This mod is incompatible with other mods that affect the arsenal.</English>
 		</Key>
 		<Key ID="STR_VANA_ACTIONNAME">
 			<English>GitHub</English>
@@ -28,13 +28,13 @@
 			<Key ID="STR_VANA_BUTTONRENAME_TOOLTIP">
 				<English>Rename Loadouts/Tabs [Ctrl + E]</English>
 			</Key>
-			<Key ID="STR_VANA_TEMPCHECKBOX_TOOLTIP">
+			<!-- <Key ID="STR_VANA_TEMPCHECKBOX_TOOLTIP">
 				<English>Disable delete confirmation (Temporary button)</English>
-			</Key>
+			</Key> -->
 		</Container>
 		<Container Name="VANA_UIPopupControlGroup">
 			<Key ID="STR_VANA_TITLE_TEXT">
-				<English>Vana didn't initialize</English>
+				<English>VANA didn't initialize</English>
 			</Key>
 			<Key ID="STR_VANA_TEXT_TEXT">
 				<English>Something went wrong in the initialization (You wont be able to open the loadout screen)</English>
@@ -43,7 +43,7 @@
 				<English>Confirm</English>
 			</Key>
 			<Key ID="STR_VANA_CHECKBOXTEXT_TEXT">
-				<English>Disable Popup.</English>
+				<English>Disable Popup</English>
 			</Key>
 			<Key ID="STR_VANA_HINTTEXT_TEXT">
 				<English>(Loadouts under tabs wont be deleted)</English>

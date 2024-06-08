@@ -4,6 +4,10 @@
 					 	_display displayCtrl 979000 ctrlshow 0;\
 					 }"
 
+#define QUOTE(var1) #var1
+
+#include "\a3\ui_f\hpp\defineCommonGrids.inc"
+
 class BackgroundButtonOK;
 class RscBackgroundGUI;
 class RscBackgroundGUITop;
@@ -40,39 +44,39 @@ class RscVANATitleBar: RscBackgroundGUITop
 	x = 0;
 	y = 0;
 	h = 0.037;
-	w = 0.30000001;
+	w = 0.3;
 	style = 0;
 	shadow = 0;
 	colorShadow[] = {0, 0, 0, 0.5};
-	sizeEx = "(GUI_GRID_CENTER_H * 1)";
-	colorText[] = {0.94999999, 0.94999999, 0.94999999, 1};
+	sizeEx = QUOTE(GUI_GRID_CENTER_H);
+	colorText[] = {0.95, 0.95, 0.95, 1};
 	font = "PuristaMedium";
 	colorBackground[] = {0, 0, 0, 0};
 	linespacing = 1;
 	tooltipColorText[] = {1, 1, 1, 1};
 	tooltipColorBox[] = {1, 1, 1, 1};
-	tooltipColorShade[] = {0, 0, 0, 0.64999998};
+	tooltipColorShade[] = {0, 0, 0, 0.65};
 };
-class RscDisplayArsenal //Path to add code to allready exsisting Rsc class
+class RscDisplayArsenal
 {
 	scriptName = "VANAInit";
 	scriptPath = "VANAInit";
-	onLoad = "['onLoad', _this, 'VANAInit', 'VANAInit'] call (uinamespace getvariable 'BIS_fnc_initDisplay')"; // calls VANA Script instead of A3
-	onUnload = "['onUnload', _this, 'VANAInit', 'VANAInit'] call (uinamespace getvariable 'BIS_fnc_initDisplay')"; // calls VANA Script instead of A3
-	class controls //Path to add code to allready exsisting Rsc class
+	onLoad = "['onLoad', _this, 'VANAInit', 'VANAInit'] call (uinamespace getvariable 'BIS_fnc_initDisplay')";
+	onUnload = "['onUnload', _this, 'VANAInit', 'VANAInit'] call (uinamespace getvariable 'BIS_fnc_initDisplay')";
+	class Controls
 	{
-		class Template: RscControlsGroup //Path to add code to allready exsisting Rsc class
+		class Template: RscControlsGroup //Save & Load UI
 		{
-			class Controls //Path to add code to allready exsisting Rsc class
+			class Controls
 			{
-				class ValueName: RscTree //Changing the loadout list to a treeview UI type
+				class ValueName: RscTree
 				{
 					idc = 35119;
-					x = "0.5 * GUI_GRID_CENTER_W";
-					y = "1.6 * GUI_GRID_CENTER_H";
-					w = "19 * GUI_GRID_CENTER_W";
-					h = "17.5 * GUI_GRID_CENTER_H";
-					sizeEx = "0.8 * GUI_GRID_CENTER_H";
+					x = QUOTE(0.5 * GUI_GRID_CENTER_W);
+					y = QUOTE(1.6 * GUI_GRID_CENTER_H);
+					w = QUOTE(19 * GUI_GRID_CENTER_W);
+					h = QUOTE(17.5 * GUI_GRID_CENTER_H);
+					sizeEx = QUOTE(0.8 * GUI_GRID_CENTER_H);
 					style = 16;
 					shadow = 0;
 					font = "RobotoCondensed";
@@ -91,44 +95,44 @@ class RscDisplayArsenal //Path to add code to allready exsisting Rsc class
 						color[] = {0.95, 0.95, 0.95, 1};
 					};
 				};
-				class TextName: RscText //Relocation of Vanila UI
+				class TextName: RscText //Relocation of vanilla UI
 				{
 					idc = 34621;
 					style = 1;
 					text = "$STR_VANA_TextName_Text";
-					x = "-2 * GUI_GRID_CENTER_W";
-					y = "19.6 * GUI_GRID_CENTER_H";
-					w = "5.5 * GUI_GRID_CENTER_W";
-					h = "1 * GUI_GRID_CENTER_H";
+					x = QUOTE(-2 * GUI_GRID_CENTER_W);
+					y = QUOTE(19.6 * GUI_GRID_CENTER_H);
+					w = QUOTE(5.5 * GUI_GRID_CENTER_W);
+					h = QUOTE(GUI_GRID_CENTER_H);
 					colorBackground[] = {0, 0, 0, 0.2};
-					sizeEx = "0.8 * GUI_GRID_CENTER_H";
+					sizeEx = QUOTE(0.8 * GUI_GRID_CENTER_H);
 				};
-				class EditName: RscEdit //Relocationg of Vanila UI
+				class EditName: RscEdit //Relocationg of vanilla UI
 				{
 					idc = 35020;
-					x = "3.5 * GUI_GRID_CENTER_W";
-					y = "19.6 * GUI_GRID_CENTER_H";
-					w = "13.5 * GUI_GRID_CENTER_W";
-					h = "1 * GUI_GRID_CENTER_H";
-					sizeEx = "0.8 * GUI_GRID_CENTER_H";
+					x = QUOTE(3.5 * GUI_GRID_CENTER_W);
+					y = QUOTE(19.6 * GUI_GRID_CENTER_H);
+					w = QUOTE(13.5 * GUI_GRID_CENTER_W);
+					h = QUOTE(GUI_GRID_CENTER_H);
+					sizeEx = QUOTE(0.8 * GUI_GRID_CENTER_H);
 				};
 				class VANA_TitlePicture: RscPictureKeepAspect
 				{
 					idc = 978000;
 					text = "v\vana\addons\loadoutmanagement\data\logoSmall_ca.paa";
-					x = "18.2 * GUI_GRID_CENTER_W";
-					y = "0.1 * GUI_GRID_CENTER_H";
-					w = "1.6 * GUI_GRID_CENTER_W";
-					h = "0.80 * GUI_GRID_CENTER_H";
+					x = QUOTE(18.2 * GUI_GRID_CENTER_W);
+					// y = QUOTE(0.GUI_GRID_CENTER_H);
+					w = QUOTE(1.6 * GUI_GRID_CENTER_W);
+					h = QUOTE(0.80 * GUI_GRID_CENTER_H);
 				};
 				class VANA_DecorativeBar: RscBackgroundGUI
 				{
 					idc = 978001;
 					show = 0;
-					x = "17 * GUI_GRID_CENTER_W";
-					y = "19.6 * GUI_GRID_CENTER_H";
-					w = "3 * GUI_GRID_CENTER_W";
-					h = "1 * GUI_GRID_CENTER_H";
+					x = QUOTE(17 * GUI_GRID_CENTER_W);
+					y = QUOTE(19.6 * GUI_GRID_CENTER_H);
+					w = QUOTE(3 * GUI_GRID_CENTER_W);
+					h = QUOTE(GUI_GRID_CENTER_H);
 					colorBackground[] = {0, 0, 0, 0.2};
 				};
 				class VANA_ButtonCreate: RscVANAPictureButton
@@ -136,30 +140,27 @@ class RscDisplayArsenal //Path to add code to allready exsisting Rsc class
 					idc = 978002;
 					text = "v\vana\addons\loadoutmanagement\data\buttonTabCreate.paa";
 					tooltip = "$STR_VANA_ButtonCreate_ToolTip";
-					x = "18.5 * GUI_GRID_CENTER_W";
-					y = "19.6 * GUI_GRID_CENTER_H";
-					w = "1 * GUI_GRID_CENTER_W";
-					h = "1 * GUI_GRID_CENTER_H";
+					x = QUOTE(18.5 * GUI_GRID_CENTER_W);
+					y = QUOTE(19.6 * GUI_GRID_CENTER_H);
+					w = QUOTE(GUI_GRID_CENTER_W);
+					h = QUOTE(GUI_GRID_CENTER_H);
 				};
-				class VANA_ButtonRename: RscVANAPictureButton
+				class VANA_ButtonRename: VANA_ButtonCreate
 				{
 					idc = 978003;
 					text = "v\vana\addons\loadoutmanagement\data\buttonRename.paa";
 					tooltip = "$STR_VANA_ButtonRename_ToolTip";
-					x = "17.3  * GUI_GRID_CENTER_W";
-					y = "19.6 * GUI_GRID_CENTER_H";
-					w = "1 * GUI_GRID_CENTER_W";
-					h = "1 * GUI_GRID_CENTER_H";
+					x = QUOTE(17.3  * GUI_GRID_CENTER_W);
 				};
 				class VANA_DelConfirmToggle: RscCheckBox
 				{
 					idc = 978004;
 					default = 0;
 					tooltip = "$STR_VANA_TempCheckbox_ToolTip";
-					x = "5.1 * GUI_GRID_CENTER_W";
-					y = "21.2 * GUI_GRID_CENTER_H";
-					w = "1 * GUI_GRID_CENTER_W";
-					h = "1 * GUI_GRID_CENTER_H";
+					x = QUOTE(5 * GUI_GRID_CENTER_W);
+					y = QUOTE(21.2 * GUI_GRID_CENTER_H);
+					w = QUOTE(GUI_GRID_CENTER_W);
+					h = QUOTE(GUI_GRID_CENTER_H);
 					colorBackground[] = {0, 0, 0, 0.8};
 					colorBackgroundFocused[] ={0, 0, 0, 0.8};
 					colorBackgroundHover[] ={0, 0, 0, 0.8};
@@ -171,20 +172,18 @@ class RscDisplayArsenal //Path to add code to allready exsisting Rsc class
 		class VANA_UIPopupControlGroup: RscControlsGroupNoScrollbars
 		{
 			idc = 979000;
-			x = "10.6 * GUI_GRID_CENTER_W + GUI_GRID_CENTER_X";
-			y = "7 * GUI_GRID_CENTER_H + GUI_GRID_CENTER_Y";
-			w = "18.8 * GUI_GRID_CENTER_W";
-			h = "5.6 * GUI_GRID_CENTER_H";
+			x = QUOTE(10.6 * GUI_GRID_CENTER_W + GUI_GRID_CENTER_X);
+			y = QUOTE(7 * GUI_GRID_CENTER_H + GUI_GRID_CENTER_Y);
+			w = QUOTE(18.8 * GUI_GRID_CENTER_W);
+			h = QUOTE(5.6 * GUI_GRID_CENTER_H);
 			class Controls
 			{
 				class VANA_Title: RscVANATitleBar
 				{
 					idc = 979001;
 					text = "$STR_VANA_Title_Text";
-					x = "0 * GUI_GRID_CENTER_W";
-					y = "0 * GUI_GRID_CENTER_H";
-					w = "18.8 * GUI_GRID_CENTER_W";
-					h = "1 * GUI_GRID_CENTER_H";
+					w = QUOTE(18.8 * GUI_GRID_CENTER_W);
+					h = QUOTE(GUI_GRID_CENTER_H);
 					colorBackground[] =
 					{
 						"(profilenamespace getvariable ['GUI_BCG_RGB_R', 0.13])",
@@ -197,79 +196,65 @@ class RscDisplayArsenal //Path to add code to allready exsisting Rsc class
 				{
 					idc = 979002;
 					text = "v\vana\addons\loadoutmanagement\data\logoSmall_ca.paa";
-					x = "17.0 * GUI_GRID_CENTER_W";
-					y = "0.1 * GUI_GRID_CENTER_H";
-					w = "1.6 * GUI_GRID_CENTER_W";
-					h = "0.80 * GUI_GRID_CENTER_H";
+					x = QUOTE(17.0 * GUI_GRID_CENTER_W);
+					y = QUOTE(0.GUI_GRID_CENTER_H);
+					w = QUOTE(1.6 * GUI_GRID_CENTER_W);
+					h = QUOTE(0.80 * GUI_GRID_CENTER_H);
 				};
-				class VANA_BackGround: RscBackgroundGUI
+				class VANA_Background: RscBackgroundGUI
 				{
 					idc = 979003;
-					x = "0 * GUI_GRID_CENTER_W";
-					y = "1.1 * GUI_GRID_CENTER_H";
-					w = "18.8 * GUI_GRID_CENTER_W";
-					h = "2.6 * GUI_GRID_CENTER_H";
-					colorBackground[] = {0, 0, 0, 1.21};
+					y = QUOTE(1.GUI_GRID_CENTER_H);
+					w = QUOTE(18.8 * GUI_GRID_CENTER_W);
+					h = QUOTE(2.6 * GUI_GRID_CENTER_H);
+					colorBackground[] = {0.3, 0.3, 0.3, 0.8};
 				};
 				class VANA_Text: RscStructuredText
 				{
 					idc = 979004;
 					text = "$STR_VANA_Text_Text";
-					x = "0 * GUI_GRID_CENTER_W";
-					y = "1.3 * GUI_GRID_CENTER_H";
-					w = "18.8 * GUI_GRID_CENTER_W";
-					h = "2 * GUI_GRID_CENTER_H";
-					sizeEx = "0.9 * GUI_GRID_CENTER_H";
+					y = QUOTE(1.3 * GUI_GRID_CENTER_H);
+					w = QUOTE(18.8 * GUI_GRID_CENTER_W);
+					h = QUOTE(2 * GUI_GRID_CENTER_H);
+					sizeEx = QUOTE(0.9 * GUI_GRID_CENTER_H);
 				};
 				class VANA_ButtonCancel: RscButtonMenuCancel
 				{
 					idc = 979005;
 					onButtonClick = BUTTON_CLICK;
-					colorBackground[] = {0, 0, 0, 1.21};
-					x = "0 * GUI_GRID_CENTER_W";
-					y = "3.8 * GUI_GRID_CENTER_H";
-					w = "6.2 * GUI_GRID_CENTER_W";
-					h = "1 * GUI_GRID_CENTER_H";
+					// colorBackground[] = {0, 0, 0, 1.21};
+					y = QUOTE(3.8 * GUI_GRID_CENTER_H);
+					w = QUOTE(6.2 * GUI_GRID_CENTER_W);
+					h = QUOTE(GUI_GRID_CENTER_H);
 				};
-				class VANA_BackgroundButtonMiddle: BackgroundButtonOK
-				{
-					idc = 979006;
-					x = "6.3 * GUI_GRID_CENTER_W";
-					y = "3.8 * GUI_GRID_CENTER_H";
-					colorBackground[] = {0, 0, 0, 1.21};
-				};
-				class VANA_ButtonOK: RscButtonMenuOK
+				class VANA_ButtonOK: VANA_ButtonCancel
 				{
 					idc = 979007;
 					onButtonClick = BUTTON_CLICK;
 					text = "$STR_VANA_ButtonOK_Text";
-					colorBackground[] = {0, 0, 0, 1.21};
-					x = "12.6 * GUI_GRID_CENTER_W";
-					y = "3.8 * GUI_GRID_CENTER_H";
-					w = "6.2 * GUI_GRID_CENTER_W";
-					h = "1 * GUI_GRID_CENTER_H";
+					x = QUOTE(12.6 * GUI_GRID_CENTER_W);
 				};
 				class VANA_TogglePopup: RscCheckBox
 				{
 					idc = 979008;
 					show = 0;
 					default = 0;
-					x = "0.1 * GUI_GRID_CENTER_W";
-					y = "2.65 * GUI_GRID_CENTER_H";
-					w = "1 * GUI_GRID_CENTER_W";
-					h = "1 * GUI_GRID_CENTER_H";
-					colorBackground[] = {0, 0, 0, 1.21};
+					x = QUOTE(0.GUI_GRID_CENTER_W);
+					y = QUOTE(2.65 * GUI_GRID_CENTER_H);
+					w = QUOTE(GUI_GRID_CENTER_W);
+					h = QUOTE(GUI_GRID_CENTER_H);
+					// colorBackground[] = {0, 0, 0, 1.21};
 				};
 				class VANA_CheckboxText: RscText
 				{
 					idc = 979009;
 					show = 0;
 					text = "$STR_VANA_CheckboxText_Text";
-					x = "0.8 * GUI_GRID_CENTER_W";
-					y = "2.66 * GUI_GRID_CENTER_H";
-					w = "3.8 * GUI_GRID_CENTER_W";
-					h = "1 * GUI_GRID_CENTER_H";
-					sizeEx = "0.8 * GUI_GRID_CENTER_H";
+					x = QUOTE(0.8 * GUI_GRID_CENTER_W);
+					y = QUOTE(2.66 * GUI_GRID_CENTER_H);
+					w = QUOTE(3.8 * GUI_GRID_CENTER_W);
+					h = QUOTE(GUI_GRID_CENTER_H);
+					sizeEx = QUOTE(0.8 * GUI_GRID_CENTER_H);
 				};
 				class VANA_HintText: RscText
 				{
@@ -277,21 +262,21 @@ class RscDisplayArsenal //Path to add code to allready exsisting Rsc class
 					show = 0;
 					style = 1;
 					text = "$STR_VANA_HintText_Text";
-					x = "9.25 * GUI_GRID_CENTER_W";
-					y = "2.66 * GUI_GRID_CENTER_H";
-					w = "9.55 * GUI_GRID_CENTER_W";
-					h = "1 * GUI_GRID_CENTER_H";
-					sizeEx = "0.8 * GUI_GRID_CENTER_H";
+					x = QUOTE(9.25 * GUI_GRID_CENTER_W);
+					y = QUOTE(2.66 * GUI_GRID_CENTER_H);
+					w = QUOTE(9.55 * GUI_GRID_CENTER_W);
+					h = QUOTE(GUI_GRID_CENTER_H);
+					sizeEx = QUOTE(0.8 * GUI_GRID_CENTER_H);
 				};
 				class VANA_RenameEdit: RscEdit
 				{
 					idc = 979011;
 					show = 0;
-					x = "0.3 * GUI_GRID_CENTER_W";
-					y = "2.45 * GUI_GRID_CENTER_H";
-					w = "18.2 * GUI_GRID_CENTER_W";
-					h = "1 * GUI_GRID_CENTER_H";
-					sizeEx = "0.9 * GUI_GRID_CENTER_H";
+					x = QUOTE(0.3 * GUI_GRID_CENTER_W);
+					y = QUOTE(2.45 * GUI_GRID_CENTER_H);
+					w = QUOTE(18.2 * GUI_GRID_CENTER_W);
+					h = QUOTE(GUI_GRID_CENTER_H);
+					sizeEx = QUOTE(0.9 * GUI_GRID_CENTER_H);
 				};
 			};
 		};
@@ -300,10 +285,10 @@ class RscDisplayArsenal //Path to add code to allready exsisting Rsc class
 			idc = 978090;
 			show = 0;
 			style = 16;
-			x = "safezoneX";
-			y = "safezoneY";
-			w = "safezoneW";
-			h = "safezoneH";
+			x = QUOTE(safezoneX);
+			y = QUOTE(safezoneY);
+			w = QUOTE(safezoneW);
+			h = QUOTE(safezoneH);
 			colorBackground[] = {0, 0, 0, 0.35};
 		};
 	};
