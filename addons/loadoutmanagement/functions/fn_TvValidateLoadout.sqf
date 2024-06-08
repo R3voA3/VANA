@@ -2,15 +2,15 @@ disableserialization;
 
 params
 [
-  ["_CtrlTreeView", controlnull, [controlnull]],
-  ["_Arguments", [], [[]]]
+  ["_ctrlTV", controlnull, [controlnull]],
+  ["_arguments", [], [[]]]
 ];
 
-_Arguments params
+_arguments params
 [
   ["_Posistion", [], [[]]],
   ["_LoadoutName", "", [""]]
 ];
 
 
-[_CtrlTreeView, [[_LoadoutName, _Posistion]]] call VANA_fnc_TvValidateLoadouts;
+[_ctrlTV, [[_LoadoutName, _Posistion]]] call VANA_fnc_tvValidateLoadouts;

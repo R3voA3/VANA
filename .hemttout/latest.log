@@ -1,158 +1,159 @@
-2024-06-08T10:22:59.074057Z TRACE ThreadId(01) version: 1.12.2
-2024-06-08T10:22:59.074108Z TRACE ThreadId(01) platform: windows
-2024-06-08T10:22:59.074117Z TRACE ThreadId(01) args: [
+2024-06-08T11:25:18.883253Z TRACE ThreadId(01) version: 1.12.2
+2024-06-08T11:25:18.883310Z TRACE ThreadId(01) platform: windows
+2024-06-08T11:25:18.883321Z TRACE ThreadId(01) args: [
     "C:\\Users\\rober\\OneDrive\\Games\\Arma 3\\Arma 3 Mods\\Vana\\hemtt.exe",
     "launch",
 ]
-2024-06-08T10:22:59.074454Z TRACE ThreadId(01) launch config: LaunchOptions { extends: None, workshop: ["450814997", "1751569185", "1387934106", "2073243184"], dlc: [], presets: [], optionals: [], mission: Some("scriptLibrary.VR"), parameters: [], executable: Some("arma3_x64") }
-2024-06-08T10:22:59.078935Z DEBUG ThreadId(01) Arma 3 found at: C:\Program Files (x86)\Steam\steamapps\common\Arma 3
-2024-06-08T10:22:59.084100Z TRACE ThreadId(01) using temporary folder: "C:\\Users\\rober\\AppData\\Local\\Temp\\hemtt\\Users_rober_OneDrive_Games_Arma 3_Arma 3 Mods_Vana"
-2024-06-08T10:22:59.084113Z TRACE ThreadId(01) using project folder: "C:\\Users\\rober\\OneDrive\\Games\\Arma 3\\Arma 3 Mods\\Vana"
-2024-06-08T10:22:59.084116Z TRACE ThreadId(01) using out folder: "C:\\Users\\rober\\OneDrive\\Games\\Arma 3\\Arma 3 Mods\\Vana\\.hemttout"
-2024-06-08T10:22:59.084336Z TRACE ThreadId(01) using build folder: "C:\\Users\\rober\\OneDrive\\Games\\Arma 3\\Arma 3 Mods\\Vana\\.hemttout\\dev"
-2024-06-08T10:22:59.086695Z TRACE ThreadId(01) config.cpp: VfsPath { path: "/addons/loadoutmanagement/config.cpp", fs: VFS { fs: OverlayFS { layers: [VfsPath { path: "", fs: VFS { fs: In Memory File System } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\rober\\OneDrive\\Games\\Arma 3\\Arma 3 Mods\\Vana\\include" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\rober\\AppData\\Local\\Temp\\hemtt\\Users_rober_OneDrive_Games_Arma 3_Arma 3 Mods_Vana\\output" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\rober\\OneDrive\\Games\\Arma 3\\Arma 3 Mods\\Vana" } } } } } }] } } }
-2024-06-08T10:22:59.086925Z TRACE ThreadId(01) Prefix: VfsPath { path: "/addons/loadoutmanagement/$PBOPREFIX$", fs: VFS { fs: OverlayFS { layers: [VfsPath { path: "", fs: VFS { fs: In Memory File System } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\rober\\OneDrive\\Games\\Arma 3\\Arma 3 Mods\\Vana\\include" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\rober\\AppData\\Local\\Temp\\hemtt\\Users_rober_OneDrive_Games_Arma 3_Arma 3 Mods_Vana\\output" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\rober\\OneDrive\\Games\\Arma 3\\Arma 3 Mods\\Vana" } } } } } }] } } }
-2024-06-08T10:22:59.185027Z TRACE ThreadId(01) reading version from project.toml
-2024-06-08T10:22:59.185391Z  INFO ThreadId(01) Config loaded for VANA 1.0.0
-2024-06-08T10:22:59.185443Z TRACE ThreadId(01) Scanning C:\Users\rober\OneDrive\Games\Arma 3\Arma 3 Mods\Vana\addons for addons
-2024-06-08T10:22:59.186003Z  INFO ThreadId(01) Creating `dev` version
-2024-06-08T10:22:59.186018Z TRACE ThreadId(01) phase: init (Hooks) (start)
-2024-06-08T10:22:59.187880Z TRACE ThreadId(01) phase: init (Hooks) (done)
-2024-06-08T10:22:59.187887Z TRACE ThreadId(01) phase: init (Rapifier) (start)
-2024-06-08T10:22:59.187890Z TRACE ThreadId(01) phase: init (Rapifier) (done)
-2024-06-08T10:22:59.187892Z TRACE ThreadId(01) phase: init (SQF) (start)
-2024-06-08T10:22:59.187893Z TRACE ThreadId(01) phase: init (SQF) (done)
-2024-06-08T10:22:59.187895Z TRACE ThreadId(01) phase: init (ArmaScriptCompiler) (start)
-2024-06-08T10:22:59.187900Z TRACE ThreadId(01) using asc folder at "C:\\Users\\rober\\AppData\\Local\\Temp\\hemtt\\Users_rober_OneDrive_Games_Arma 3_Arma 3 Mods_Vana\\asc"
-2024-06-08T10:22:59.188107Z TRACE ThreadId(01) phase: init (ArmaScriptCompiler) (done)
-2024-06-08T10:22:59.188111Z TRACE ThreadId(01) phase: init (Files) (start)
-2024-06-08T10:22:59.188114Z TRACE ThreadId(01) phase: init (Files) (done)
-2024-06-08T10:22:59.188117Z TRACE ThreadId(01) phase: init (FilePatching) (start)
-2024-06-08T10:22:59.188119Z TRACE ThreadId(01) phase: init (FilePatching) (done)
-2024-06-08T10:22:59.188122Z TRACE ThreadId(01) phase: check (Hooks) (start)
-2024-06-08T10:22:59.188124Z TRACE ThreadId(01) phase: check (Hooks) (done)
-2024-06-08T10:22:59.188125Z TRACE ThreadId(01) phase: check (Rapifier) (start)
-2024-06-08T10:22:59.188127Z TRACE ThreadId(01) phase: check (Rapifier) (done)
-2024-06-08T10:22:59.188129Z TRACE ThreadId(01) phase: check (SQF) (start)
-2024-06-08T10:22:59.188130Z TRACE ThreadId(01) phase: check (SQF) (done)
-2024-06-08T10:22:59.188132Z TRACE ThreadId(01) phase: check (ArmaScriptCompiler) (start)
-2024-06-08T10:22:59.188134Z TRACE ThreadId(01) phase: check (ArmaScriptCompiler) (done)
-2024-06-08T10:22:59.188136Z TRACE ThreadId(01) phase: check (Files) (start)
-2024-06-08T10:22:59.188137Z TRACE ThreadId(01) phase: check (Files) (done)
-2024-06-08T10:22:59.188139Z TRACE ThreadId(01) phase: check (FilePatching) (start)
-2024-06-08T10:22:59.188141Z TRACE ThreadId(01) phase: check (FilePatching) (done)
-2024-06-08T10:22:59.188142Z TRACE ThreadId(01) phase: pre_build (Hooks) (start)
-2024-06-08T10:22:59.188181Z TRACE ThreadId(01) no pre_build hooks
-2024-06-08T10:22:59.188183Z TRACE ThreadId(01) phase: pre_build (Hooks) (done)
-2024-06-08T10:22:59.188184Z TRACE ThreadId(01) phase: pre_build (Rapifier) (start)
-2024-06-08T10:22:59.226654Z  INFO ThreadId(01) Rapified 1 addon configs
-2024-06-08T10:22:59.226687Z TRACE ThreadId(01) phase: pre_build (Rapifier) (done)
-2024-06-08T10:22:59.226693Z TRACE ThreadId(01) phase: pre_build (SQF) (start)
-2024-06-08T10:22:59.387853Z TRACE ThreadId(02) sqf compiling /addons/loadoutmanagement/functions/fn_TvSaveData.sqf
-2024-06-08T10:22:59.387900Z TRACE ThreadId(04) sqf compiling /addons/loadoutmanagement/functions/fn_TvLoadData.sqf
-2024-06-08T10:22:59.387917Z TRACE ThreadId(05) sqf compiling /addons/loadoutmanagement/functions/fn_TvDragDrop.sqf
-2024-06-08T10:22:59.387929Z TRACE ThreadId(08) sqf compiling /addons/loadoutmanagement/functions/fn_TvCreateTab.sqf
-2024-06-08T10:22:59.387938Z TRACE ThreadId(11) sqf compiling /addons/loadoutmanagement/functions/fn_ArsenalTreeView.sqf
-2024-06-08T10:22:59.387944Z TRACE ThreadId(09) sqf compiling /addons/loadoutmanagement/functions/fn_TvExists.sqf
-2024-06-08T10:22:59.387966Z TRACE ThreadId(12) sqf compiling /addons/loadoutmanagement/functions/fn_TvValidateLoadouts.sqf
-2024-06-08T10:22:59.387953Z TRACE ThreadId(10) sqf compiling /addons/loadoutmanagement/functions/fn_TvSaveLoadout.sqf
-2024-06-08T10:22:59.387922Z TRACE ThreadId(07) sqf compiling /addons/loadoutmanagement/functions/fn_arsenal.sqf
-2024-06-08T10:22:59.387994Z TRACE ThreadId(14) sqf compiling /addons/loadoutmanagement/functions/fn_TvGetData.sqf
-2024-06-08T10:22:59.387906Z TRACE ThreadId(03) sqf compiling /addons/loadoutmanagement/functions/fn_TvDelete.sqf
-2024-06-08T10:22:59.388040Z TRACE ThreadId(21) sqf compiling /addons/loadoutmanagement/functions/fn_TvCount.sqf
-2024-06-08T10:22:59.387996Z TRACE ThreadId(15) sqf compiling /addons/loadoutmanagement/functions/fn_TvCreateLoadout.sqf
-2024-06-08T10:22:59.387994Z TRACE ThreadId(13) sqf compiling /addons/loadoutmanagement/functions/fn_TvSorting.sqf
-2024-06-08T10:22:59.388002Z TRACE ThreadId(06) sqf compiling /addons/loadoutmanagement/functions/fn_UIPopup.sqf
-2024-06-08T10:22:59.388006Z TRACE ThreadId(16) sqf compiling /addons/loadoutmanagement/functions/fn_TvValidateLoadout.sqf
-2024-06-08T10:22:59.388007Z TRACE ThreadId(19) sqf compiling /addons/loadoutmanagement/functions/fn_TvGetPosition.sqf
-2024-06-08T10:22:59.388009Z TRACE ThreadId(18) sqf compiling /addons/loadoutmanagement/functions/fn_TvRename.sqf
-2024-06-08T10:22:59.388004Z TRACE ThreadId(17) sqf compiling /addons/loadoutmanagement/functions/fn_TvGetParent.sqf
-2024-06-08T10:22:59.388011Z TRACE ThreadId(20) sqf compiling /addons/loadoutmanagement/scripts/VANAInit.sqf
-2024-06-08T10:22:59.444700Z  INFO ThreadId(01) Validated 20 sqf files
-2024-06-08T10:22:59.447669Z TRACE ThreadId(01) phase: pre_build (SQF) (done)
-2024-06-08T10:22:59.447679Z TRACE ThreadId(01) phase: pre_build (ArmaScriptCompiler) (start)
-2024-06-08T10:22:59.447996Z TRACE ThreadId(01) unpacking "asc.exe" to "C:\\Users\\rober\\AppData\\Local\\Temp\\hemtt\\Users_rober_OneDrive_Games_Arma 3_Arma 3 Mods_Vana\\asc\\asc.exe"
-2024-06-08T10:22:59.477040Z DEBUG ThreadId(01) ASC Preprocess took 26
-2024-06-08T10:22:59.588010Z DEBUG ThreadId(01) ASC took 110
-2024-06-08T10:22:59.605420Z  INFO ThreadId(01) Compiled 20 sqf files
-2024-06-08T10:22:59.605523Z TRACE ThreadId(01) phase: pre_build (ArmaScriptCompiler) (done)
-2024-06-08T10:22:59.605527Z TRACE ThreadId(01) phase: pre_build (Files) (start)
-2024-06-08T10:22:59.605529Z TRACE ThreadId(01) phase: pre_build (Files) (done)
-2024-06-08T10:22:59.605531Z TRACE ThreadId(01) phase: pre_build (FilePatching) (start)
-2024-06-08T10:22:59.605662Z TRACE ThreadId(01) junction link "C:\\Users\\rober\\OneDrive\\Games\\Arma 3\\Arma 3 Mods\\Vana\\.hemttout\\dev\\addons\\loadoutmanagement" => "C:\\Users\\rober\\OneDrive\\Games\\Arma 3\\Arma 3 Mods\\Vana\\addons\\loadoutmanagement"
-2024-06-08T10:22:59.612947Z TRACE ThreadId(01) phase: pre_build (FilePatching) (done)
-2024-06-08T10:22:59.612964Z TRACE ThreadId(01) phase: build (start)
-2024-06-08T10:22:59.615901Z DEBUG ThreadId(01) "C:\\Users\\rober\\OneDrive\\Games\\Arma 3\\Arma 3 Mods\\Vana\\.hemttout\\dev\\addons" already exists
-2024-06-08T10:22:59.615911Z DEBUG ThreadId(01) building "addons/loadoutmanagement" => "C:\\Users\\rober\\OneDrive\\Games\\Arma 3\\Arma 3 Mods\\Vana\\.hemttout\\dev\\addons\\VANA_loadoutmanagement.pbo"
-2024-06-08T10:22:59.618009Z TRACE ThreadId(01) adding file "config.bin"
-2024-06-08T10:22:59.618065Z TRACE ThreadId(01) adding file "stringtable.xml"
-2024-06-08T10:22:59.618249Z TRACE ThreadId(01) adding file "cfgfunctions.hpp"
-2024-06-08T10:22:59.618380Z TRACE ThreadId(01) adding file "data\\buttonOptions.paa"
-2024-06-08T10:22:59.618478Z TRACE ThreadId(01) adding file "data\\buttonRename.paa"
-2024-06-08T10:22:59.618572Z TRACE ThreadId(01) adding file "data\\buttonTabCreate.paa"
-2024-06-08T10:22:59.618665Z TRACE ThreadId(01) adding file "data\\logoSmall_ca.paa"
-2024-06-08T10:22:59.618758Z TRACE ThreadId(01) adding file "data\\picture_ca.paa"
-2024-06-08T10:22:59.618852Z TRACE ThreadId(01) adding file "data\\tabIcon.paa"
-2024-06-08T10:22:59.618947Z TRACE ThreadId(01) adding file "ui\\RscVANA.hpp"
-2024-06-08T10:22:59.618996Z TRACE ThreadId(01) adding file "scripts\\VANAInit.sqfc"
-2024-06-08T10:22:59.619043Z TRACE ThreadId(01) adding file "scripts\\VANAInit.sqf"
-2024-06-08T10:22:59.619095Z TRACE ThreadId(01) adding file "functions\\fn_TvCreateLoadout.sqfc"
-2024-06-08T10:22:59.619107Z TRACE ThreadId(01) adding file "functions\\fn_TvSaveData.sqfc"
-2024-06-08T10:22:59.619166Z TRACE ThreadId(01) adding file "functions\\fn_TvSorting.sqf"
-2024-06-08T10:22:59.619219Z TRACE ThreadId(01) adding file "functions\\fn_TvGetData.sqfc"
-2024-06-08T10:22:59.619226Z TRACE ThreadId(01) adding file "functions\\fn_TvValidateLoadouts.sqfc"
-2024-06-08T10:22:59.619234Z TRACE ThreadId(01) adding file "functions\\fn_ArsenalTreeView.sqfc"
-2024-06-08T10:22:59.619279Z TRACE ThreadId(01) adding file "functions\\fn_TvDelete.sqf"
-2024-06-08T10:22:59.619330Z TRACE ThreadId(01) adding file "functions\\fn_TvDelete.sqfc"
-2024-06-08T10:22:59.619377Z TRACE ThreadId(01) adding file "functions\\fn_TvGetParent.sqf"
-2024-06-08T10:22:59.619467Z TRACE ThreadId(01) adding file "functions\\fn_UIPopup.sqf"
-2024-06-08T10:22:59.619557Z TRACE ThreadId(01) adding file "functions\\fn_TvGetData.sqf"
-2024-06-08T10:22:59.619607Z TRACE ThreadId(01) adding file "functions\\fn_UIPopup.sqfc"
-2024-06-08T10:22:59.619614Z TRACE ThreadId(01) adding file "functions\\fn_TvRename.sqfc"
-2024-06-08T10:22:59.619660Z TRACE ThreadId(01) adding file "functions\\fn_TvGetPosition.sqf"
-2024-06-08T10:22:59.619750Z TRACE ThreadId(01) adding file "functions\\fn_TvLoadData.sqf"
-2024-06-08T10:22:59.619840Z TRACE ThreadId(01) adding file "functions\\fn_arsenal.sqf"
-2024-06-08T10:22:59.619931Z TRACE ThreadId(01) adding file "functions\\fn_TvRename.sqf"
-2024-06-08T10:22:59.619984Z TRACE ThreadId(01) adding file "functions\\fn_TvCreateTab.sqfc"
-2024-06-08T10:22:59.619993Z TRACE ThreadId(01) adding file "functions\\fn_TvExists.sqfc"
-2024-06-08T10:22:59.620005Z TRACE ThreadId(01) adding file "functions\\fn_TvSaveLoadout.sqfc"
-2024-06-08T10:22:59.620013Z TRACE ThreadId(01) adding file "functions\\fn_TvCount.sqfc"
-2024-06-08T10:22:59.620060Z TRACE ThreadId(01) adding file "functions\\fn_ArsenalTreeView.sqf"
-2024-06-08T10:22:59.620112Z TRACE ThreadId(01) adding file "functions\\fn_arsenal.sqfc"
-2024-06-08T10:22:59.620159Z TRACE ThreadId(01) adding file "functions\\fn_TvCreateLoadout.sqf"
-2024-06-08T10:22:59.620210Z TRACE ThreadId(01) adding file "functions\\fn_TvGetParent.sqfc"
-2024-06-08T10:22:59.620259Z TRACE ThreadId(01) adding file "functions\\fn_TvCreateTab.sqf"
-2024-06-08T10:22:59.620361Z TRACE ThreadId(01) adding file "functions\\fn_TvDragDrop.sqf"
-2024-06-08T10:22:59.620422Z TRACE ThreadId(01) adding file "functions\\fn_TvLoadData.sqfc"
-2024-06-08T10:22:59.620429Z TRACE ThreadId(01) adding file "functions\\fn_TvValidateLoadout.sqfc"
-2024-06-08T10:22:59.620484Z TRACE ThreadId(01) adding file "functions\\fn_TvSaveData.sqf"
-2024-06-08T10:22:59.620579Z TRACE ThreadId(01) adding file "functions\\fn_TvValidateLoadouts.sqf"
-2024-06-08T10:22:59.620675Z TRACE ThreadId(01) adding file "functions\\fn_TvSaveLoadout.sqf"
-2024-06-08T10:22:59.620728Z TRACE ThreadId(01) adding file "functions\\fn_TvGetPosition.sqfc"
-2024-06-08T10:22:59.620777Z TRACE ThreadId(01) adding file "functions\\fn_TvValidateLoadout.sqf"
-2024-06-08T10:22:59.620869Z TRACE ThreadId(01) adding file "functions\\fn_TvExists.sqf"
-2024-06-08T10:22:59.620920Z TRACE ThreadId(01) adding file "functions\\fn_TvDragDrop.sqfc"
-2024-06-08T10:22:59.620968Z TRACE ThreadId(01) adding file "functions\\fn_TvCount.sqf"
-2024-06-08T10:22:59.621018Z TRACE ThreadId(01) adding file "functions\\fn_TvSorting.sqfc"
-2024-06-08T10:22:59.623143Z  INFO ThreadId(01) Built 1 PBOs
-2024-06-08T10:22:59.623152Z TRACE ThreadId(01) phase: build (done)
-2024-06-08T10:22:59.623155Z TRACE ThreadId(01) phase: post_build (Hooks) (start)
-2024-06-08T10:22:59.623226Z TRACE ThreadId(01) no post_build hooks
-2024-06-08T10:22:59.623229Z TRACE ThreadId(01) phase: post_build (Hooks) (done)
-2024-06-08T10:22:59.623231Z TRACE ThreadId(01) phase: post_build (Rapifier) (start)
-2024-06-08T10:22:59.623233Z TRACE ThreadId(01) phase: post_build (Rapifier) (done)
-2024-06-08T10:22:59.623234Z TRACE ThreadId(01) phase: post_build (SQF) (start)
-2024-06-08T10:22:59.623236Z TRACE ThreadId(01) phase: post_build (SQF) (done)
-2024-06-08T10:22:59.623238Z TRACE ThreadId(01) phase: post_build (ArmaScriptCompiler) (start)
-2024-06-08T10:22:59.623239Z TRACE ThreadId(01) phase: post_build (ArmaScriptCompiler) (done)
-2024-06-08T10:22:59.623241Z TRACE ThreadId(01) phase: post_build (Files) (start)
-2024-06-08T10:22:59.733672Z DEBUG ThreadId(01) copying "/mod.cpp" => "C:\\Users\\rober\\OneDrive\\Games\\Arma 3\\Arma 3 Mods\\Vana\\.hemttout\\dev\\mod.cpp"
-2024-06-08T10:22:59.786417Z  INFO ThreadId(01) Copied 1 files
-2024-06-08T10:22:59.786431Z TRACE ThreadId(01) phase: post_build (Files) (done)
-2024-06-08T10:22:59.786434Z TRACE ThreadId(01) phase: post_build (FilePatching) (start)
-2024-06-08T10:22:59.786488Z  INFO ThreadId(01) You can use the dev folder at `.hemttout/dev` to test your mod with file-patching.
-2024-06-08T10:22:59.786496Z TRACE ThreadId(01) phase: post_build (FilePatching) (done)
-2024-06-08T10:22:59.786932Z  INFO ThreadId(01) Launching "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Arma 3" with:
+2024-06-08T11:25:18.883617Z TRACE ThreadId(01) launch config: LaunchOptions { extends: None, workshop: ["450814997", "1751569185", "1387934106", "2073243184"], dlc: [], presets: [], optionals: [], mission: Some("scriptLibrary.VR"), parameters: [], executable: Some("arma3_x64") }
+2024-06-08T11:25:18.884111Z DEBUG ThreadId(01) Arma 3 found at: C:\Program Files (x86)\Steam\steamapps\common\Arma 3
+2024-06-08T11:25:18.884632Z TRACE ThreadId(01) using temporary folder: "C:\\Users\\rober\\AppData\\Local\\Temp\\hemtt\\Users_rober_OneDrive_Games_Arma 3_Arma 3 Mods_Vana"
+2024-06-08T11:25:18.884640Z TRACE ThreadId(01) using project folder: "C:\\Users\\rober\\OneDrive\\Games\\Arma 3\\Arma 3 Mods\\Vana"
+2024-06-08T11:25:18.884643Z TRACE ThreadId(01) using out folder: "C:\\Users\\rober\\OneDrive\\Games\\Arma 3\\Arma 3 Mods\\Vana\\.hemttout"
+2024-06-08T11:25:18.884780Z TRACE ThreadId(01) using build folder: "C:\\Users\\rober\\OneDrive\\Games\\Arma 3\\Arma 3 Mods\\Vana\\.hemttout\\dev"
+2024-06-08T11:25:18.886730Z TRACE ThreadId(01) Prefix: VfsPath { path: "/addons/loadoutmanagement/$PBOPREFIX$", fs: VFS { fs: OverlayFS { layers: [VfsPath { path: "", fs: VFS { fs: In Memory File System } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\rober\\OneDrive\\Games\\Arma 3\\Arma 3 Mods\\Vana\\include" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\rober\\AppData\\Local\\Temp\\hemtt\\Users_rober_OneDrive_Games_Arma 3_Arma 3 Mods_Vana\\output" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\rober\\OneDrive\\Games\\Arma 3\\Arma 3 Mods\\Vana" } } } } } }] } } }
+2024-06-08T11:25:18.886963Z TRACE ThreadId(01) config.cpp: VfsPath { path: "/addons/loadoutmanagement/config.cpp", fs: VFS { fs: OverlayFS { layers: [VfsPath { path: "", fs: VFS { fs: In Memory File System } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\rober\\OneDrive\\Games\\Arma 3\\Arma 3 Mods\\Vana\\include" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\rober\\AppData\\Local\\Temp\\hemtt\\Users_rober_OneDrive_Games_Arma 3_Arma 3 Mods_Vana\\output" } } } } } }, VfsPath { path: "", fs: VFS { fs: AltrootFS { root: VfsPath { path: "", fs: VFS { fs: PhysicalFS { root: "C:\\Users\\rober\\OneDrive\\Games\\Arma 3\\Arma 3 Mods\\Vana" } } } } } }] } } }
+2024-06-08T11:25:18.989281Z TRACE ThreadId(01) reading version from project.toml
+2024-06-08T11:25:18.989443Z  INFO ThreadId(01) Config loaded for VANA 1.0.0
+2024-06-08T11:25:18.989491Z TRACE ThreadId(01) Scanning C:\Users\rober\OneDrive\Games\Arma 3\Arma 3 Mods\Vana\addons for addons
+2024-06-08T11:25:18.989847Z  INFO ThreadId(01) Creating `dev` version
+2024-06-08T11:25:18.989862Z TRACE ThreadId(01) phase: init (Hooks) (start)
+2024-06-08T11:25:18.991744Z TRACE ThreadId(01) phase: init (Hooks) (done)
+2024-06-08T11:25:18.991752Z TRACE ThreadId(01) phase: init (Rapifier) (start)
+2024-06-08T11:25:18.991754Z TRACE ThreadId(01) phase: init (Rapifier) (done)
+2024-06-08T11:25:18.991756Z TRACE ThreadId(01) phase: init (SQF) (start)
+2024-06-08T11:25:18.991757Z TRACE ThreadId(01) phase: init (SQF) (done)
+2024-06-08T11:25:18.991759Z TRACE ThreadId(01) phase: init (ArmaScriptCompiler) (start)
+2024-06-08T11:25:18.991764Z TRACE ThreadId(01) using asc folder at "C:\\Users\\rober\\AppData\\Local\\Temp\\hemtt\\Users_rober_OneDrive_Games_Arma 3_Arma 3 Mods_Vana\\asc"
+2024-06-08T11:25:18.991979Z TRACE ThreadId(01) phase: init (ArmaScriptCompiler) (done)
+2024-06-08T11:25:18.991983Z TRACE ThreadId(01) phase: init (Files) (start)
+2024-06-08T11:25:18.991986Z TRACE ThreadId(01) phase: init (Files) (done)
+2024-06-08T11:25:18.991989Z TRACE ThreadId(01) phase: init (FilePatching) (start)
+2024-06-08T11:25:18.991990Z TRACE ThreadId(01) phase: init (FilePatching) (done)
+2024-06-08T11:25:18.991994Z TRACE ThreadId(01) phase: check (Hooks) (start)
+2024-06-08T11:25:18.991996Z TRACE ThreadId(01) phase: check (Hooks) (done)
+2024-06-08T11:25:18.991997Z TRACE ThreadId(01) phase: check (Rapifier) (start)
+2024-06-08T11:25:18.991999Z TRACE ThreadId(01) phase: check (Rapifier) (done)
+2024-06-08T11:25:18.992001Z TRACE ThreadId(01) phase: check (SQF) (start)
+2024-06-08T11:25:18.992003Z TRACE ThreadId(01) phase: check (SQF) (done)
+2024-06-08T11:25:18.992004Z TRACE ThreadId(01) phase: check (ArmaScriptCompiler) (start)
+2024-06-08T11:25:18.992006Z TRACE ThreadId(01) phase: check (ArmaScriptCompiler) (done)
+2024-06-08T11:25:18.992008Z TRACE ThreadId(01) phase: check (Files) (start)
+2024-06-08T11:25:18.992009Z TRACE ThreadId(01) phase: check (Files) (done)
+2024-06-08T11:25:18.992011Z TRACE ThreadId(01) phase: check (FilePatching) (start)
+2024-06-08T11:25:18.992013Z TRACE ThreadId(01) phase: check (FilePatching) (done)
+2024-06-08T11:25:18.992015Z TRACE ThreadId(01) phase: pre_build (Hooks) (start)
+2024-06-08T11:25:18.992052Z TRACE ThreadId(01) no pre_build hooks
+2024-06-08T11:25:18.992055Z TRACE ThreadId(01) phase: pre_build (Hooks) (done)
+2024-06-08T11:25:18.992057Z TRACE ThreadId(01) phase: pre_build (Rapifier) (start)
+2024-06-08T11:25:19.013175Z  INFO ThreadId(01) Rapified 1 addon configs
+2024-06-08T11:25:19.013196Z TRACE ThreadId(01) phase: pre_build (Rapifier) (done)
+2024-06-08T11:25:19.013198Z TRACE ThreadId(01) phase: pre_build (SQF) (start)
+2024-06-08T11:25:19.170090Z TRACE ThreadId(02) sqf compiling /addons/loadoutmanagement/scripts/VANAInit.sqf
+2024-06-08T11:25:19.170145Z TRACE ThreadId(03) sqf compiling /addons/loadoutmanagement/functions/fn_tvSaveLoadout.sqf
+2024-06-08T11:25:19.170170Z TRACE ThreadId(08) sqf compiling /addons/loadoutmanagement/functions/fn_tvValidateLoadout.sqf
+2024-06-08T11:25:19.170179Z TRACE ThreadId(15) sqf compiling /addons/loadoutmanagement/functions/fn_tvSaveData.sqf
+2024-06-08T11:25:19.170200Z TRACE ThreadId(09) sqf compiling /addons/loadoutmanagement/functions/fn_tvSorting.sqf
+2024-06-08T11:25:19.170226Z TRACE ThreadId(16) sqf compiling /addons/loadoutmanagement/functions/fn_tvCount.sqf
+2024-06-08T11:25:19.170239Z TRACE ThreadId(17) sqf compiling /addons/loadoutmanagement/functions/fn_tvExists.sqf
+2024-06-08T11:25:19.170303Z TRACE ThreadId(05) sqf compiling /addons/loadoutmanagement/functions/fn_arsenalTreeView.sqf
+2024-06-08T11:25:19.170311Z TRACE ThreadId(21) sqf compiling /addons/loadoutmanagement/functions/fn_tvDelete.sqf
+2024-06-08T11:25:19.170337Z TRACE ThreadId(19) sqf compiling /addons/loadoutmanagement/functions/fn_tvRename.sqf
+2024-06-08T11:25:19.170326Z TRACE ThreadId(12) sqf compiling /addons/loadoutmanagement/functions/fn_tvCreateLoadout.sqf
+2024-06-08T11:25:19.170345Z TRACE ThreadId(11) sqf compiling /addons/loadoutmanagement/functions/fn_tvCreateTab.sqf
+2024-06-08T11:25:19.170317Z TRACE ThreadId(14) sqf compiling /addons/loadoutmanagement/functions/fn_tvGetPosition.sqf
+2024-06-08T11:25:19.170321Z TRACE ThreadId(04) sqf compiling /addons/loadoutmanagement/functions/fn_tvGetParent.sqf
+2024-06-08T11:25:19.170403Z TRACE ThreadId(20) sqf compiling /addons/loadoutmanagement/functions/fn_tvValidateLoadouts.sqf
+2024-06-08T11:25:19.170398Z TRACE ThreadId(13) sqf compiling /addons/loadoutmanagement/functions/fn_tvLoadData.sqf
+2024-06-08T11:25:19.170378Z TRACE ThreadId(10) sqf compiling /addons/loadoutmanagement/functions/fn_tvDragDrop.sqf
+2024-06-08T11:25:19.170358Z TRACE ThreadId(07) sqf compiling /addons/loadoutmanagement/functions/fn_arsenal.sqf
+2024-06-08T11:25:19.170325Z TRACE ThreadId(06) sqf compiling /addons/loadoutmanagement/functions/fn_UIPopup.sqf
+2024-06-08T11:25:19.170347Z TRACE ThreadId(18) sqf compiling /addons/loadoutmanagement/functions/fn_tvGetData.sqf
+2024-06-08T11:25:19.227195Z  INFO ThreadId(01) Validated 20 sqf files
+2024-06-08T11:25:19.229939Z TRACE ThreadId(01) phase: pre_build (SQF) (done)
+2024-06-08T11:25:19.229949Z TRACE ThreadId(01) phase: pre_build (ArmaScriptCompiler) (start)
+2024-06-08T11:25:19.230262Z TRACE ThreadId(01) unpacking "asc.exe" to "C:\\Users\\rober\\AppData\\Local\\Temp\\hemtt\\Users_rober_OneDrive_Games_Arma 3_Arma 3 Mods_Vana\\asc\\asc.exe"
+2024-06-08T11:25:19.261154Z DEBUG ThreadId(01) ASC Preprocess took 27
+2024-06-08T11:25:19.396182Z DEBUG ThreadId(01) ASC took 134
+2024-06-08T11:25:19.449473Z  INFO ThreadId(01) Compiled 20 sqf files
+2024-06-08T11:25:19.449581Z TRACE ThreadId(01) phase: pre_build (ArmaScriptCompiler) (done)
+2024-06-08T11:25:19.449586Z TRACE ThreadId(01) phase: pre_build (Files) (start)
+2024-06-08T11:25:19.449588Z TRACE ThreadId(01) phase: pre_build (Files) (done)
+2024-06-08T11:25:19.449590Z TRACE ThreadId(01) phase: pre_build (FilePatching) (start)
+2024-06-08T11:25:19.449750Z TRACE ThreadId(01) junction link "C:\\Users\\rober\\OneDrive\\Games\\Arma 3\\Arma 3 Mods\\Vana\\.hemttout\\dev\\addons\\loadoutmanagement" => "C:\\Users\\rober\\OneDrive\\Games\\Arma 3\\Arma 3 Mods\\Vana\\addons\\loadoutmanagement"
+2024-06-08T11:25:19.466318Z TRACE ThreadId(01) phase: pre_build (FilePatching) (done)
+2024-06-08T11:25:19.466336Z TRACE ThreadId(01) phase: build (start)
+2024-06-08T11:25:19.470347Z DEBUG ThreadId(01) "C:\\Users\\rober\\OneDrive\\Games\\Arma 3\\Arma 3 Mods\\Vana\\.hemttout\\dev\\addons" already exists
+2024-06-08T11:25:19.470370Z DEBUG ThreadId(01) building "addons/loadoutmanagement" => "C:\\Users\\rober\\OneDrive\\Games\\Arma 3\\Arma 3 Mods\\Vana\\.hemttout\\dev\\addons\\VANA_loadoutmanagement.pbo"
+2024-06-08T11:25:19.473092Z TRACE ThreadId(01) adding file "config.bin"
+2024-06-08T11:25:19.473228Z TRACE ThreadId(01) adding file "defineResinclDesignVANA.hpp"
+2024-06-08T11:25:19.473364Z TRACE ThreadId(01) adding file "stringtable.xml"
+2024-06-08T11:25:19.473499Z TRACE ThreadId(01) adding file "cfgfunctions.hpp"
+2024-06-08T11:25:19.474096Z TRACE ThreadId(01) adding file "data\\logoSmall_ca.paa"
+2024-06-08T11:25:19.474341Z TRACE ThreadId(01) adding file "data\\tabIcon.paa"
+2024-06-08T11:25:19.474578Z TRACE ThreadId(01) adding file "data\\buttonRename.paa"
+2024-06-08T11:25:19.474811Z TRACE ThreadId(01) adding file "data\\buttonTabCreate.paa"
+2024-06-08T11:25:19.475058Z TRACE ThreadId(01) adding file "data\\picture_ca.paa"
+2024-06-08T11:25:19.475292Z TRACE ThreadId(01) adding file "data\\buttonOptions.paa"
+2024-06-08T11:25:19.475429Z TRACE ThreadId(01) adding file "scripts\\VANAInit.sqfc"
+2024-06-08T11:25:19.475546Z TRACE ThreadId(01) adding file "scripts\\VANAInit.sqf"
+2024-06-08T11:25:19.475764Z TRACE ThreadId(01) adding file "ui\\RscVANA.hpp"
+2024-06-08T11:25:19.475838Z TRACE ThreadId(01) adding file "functions\\fn_tvGetPosition.sqfc"
+2024-06-08T11:25:19.475847Z TRACE ThreadId(01) adding file "functions\\fn_tvRename.sqfc"
+2024-06-08T11:25:19.475920Z TRACE ThreadId(01) adding file "functions\\fn_tvDelete.sqf"
+2024-06-08T11:25:19.476059Z TRACE ThreadId(01) adding file "functions\\fn_tvCreateLoadout.sqf"
+2024-06-08T11:25:19.476198Z TRACE ThreadId(01) adding file "functions\\fn_tvSaveData.sqf"
+2024-06-08T11:25:19.476273Z TRACE ThreadId(01) adding file "functions\\fn_tvGetParent.sqfc"
+2024-06-08T11:25:19.476287Z TRACE ThreadId(01) adding file "functions\\fn_tvValidateLoadouts.sqfc"
+2024-06-08T11:25:19.476296Z TRACE ThreadId(01) adding file "functions\\fn_tvCount.sqfc"
+2024-06-08T11:25:19.476365Z TRACE ThreadId(01) adding file "functions\\fn_arsenalTreeView.sqf"
+2024-06-08T11:25:19.476439Z TRACE ThreadId(01) adding file "functions\\fn_tvCreateLoadout.sqfc"
+2024-06-08T11:25:19.476522Z TRACE ThreadId(01) adding file "functions\\fn_tvGetPosition.sqf"
+2024-06-08T11:25:19.476597Z TRACE ThreadId(01) adding file "functions\\fn_tvDelete.sqfc"
+2024-06-08T11:25:19.476611Z TRACE ThreadId(01) adding file "functions\\fn_arsenalTreeView.sqfc"
+2024-06-08T11:25:19.476682Z TRACE ThreadId(01) adding file "functions\\fn_tvGetData.sqf"
+2024-06-08T11:25:19.476756Z TRACE ThreadId(01) adding file "functions\\fn_arsenal.sqfc"
+2024-06-08T11:25:19.476791Z TRACE ThreadId(01) adding file "functions\\fn_tvDragDrop.sqfc"
+2024-06-08T11:25:19.476857Z TRACE ThreadId(01) adding file "functions\\fn_arsenal.sqf"
+2024-06-08T11:25:19.476976Z TRACE ThreadId(01) adding file "functions\\fn_tvCreateTab.sqf"
+2024-06-08T11:25:19.477108Z TRACE ThreadId(01) adding file "functions\\fn_tvExists.sqf"
+2024-06-08T11:25:19.477177Z TRACE ThreadId(01) adding file "functions\\fn_tvGetData.sqfc"
+2024-06-08T11:25:19.477241Z TRACE ThreadId(01) adding file "functions\\fn_tvLoadData.sqf"
+2024-06-08T11:25:19.477376Z TRACE ThreadId(01) adding file "functions\\fn_tvSorting.sqf"
+2024-06-08T11:25:19.477512Z TRACE ThreadId(01) adding file "functions\\fn_tvValidateLoadout.sqf"
+2024-06-08T11:25:19.477590Z TRACE ThreadId(01) adding file "functions\\fn_tvSaveData.sqfc"
+2024-06-08T11:25:19.477648Z TRACE ThreadId(01) adding file "functions\\fn_tvCount.sqf"
+2024-06-08T11:25:19.477774Z TRACE ThreadId(01) adding file "functions\\fn_tvGetParent.sqf"
+2024-06-08T11:25:19.477851Z TRACE ThreadId(01) adding file "functions\\fn_tvValidateLoadout.sqfc"
+2024-06-08T11:25:19.477859Z TRACE ThreadId(01) adding file "functions\\fn_tvSaveLoadout.sqfc"
+2024-06-08T11:25:19.477916Z TRACE ThreadId(01) adding file "functions\\fn_tvDragDrop.sqf"
+2024-06-08T11:25:19.478030Z TRACE ThreadId(01) adding file "functions\\fn_tvSaveLoadout.sqf"
+2024-06-08T11:25:19.478142Z TRACE ThreadId(01) adding file "functions\\fn_tvValidateLoadouts.sqf"
+2024-06-08T11:25:19.478209Z TRACE ThreadId(01) adding file "functions\\fn_tvCreateTab.sqfc"
+2024-06-08T11:25:19.478259Z TRACE ThreadId(01) adding file "functions\\fn_UIPopup.sqf"
+2024-06-08T11:25:19.478309Z TRACE ThreadId(01) adding file "functions\\fn_tvExists.sqfc"
+2024-06-08T11:25:19.478317Z TRACE ThreadId(01) adding file "functions\\fn_tvLoadData.sqfc"
+2024-06-08T11:25:19.478323Z TRACE ThreadId(01) adding file "functions\\fn_tvSorting.sqfc"
+2024-06-08T11:25:19.478330Z TRACE ThreadId(01) adding file "functions\\fn_UIPopup.sqfc"
+2024-06-08T11:25:19.478383Z TRACE ThreadId(01) adding file "functions\\fn_tvRename.sqf"
+2024-06-08T11:25:19.480469Z  INFO ThreadId(01) Built 1 PBOs
+2024-06-08T11:25:19.480482Z TRACE ThreadId(01) phase: build (done)
+2024-06-08T11:25:19.480487Z TRACE ThreadId(01) phase: post_build (Hooks) (start)
+2024-06-08T11:25:19.480570Z TRACE ThreadId(01) no post_build hooks
+2024-06-08T11:25:19.480574Z TRACE ThreadId(01) phase: post_build (Hooks) (done)
+2024-06-08T11:25:19.480578Z TRACE ThreadId(01) phase: post_build (Rapifier) (start)
+2024-06-08T11:25:19.480581Z TRACE ThreadId(01) phase: post_build (Rapifier) (done)
+2024-06-08T11:25:19.480584Z TRACE ThreadId(01) phase: post_build (SQF) (start)
+2024-06-08T11:25:19.480587Z TRACE ThreadId(01) phase: post_build (SQF) (done)
+2024-06-08T11:25:19.480590Z TRACE ThreadId(01) phase: post_build (ArmaScriptCompiler) (start)
+2024-06-08T11:25:19.480593Z TRACE ThreadId(01) phase: post_build (ArmaScriptCompiler) (done)
+2024-06-08T11:25:19.480596Z TRACE ThreadId(01) phase: post_build (Files) (start)
+2024-06-08T11:25:19.588566Z DEBUG ThreadId(01) copying "/mod.cpp" => "C:\\Users\\rober\\OneDrive\\Games\\Arma 3\\Arma 3 Mods\\Vana\\.hemttout\\dev\\mod.cpp"
+2024-06-08T11:25:19.643401Z  INFO ThreadId(01) Copied 1 files
+2024-06-08T11:25:19.643413Z TRACE ThreadId(01) phase: post_build (Files) (done)
+2024-06-08T11:25:19.643416Z TRACE ThreadId(01) phase: post_build (FilePatching) (start)
+2024-06-08T11:25:19.643628Z  INFO ThreadId(01) You can use the dev folder at `.hemttout/dev` to test your mod with file-patching.
+2024-06-08T11:25:19.643630Z TRACE ThreadId(01) phase: post_build (FilePatching) (done)
+2024-06-08T11:25:19.644674Z  INFO ThreadId(01) Launching "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Arma 3" with:
   -skipIntro
   -noSplash
   -showScriptErrors
@@ -160,5 +161,5 @@
   -mod="C:\Users\rober\OneDrive\Games\Arma 3\Arma 3 Mods\Vana\.hemttout/dev" -mod="C:\Program Files (x86)\Steam\steamapps\workshop\content\107410\450814997" -mod="C:\Program Files (x86)\Steam\steamapps\workshop\content\107410\1751569185" -mod="C:\Program Files (x86)\Steam\steamapps\workshop\content\107410\1387934106" -mod="C:\Program Files (x86)\Steam\steamapps\workshop\content\107410\2073243184"
   "C:\Users\rober\OneDrive\Games\Arma 3\Arma 3 Mods\Vana\.hemtt\missions\scriptLibrary.VR\mission.sqm"
   -filePatching
-2024-06-08T10:22:59.793432Z TRACE ThreadId(01) writing ci annotations to .hemttout/ci_annotations.txt
-2024-06-08T10:22:59.794793Z TRACE ThreadId(01) wrote 45 ci annotations to .hemttout/ci_annotations.txt
+2024-06-08T11:25:19.650634Z TRACE ThreadId(01) writing ci annotations to .hemttout/ci_annotations.txt
+2024-06-08T11:25:19.651781Z TRACE ThreadId(01) wrote 45 ci annotations to .hemttout/ci_annotations.txt

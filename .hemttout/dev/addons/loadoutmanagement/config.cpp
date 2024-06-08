@@ -11,7 +11,7 @@ class CfgPatches
 
 class CfgScriptPaths
 {
-	VANAInit="v\vana\loadoutmanagement\scripts\";
+	VANAInit = "v\vana\addons\loadoutmanagement\scripts\";
 };
 
 #include "cfgFunctions.hpp"

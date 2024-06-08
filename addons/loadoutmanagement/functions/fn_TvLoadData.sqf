@@ -1,59 +1,59 @@
 disableserialization;
 
 #define EndSegment(BOOL)\
-	[_CtrlTreeView, ([_CtrlTreeView, [[], "TvLoadout"]] call VANA_fnc_TvGetData)] call VANA_fnc_TvValidateLoadouts;\
-	diag_log text "[VANA_fnc_TvLoadData]: Data loaded.";\
+	[_ctrlTV, ([_ctrlTV, [[], "TvLoadout"]] call VANA_fnc_tvGetData)] call VANA_fnc_tvValidateLoadouts;\
+	diag_log text "[VANA_fnc_tvLoadData]: Data loaded.";\
 	BOOL
 
 params
 [
-	["_CtrlTreeView", controlnull, [controlnull]],
-	["_VANAData", (profilenamespace getvariable ["VANA_fnc_TreeViewSave_Data",[]]), [[]]],
+	["_ctrlTV", controlnull, [controlnull]],
+	["_VANAData", (profilenamespace getVariable ["VANA_fnc_treeViewSave_Data",[]]), [[]]],
 	//Form wich data is saved in is [["Name",[Position],"DataType",Value],["Name",[Position],"DataType",Value],["Name",[Position],"DataType",Value]] ect.
 	"_LoadoutData",
 	"_LoadoutNames"
 ];
 
-_VANAData = +_VANAData;
-_LoadoutData = profilenamespace getvariable ["bis_fnc_saveInventory_Data",[]];
-_LoadoutNames = [];
+_vANAData = +_VANAData;
+_loadoutData = profilenamespace getVariable ["bis_fnc_saveInventory_Data",[]];
+_loadoutNames = [];
 
-diag_log text "[VANA_fnc_TvLoadData]: Loading Data...";
+diag_log text "[VANA_fnc_tvLoadData]: Loading Data...";
 
 //Create all loadouts if there is no saved data
 if (_VANAData isequalto []) exitwith
 {
 	{
-		[_CtrlTreeView, [[], _x], "FirstTimeSetup"] call VANA_fnc_TvCreateLoadout;
+		[_ctrlTV, [[], _x], "FirstTimeSetup"] call VANA_fnc_tvCreateLoadout;
 	} foreach (_LoadoutData select {_x isequaltype ""});
 
-	EndSegment(False)
+	EndSegment(false)
 };
 
 //Send data to co responding create fucntions
 {
-	params ["_TvName","_TvPosition","_TvData"];
+	params ["_tvName","_TvPosition","_tvData"];
 
-	_TvName = _x select 0;
+	_tvName = _x select 0;
 	_TvPosition = +_x select 1;
-	_TvData = tolower (_x select 2);
+	_tvData = toLower (_x select 2);
 
-	_TvPosition resize (Count _TvPosition-1);
+	_TvPosition resize (count _TvPosition-1);
 
 	call
 	{
-		if (_TvData isequalto "tvtab") exitwith {[_CtrlTreeView, [_TvPosition, _TvName], "FirstTimeSetup"] call VANA_fnc_TvCreateTab;};
-		if (_TvData isequalto "tvloadout") exitwith
+		if (_tvData isequalto "tvtab") exitwith {[_ctrlTV, [_TvPosition, _tvName], "FirstTimeSetup"] call VANA_fnc_tvCreateTab;};
+		if (_tvData isequalto "tvloadout") exitwith
 		{
-			_LoadoutNames pushback _TvName;
-			[_CtrlTreeView, [_TvPosition, _TvName], "FirstTimeSetup"] call VANA_fnc_TvCreateLoadout;
+			_LoadoutNames pushBack _tvName;
+			[_ctrlTV, [_TvPosition, _tvName], "FirstTimeSetup"] call VANA_fnc_tvCreateLoadout;
 		};
 	};
 } foreach _VANAData;
 
 //Create loadouts that werent created
 {
-	[_CtrlTreeView, [[], _x]] call VANA_fnc_TvCreateLoadout;
+	[_ctrlTV, [[], _x]] call VANA_fnc_tvCreateLoadout;
 } foreach (_LoadoutData select {_x isequaltype "" && !(_x in _LoadoutNames)});
 
-EndSegment(True)
+EndSegment(true)

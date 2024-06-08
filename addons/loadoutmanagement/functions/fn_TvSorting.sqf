@@ -2,46 +2,46 @@ disableserialization;
 
 params
 [
-  ["_CtrlTreeView", controlnull, [controlnull]],
+  ["_ctrlTV", controlnull, [controlnull]],
   ["_ParentTv", [], [[]]],
-  ["_CheckSubTv", True, [True]],
-  "_TargetTvChildren",
-  "_TargetTvLoadouts"
+  ["_CheckSubTv", true, [true]],
+  "_targetTVChildren",
+  "_targetTvLoadouts"
 ];
 
-if (_ParentTv isequalto [-1]) exitwith {False};
+if (_ParentTv isequalto [-1]) exitwith {false};
 
 //Add ! to all loadouts
-_TargetTvLoadouts = [_CtrlTreeView, [_ParentTv, "Tvloadout"], [], False] call VANA_fnc_TvGetData;
+_targetTvLoadouts = [_ctrlTV, [_ParentTv, "Tvloadout"], [], false] call VANA_fnc_tvGetData;
 {
-  _CtrlTreeView tvsettext [_x select 1, (Format ["!!!!!!!!!!%1", _x select 0])];
-} foreach _TargetTvLoadouts;
+  _ctrlTV tvsettext [_x select 1, (Format ["!!!!!!!!!!%1", _x select 0])];
+} foreach _targetTvLoadouts;
 
 //Sort treeview (All loadouts will be above)
-_CtrlTreeView tvsort [_ParentTv, True];
-_CtrlTreeView tvsort [_ParentTv, False];
+_ctrlTV tvsort [_ParentTv, true];
+_ctrlTV tvsort [_ParentTv, false];
 
-_TargetTvChildren = [_CtrlTreeView, [_ParentTv, "All"], [], False] call VANA_fnc_TvGetData;
+_targetTVChildren = [_ctrlTV, [_ParentTv, "All"], [], false] call VANA_fnc_tvGetData;
 {
-  params ["_TvName","_TvPosition"];
+  params ["_tvName","_TvPosition"];
 
-  _TvName = _x select 0;
+  _tvName = _x select 0;
   _TvPosition = _x select 1;
 
-  switch (tolower (_x select 2)) do
+  switch (toLower (_x select 2)) do
   {
     case "tvloadout":
     {
-      _CtrlTreeView tvsettext [_TvPosition, (_TvName select [10, (Count _TvName-10)])];
+      _ctrlTV tvsettext [_TvPosition, (_tvName select [10, (count _tvName-10)])];
     };
     case "tvtab":
     {
-      if (_CheckSubTv && _CtrlTreeView tvCount _TvPosition > 0) then
+      if (_CheckSubTv && _ctrlTV tvCount _TvPosition > 0) then
       {
-        [_CtrlTreeView, _TvPosition] call VANA_fnc_TvSorting;
+        [_ctrlTV, _TvPosition] call VANA_fnc_tvSorting;
       };
     };
   };
-} foreach _TargetTvChildren;
+} foreach _targetTVChildren;
 
-True
+true

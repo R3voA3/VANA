@@ -2,20 +2,20 @@ disableserialization;
 
 params
 [
-	["_CtrlTreeView", controlnull, [controlnull]],
+	["_ctrlTV", controlnull, [controlnull]],
 	"_SavedData",
 	"_VANAData"
 ];
 
-_SavedData = (profilenamespace getvariable ["VANA_fnc_TreeViewSave_Data",[]]);
-_VANAData = [_CtrlTreeView] call VANA_fnc_TvGetData;
+_savedData = (profilenamespace getVariable ["VANA_fnc_treeViewSave_Data",[]]);
+_vANAData = [_ctrlTV] call VANA_fnc_tvGetData;
 
 if !(_SavedData isequalto _VANAData) exitwith
 {
-	profilenamespace setvariable ["VANA_fnc_TreeViewSave_Data", _VANAData];
+	profilenamespace setvariable ["VANA_fnc_treeViewSave_Data", _VANAData];
 	saveProfileNamespace;
 
-	True
+	true
 };
 
-False
+false

@@ -6,7 +6,7 @@ class CfgFunctions
 
 		class UI
 		{
-			file = "v\vana\addons\loadoutManagement\functions";
+			file = "v\vana\addons\loadoutmanagement\functions";
 
 			class arsenal;
 			class arsenalTreeView;

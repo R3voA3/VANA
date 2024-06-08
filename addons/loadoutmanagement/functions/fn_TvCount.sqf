@@ -2,18 +2,16 @@ disableserialization;
 
 params
 [
-  ["_CtrlTreeView", controlnull, [controlnull]],
-  ["_Arguments", [], [[]]],
-	["_CheckSubTv", True, [True]]
+	["_ctrlTV", controlnull, [controlnull]],
+	["_arguments", [], [[]]],
+	["_checkSubTV", true, [true]]
 ];
 
-_Arguments params
+_arguments params
 [
-  ["_ParentTv", [], [[]]],
-  ["_TypeData", "All", [""]]
+	["_parentTV", [], [[]]],
+	["_typeData", "All", [""]]
 ];
 
-
-
-//Call VANA_fnc_TvGetData in Count mode
-[_CtrlTreeView, [_ParentTv, _TypeData], [], _CheckSubTv, True] call VANA_fnc_TvGetData;
+//Call VANA_fnc_tvGetData in count mode
+[_ctrlTV, [_parentTV, _typeData], [], _checkSubTV, true] call VANA_fnc_tvGetData;

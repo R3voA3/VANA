@@ -7,12 +7,12 @@ disableserialization;
 	_virtualItemCargo =\
 		(missionnamespace call bis_fnc_getVirtualItemCargo) +\
 		(_Cargo call bis_fnc_getVirtualItemCargo) +\
-		items _Center +\
-		assigneditems _Center +\
-		primaryweaponitems _Center +\
-		secondaryweaponitems _Center +\
-		handgunitems _Center +\
-		[uniform _Center,vest _Center,headgear _Center,goggles _Center];\
+		items _center +\
+		assigneditems _center +\
+		primaryweaponitems _center +\
+		secondaryweaponitems _center +\
+		handgunitems _center +\
+		[uniform _center,vest _center,headgear _center,goggles _center];\
 	_virtualWeaponCargo = [];\
 	{\
     private ["_weapon"];\
@@ -23,29 +23,29 @@ disableserialization;
 			_Item = gettext (_x >> "item");\
 			if !(_Item in _virtualItemCargo) then {_virtualItemCargo set [count _virtualItemCargo,_Item];};\
 		} foreach ((configfile >> "cfgweapons" >> _x >> "linkeditems") call bis_fnc_returnchildren);\
-	} foreach ((missionnamespace call bis_fnc_getVirtualWeaponCargo) + (_Cargo call bis_fnc_getVirtualWeaponCargo) + weapons _Center + [binocular _Center]);\
-	_virtualMagazineCargo = (missionnamespace call bis_fnc_getVirtualMagazineCargo) + (_Cargo call bis_fnc_getVirtualMagazineCargo) + magazines _Center;\
-	_virtualBackpackCargo = (missionnamespace call bis_fnc_getVirtualBackpackCargo) + (_Cargo call bis_fnc_getVirtualBackpackCargo) + [backpack _Center];
+	} foreach ((missionnamespace call bis_fnc_getVirtualWeaponCargo) + (_Cargo call bis_fnc_getVirtualWeaponCargo) + weapons _center + [binocular _center]);\
+	_virtualMagazineCargo = (missionnamespace call bis_fnc_getVirtualMagazineCargo) + (_Cargo call bis_fnc_getVirtualMagazineCargo) + magazines _center;\
+	_virtualBackpackCargo = (missionnamespace call bis_fnc_getVirtualBackpackCargo) + (_Cargo call bis_fnc_getVirtualBackpackCargo) + [backpack _center];
 
 #define MarkTv\
   private _LoadoutPosistion = _x select 1;\
-  _CtrlTreeView tvSetColor [_LoadoutPosistion, [1,1,1,0.25]];\
-  _CtrlTreeView tvSetValue [_LoadoutPosistion, -1];
+  _ctrlTV tvSetColor [_LoadoutPosistion, [1,1,1,0.25]];\
+  _ctrlTV tvSetValue [_LoadoutPosistion, -1];
 
 params
 [
-	["_CtrlTreeView", controlnull, [controlnull]],
+	["_ctrlTV", controlnull, [controlnull]],
 	["_TargetLoadouts", [], [[]]],
   "_FullVersion",
 	"_LoadoutData",
-  "_Center",
+  "_center",
   "_Cargo"
 ];
 
-_FullVersion = missionnamespace getvariable ["BIS_fnc_arsenal_fullArsenal",false];
-_LoadoutData = profilenamespace getvariable ["bis_fnc_saveInventory_Data",[]];
-_Center = (missionnamespace getvariable ["BIS_fnc_arsenal_Center",player]);
-_Cargo = (missionnamespace getvariable ["BIS_fnc_arsenal_Cargo",objnull]);
+_fullVersion = missionnamespace getVariable ["BIS_fnc_arsenal_fullArsenal",false];
+_loadoutData = profilenamespace getVariable ["bis_fnc_saveInventory_Data",[]];
+_center = (missionnamespace getVariable ["BIS_fnc_arsenal_center",player]);
+_cargo = (missionnamespace getVariable ["BIS_fnc_arsenal_Cargo",objnull]);
 
 GETVIRTUALCARGO
 {
@@ -99,4 +99,4 @@ GETVIRTUALCARGO
   };
 } foreach _TargetLoadouts;
 
-[False, True] select !(_TargetLoadouts isequalto []);
+[false, true] select !(_TargetLoadouts isequalto []);

@@ -2,46 +2,48 @@ disableserialization;
 
 params
 [
-	["_CtrlTreeView", controlnull, [controlnull]],
-	["_Arguments", [], [[]]],
-	["_Behavior", "", [""]],
-	"_TvData",
-	"_NewSubTvPath",
-	"_TabCount",
-	"_AddSubTv"
+	["_ctrlTV", controlnull, [controlnull]],
+	["_arguments", [], [[]]],
+	["_behavior", "", [""]],
+	"_tvData",
+	"_newSubTVPath",
+	"_tabCount",
+	"_addSubTV"
 ];
 
-_Arguments params
+_arguments params
 [
-	["_TargetTv", (tvCurSel _CtrlTreeView), [[]]],
-	["_TabName", "", [""]]
+	["_targetTV", (tvCurSel _ctrlTV), [[]]],
+	["_tabName", "", [""]]
 ];
 
-_TargetTv = +_TargetTv;
-_Behavior = tolower _Behavior;
-_TvData = tolower (_CtrlTreeView tvData _TargetTv);
+_targetTV = +_targetTV;
+_behavior = toLower _behavior;
+_tvData = toLower (_ctrlTV tvData _targetTV);
 
 //Get parent
-if (!(_TvData isEqualto "tvtab") && !(_TargetTv isequalto [])) then
+if ((_tvData isNotEqualTo "tvtab") && (_targetTV isNotEqualTo [])) then
 {
-  _TargetTv resize (Count _TargetTv -1);
+  _targetTV resize (count _targetTV - 1);
 };
 
 //Create Tab in treeview
-_NewSubTvPath = +_TargetTv;
-if !(_TabName isequalto "") then
+_newSubTvPath = +_targetTV;
+if (_tabName != "") then
 {
-	_AddSubTv = _CtrlTreeView tvAdd [_TargetTv, _TabName];
-} else {
-	_TabCount = [_CtrlTreeView, [_TargetTv, "tvtab"], False] call VANA_fnc_TvCount;
-	_AddSubTv = _CtrlTreeView tvAdd [_TargetTv, (format ["New Tab%1",(_TabCount+1)])];
+	_addSubTV = _ctrlTV tvAdd [_targetTV, _tabName];
+}
+else
+{
+	_tabCount = [_ctrlTV, [_targetTV, "tvtab"], false] call VANA_fnc_tvCount;
+	_addSubTV = _ctrlTV tvAdd [_targetTV, format ["New Tab%1", _tabCount + 1]];
 };
-_NewSubTvPath pushback _AddSubTv;
+_newSubTvPath pushBack _addSubTV;
 
 //Visualy/Technical classify Tab
-_CtrlTreeView tvSetData [_NewSubTVPath, "tvtab"];
-_CtrlTreeView tvSetPicture [_NewSubTVPath, "\loadoutManagement\UI\data\Tab_Icon.paa"];
+_ctrlTV tvSetData [_newSubTVPath, "tvtab"];
+_ctrlTV tvSetPicture [_newSubTVPath, "\loadoutManagement\UI\data\Tab_Icon.paa"];
 
-if !(_Behavior in ["firsttimesetup", "dragdrop"]) then {_CtrlTreeView tvExpand _TargetTv;};
+if !(_behavior in ["firsttimesetup", "dragdrop"]) then {_ctrlTV tvExpand _targetTV;};
 
-_NewSubTvPath
+_newSubTvPath

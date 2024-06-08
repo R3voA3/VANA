@@ -2,14 +2,14 @@ disableserialization;
 
 params
 [
-	["_CtrlTreeView", controlnull, [controlnull]],
-	["_TargetTv", (tvCurSel (_this select 0)), [[]]],
+	["_ctrlTV", controlnull, [controlnull]],
+	["_targetTV", (tvCurSel (_this select 0)), [[]]],
   "_HasName",
   "_HasData"
 ];
 
 //Check if Text and Data are defined
-_HasName = !(_CtrlTreeView tvText _TargetTv isequalto "");
-_HasData = !(_CtrlTreeView tvdata _TargetTv isequalto "");
+_hasName = !(_ctrlTV tvText _targetTV isequalto "");
+_hasData = !(_ctrlTV tvdata _targetTV isequalto "");
 
-[False, True] select (_HasName && _HasData)
+[false, true] select (_HasName && _HasData)

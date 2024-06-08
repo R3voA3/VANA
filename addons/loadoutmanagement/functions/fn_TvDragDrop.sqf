@@ -5,12 +5,12 @@ disableserialization;
 
 params
 [
-  ["_CtrlTreeView", controlnull, [controlnull]],
-  ["_Mode", "False", [""]],
-  ["_Arguments", [], [[]]]
+  ["_ctrlTV", controlnull, [controlnull]],
+  ["_mode", "false", [""]],
+  ["_arguments", [], [[]]]
 ];
 
-switch (toLower _Mode) do
+switch (toLower _mode) do
 {
   ///////////////////////////////////////////////////////////////////////////////////////////
   case "mousedown":
@@ -18,19 +18,19 @@ switch (toLower _Mode) do
     params ["_InAction"];
 
     //Check if user is using scroll bar
-    If !(_CtrlTreeView getvariable ["MouseInTreeView", True]) exitwith {["mousedown", False]};
+    If !(_ctrlTV getVariable ["MouseInTreeView", true]) exitwith {["mousedown", false]};
 
     //Tell script to get Target
-    _CtrlTreeView Setvariable ["TvDragDrop_GetTarget", True];
+    _ctrlTV Setvariable ["TvDragDrop_GetTarget", true];
 
     //Double check user is initiating TvDragDrop action
-    _CtrlTreeView Setvariable ["TvDragDrop_InAction", "Double Check"];
+    _ctrlTV Setvariable ["TvDragDrop_InAction", "Double Check"];
     sleep 0.1;
 
-    _InAction = _CtrlTreeView Getvariable ["TvDragDrop_InAction", False];
-    _CtrlTreeView Setvariable ["TvDragDrop_InAction", ([False, True] select (_InAction isequalto "Double Check"))];
+    _InAction = _ctrlTV Getvariable ["TvDragDrop_InAction", false];
+    _ctrlTV Setvariable ["TvDragDrop_InAction", ([false, true] select (_InAction isequalto "Double Check"))];
 
-    ["mousedown", (_CtrlTreeView Getvariable ["TvDragDrop_InAction", False])]
+    ["mousedown", (_ctrlTV Getvariable ["TvDragDrop_InAction", false])]
   };
 
   ///////////////////////////////////////////////////////////////////////////////////////////
@@ -38,26 +38,26 @@ switch (toLower _Mode) do
   {
     params ["_Return","_GetTarget","_InAction","_CursorTab"];
 
-    _Return = ["mousemove", False];
-    _GetTarget = _CtrlTreeView Getvariable ["TvDragDrop_GetTarget", False];
-    _InAction = _CtrlTreeView Getvariable ["TvDragDrop_InAction", False];
-    _CursorTab = _Arguments;
+    _Return = ["mousemove", false];
+    _GetTarget = _ctrlTV Getvariable ["TvDragDrop_GetTarget", false];
+    _InAction = _ctrlTV Getvariable ["TvDragDrop_InAction", false];
+    _CursorTab = _arguments;
 
     //Get Target
     if _GetTarget then
     {
-      _CtrlTreeView Setvariable ["TvDragDrop_TargetTv", _CursorTab];
-      _CtrlTreeView Setvariable ["TvDragDrop_GetTarget", nil];
+      _ctrlTV Setvariable ["TvDragDrop_targetTv", _CursorTab];
+      _ctrlTV Setvariable ["TvDragDrop_GetTarget", nil];
 
-      _Return = ["mousemove", True];
+      _Return = ["mousemove", true];
     };
 
     //Get Release Subtv
     if (_InAction isequalto true) then
     {
-      _CtrlTreeView Setvariable ["TvDragDrop_ReleaseTv", _CursorTab];
+      _ctrlTV Setvariable ["TvDragDrop_ReleaseTv", _CursorTab];
 
-      _Return = ["mousemove", True];
+      _Return = ["mousemove", true];
     };
 
     _Return
@@ -66,127 +66,127 @@ switch (toLower _Mode) do
   ///////////////////////////////////////////////////////////////////////////////////////////
   case "mouseup":
   {
-    params ["_FncReturn","_TargetTv","_ReleaseTv"];
+    params ["_FncReturn","_targetTV","_ReleaseTv"];
 
-    _TargetTv = _CtrlTreeView Getvariable ["TvDragDrop_TargetTv", [-1]];
-    _ReleaseTv = _CtrlTreeView Getvariable ["TvDragDrop_ReleaseTv", [-1]];
+    _targetTV = _ctrlTV Getvariable ["TvDragDrop_targetTv", [-1]];
+    _ReleaseTv = _ctrlTV Getvariable ["TvDragDrop_ReleaseTv", [-1]];
 
     //Clear Values
-    _CtrlTreeView Setvariable ["TvDragDrop_InAction", nil];
-    _CtrlTreeView Setvariable ["TvDragDrop_GetTarget", nil];
-    _CtrlTreeView Setvariable ["TvDragDrop_TargetTv", nil];
-    _CtrlTreeView Setvariable ["TvDragDrop_ReleaseTv", nil];
+    _ctrlTV Setvariable ["TvDragDrop_InAction", nil];
+    _ctrlTV Setvariable ["TvDragDrop_GetTarget", nil];
+    _ctrlTV Setvariable ["TvDragDrop_targetTv", nil];
+    _ctrlTV Setvariable ["TvDragDrop_ReleaseTv", nil];
 
     //Call TvDragDrop function
-    if !(_TargetTv isequalto [-1]) exitwith
+    if !(_targetTV isequalto [-1]) exitwith
     {
-      _FncReturn = [_CtrlTreeView, "DragDropFnc", [_TargetTv, _ReleaseTv]] call VANA_fnc_TvDragDrop;
+      _FncReturn = [_ctrlTV, "DragDropFnc", [_targetTV, _ReleaseTv]] call VANA_fnc_tvDragDrop;
 
       ["DragDropFnc", _FncReturn]
     };
 
-    ["MouseUp", False]
+    ["MouseUp", false]
   };
 
   ///////////////////////////////////////////////////////////////////////////////////////////
   case "dragdropfnc":
   {
-    _Arguments params
+    _arguments params
     [
-      ["_TargetTv", [-1], [[]]],
+      ["_targetTV", [-1], [[]]],
       ["_ReleaseTv", [-1], [[]]],
-      "_TargetTvData",
-      "_TargetTvText",
-      "_TargetTvValue",
-      "_TargetTvParent",
+      "_targetTvData",
+      "_targetTvText",
+      "_targetTvValue",
+      "_targetTvParent",
       "_IsParent",
       "_IsChild",
       "_MovedSubtv",
       "_MovedLoadouts",
-      "_NewSubTVPath",
+      "_newSubTVPath",
       "_MovedSubtvGrandParent"
     ];
 
-    _TargetTvData = _CtrlTreeView tvData _TargetTv;
-    _TargetTvText = _CtrlTreeView tvText _TargetTv;
-    _TargetTvValue = _CtrlTreeView tvValue _TargetTv;
+    _targetTvData = _ctrlTV tvData _targetTV;
+    _targetTvText = _ctrlTV tvText _targetTV;
+    _targetTvValue = _ctrlTV tvValue _targetTV;
 
     //Making sure the DragDrop action is valid
-    if (_ReleaseTv isequalto [-1] || _TargetTv isequalto [] || _TargetTv isequalto _ReleaseTv) exitwith {False};
+    if (_ReleaseTv isequalto [-1] || _targetTV isequalto [] || _targetTV isequalto _ReleaseTv) exitwith {false};
 
-    if (_CtrlTreeView tvData _ReleaseTv isequalto "tvloadout") then
+    if (_ctrlTV tvData _ReleaseTv isequalto "tvloadout") then
     {
-      _ReleaseTv = _ReleaseTv call VANA_fnc_TvGetParent;
+      _ReleaseTv = _ReleaseTv call VANA_fnc_tvGetParent;
     };
-    _TargetTvParent = _TargetTv call VANA_fnc_TvGetParent;
+    _targetTvParent = _targetTV call VANA_fnc_tvGetParent;
 
     //Making sure the DragDrop action is valid
-    _IsParent = _TargetTvParent isequalto _ReleaseTv;
-    _IsChild = _ReleaseTv select [0,(count _TargetTv)] isequalto _TargetTv;
+    _IsParent = _targetTvParent isequalto _ReleaseTv;
+    _IsChild = _ReleaseTv select [0,(count _targetTV)] isequalto _targetTV;
 
-    if (_IsParent || _IsChild) exitwith {False};
+    if (_IsParent || _IsChild) exitwith {false};
 
     //Create Moved SubTv
     _MovedSubtv = +_ReleaseTv;
-    _NewSubTvPath = _CtrlTreeView tvadd [_ReleaseTv, _TargetTvText];
+    _newSubTVPath = _ctrlTV tvadd [_ReleaseTv, _targetTvText];
 
-    _CtrlTreeView TvExpand _ReleaseTv;
-    _MovedSubtv pushback _NewSubTvPath;
+    _ctrlTV TvExpand _ReleaseTv;
+    _MovedSubtv pushBack _newSubTVPath;
 
     //Visualy/Technical classify Moved SubTv
-    _CtrlTreeView tvSetData [_MovedSubtv, _TargetTvData];
-    _CtrlTreeView TvSetValue [_MovedSubtv, _TargetTvValue];
+    _ctrlTV tvSetData [_MovedSubtv, _targetTvData];
+    _ctrlTV TvSetValue [_MovedSubtv, _targetTvValue];
 
-    if (_TargetTvValue < 0) then {_CtrlTreeView tvSetColor [_MovedSubtv, [1,1,1,0.25]]};
-    If (_TargetTvValue isequalto Expanded) then {_CtrlTreeView TvExpand _MovedSubtv};
+    if (_targetTvValue < 0) then {_ctrlTV tvSetColor [_MovedSubtv, [1,1,1,0.25]]};
+    If (_targetTvValue isequalto Expanded) then {_ctrlTV TvExpand _MovedSubtv};
 
-    if (_TargetTvData isequalto "tvtab") then
+    if (_targetTvData isequalto "tvtab") then
     {
-      _CtrlTreeView tvSetPicture [_MovedSubtv, "\loadoutManagement\UI\data\Tab_Icon.paa"];
+      _ctrlTV tvSetPicture [_MovedSubtv, "\loadoutManagement\UI\data\Tab_Icon.paa"];
       _MovedLoadouts = [];
 
       //Move Child SubTv's
       {
-        params ["_TvName","_TvPosition","_TvNewParent","_Return"];
+        params ["_tvName","_TvPosition","_TvNewParent","_Return"];
 
-        _TvName = _x select 0;
-        _TvPosition = (_x select 1) select [(count _TargetTv), (count (_x select 1) - count _TargetTv)]; //Selects [Position] and removes _TargetTv array from the front of it
+        _tvName = _x select 0;
+        _TvPosition = (_x select 1) select [(count _targetTV), (count (_x select 1) - count _targetTV)]; //Selects [Position] and removes _targetTV array from the front of it
 
         _TvNewParent = _MovedSubtv + _TvPosition;
-        _TvNewParent resize (Count _TvNewParent)-1;
+        _TvNewParent resize (count _TvNewParent)-1;
 
-        switch tolower (_x select 2) do
+        switch toLower (_x select 2) do
         {
           case "tvtab":
           {
-            Private _Tab = [_CtrlTreeView, [_TvNewParent, _TvName], "DragDrop"] call VANA_fnc_TvCreateTab;
-            Private _Expanded = (_x select 3) isequalto Expanded;
+            private _Tab = [_ctrlTV, [_TvNewParent, _tvName], "DragDrop"] call VANA_fnc_tvCreateTab;
+            private _Expanded = (_x select 3) isequalto Expanded;
 
-            If _Expanded then {_CtrlTreeView TvExpand _Tab};
-            _CtrlTreeView TvSetValue [_Tab, ([Collapsed, Expanded] select _Expanded)];
+            If _Expanded then {_ctrlTV TvExpand _Tab};
+            _ctrlTV TvSetValue [_Tab, ([Collapsed, Expanded] select _Expanded)];
           };
           case "tvloadout":
           {
-            _Return = [_CtrlTreeView, [_TvNewParent, _TvName], "DragDrop"] call VANA_fnc_TvCreateLoadout;
-            _MovedLoadouts pushback [_TvName, (_Return select 0)];
+            _Return = [_ctrlTV, [_TvNewParent, _tvName], "DragDrop"] call VANA_fnc_tvCreateLoadout;
+            _MovedLoadouts pushBack [_tvName, (_Return select 0)];
           };
         };
-      } foreach ([_CtrlTreeView, [_TargetTv]] call VANA_fnc_TvGetData);
+      } foreach ([_ctrlTV, [_targetTV]] call VANA_fnc_tvGetData);
 
-      [_CtrlTreeView, _MovedLoadouts] call VANA_fnc_TvValidateLoadouts;
+      [_ctrlTV, _MovedLoadouts] call VANA_fnc_tvValidateLoadouts;
     };
 
-    _CtrlTreeView tvSetCurSel _MovedSubtv;
-    _CtrlTreeView tvDelete _TargetTv;
+    _ctrlTV tvSetCurSel _MovedSubtv;
+    _ctrlTV tvDelete _targetTV;
 
-    //Get _MovedSubtv True posistion
+    //Get _MovedSubtv true posistion
     _MovedSubtvGrandParent = +_MovedSubtv;
-    _MovedSubtvGrandParent resize (count _TargetTvParent);
+    _MovedSubtvGrandParent resize (count _targetTvParent);
 
-    if (_TargetTvParent isequalto _MovedSubtvGrandParent) then
+    if (_targetTvParent isequalto _MovedSubtvGrandParent) then
     {
-      private _Number = _MovedSubtv select (count _TargetTvParent);
-      _MovedSubtv set [(count _TargetTvParent), _Number -1];
+      private _Number = _MovedSubtv select (count _targetTvParent);
+      _MovedSubtv set [(count _targetTvParent), _Number -1];
     };
 
     _MovedSubtv

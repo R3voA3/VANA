@@ -2,32 +2,32 @@ disableserialization;
 
 params
 [
-	["_CtrlTreeView", controlnull, [controlnull]],
-	["_Arguments", [], [[]]],
-	"_TvData",
-	"_TvName",
+	["_ctrlTV", controlnull, [controlnull]],
+	["_arguments", [], [[]]],
+	"_tvData",
+	"_tvName",
 	"_LoadoutData",
 	"_DataPosistion"
 ];
 
-_Arguments params
+_arguments params
 [
-	["_TargetTv", (tvCurSel _CtrlTreeView), [[]]],
+	["_targetTV", (tvCurSel _ctrlTV), [[]]],
 	["_Name", "", [""]]
 ];
 
-_TvData = tolower (_CtrlTreeView tvData _TargetTv);
-_TvName = _CtrlTreeView tvText _TargetTv;
+_tvData = toLower (_ctrlTV tvData _targetTV);
+_tvName = _ctrlTV tvText _targetTV;
 
-_CtrlTreeView tvSetText [_TargetTv, _Name];
-if (_TvData isequalto "tvloadout") then
+_ctrlTV tvSetText [_targetTV, _Name];
+if (_tvData isequalto "tvloadout") then
 {
 	//rename loadout in profile data
-	_LoadoutData = profilenamespace getvariable ["bis_fnc_saveInventory_Data",[]];
-	_DataPosistion = _LoadoutData find _TvName;
+	_LoadoutData = profilenamespace getVariable ["bis_fnc_saveInventory_Data",[]];
+	_DataPosistion = _LoadoutData find _tvName;
 
 	_LoadoutData set [_DataPosistion, _Name];
 	saveProfileNamespace;
 };
 
-True
+true

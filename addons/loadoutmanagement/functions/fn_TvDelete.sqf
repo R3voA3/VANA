@@ -2,72 +2,76 @@ disableserialization;
 
 params
 [
-	["_CtrlTreeView", controlnull, [controlnull]],
-	["_TargetTv", (tvCurSel (_this select 0)), [[]]],
-	"_TvName",
-	"_TvData",
-	"_TargetTvParent",
-	"_TargetTvChildren",
-	"_Center",
-	"_TvDataString",
-	"_AboveTab",
-	"_LastNumber"
+	["_ctrlTV", controlnull, [controlnull]],
+	["_targetTV", tvCurSel (_this select 0), [[]]],
+	"_tvName",
+	"_tvData",
+	"_targetTvParent",
+	"_targetTVChildren",
+	"_center",
+	"_tvDataString",
+	"_aboveTab",
+	"_lastNumber"
 ];
 
-_TvName = _CtrlTreeView TvText _TargetTv;
-_TvData = tolower (_CtrlTreeView tvData _TargetTv);
-_TargetTvParent = _TargetTv call VANA_fnc_TvGetParent;
+_tvName = _ctrlTV tvText _targetTV;
+_tvData = toLower (_ctrlTV tvData _targetTV);
+_targetTvParent = _targetTV call VANA_fnc_tvGetParent;
 
-switch _TvData do
+switch _tvData do
 {
 	case "tvtab":
 	{
 		//Recreates all loadouts under tab
-		_TargetTvChildren = [_CtrlTreeView, [_TargetTv]] call VANA_fnc_TvGetData;
+		_targetTVChildren = [_ctrlTV, [_targetTV]] call VANA_fnc_zvGetData;
 
 		{
-			if (tolower (_x select 2) isEqualto "tvloadout") then
+			if (toLower (_x select 2) == "tvloadout") then
 			{
-				[_CtrlTreeView, [_TargetTvParent, _x]] call VANA_fnc_TvCreateLoadout;
+				[_ctrlTV, [_targetTvParent, _x]] call VANA_fnc_tvCreateLoadout;
 			};
-		} foreach _TargetTvChildren;
+		} foreach _targetTVChildren;
 	};
 
 	case "tvloadout":
 	{
 		//Delete loadout from profiledata
-		_Center = (missionnamespace getvariable ["BIS_fnc_arsenal_center",player]);
-		[_center,[profilenamespace,_TvName],nil,true] call BIS_fnc_saveInventory;
+		_center = (missionnamespace getVariable ["BIS_fnc_arsenal_center", player]);
+		[_center, [profilenamespace, _tvName], nil, true] call BIS_fnc_saveInventory;
 	};
 };
 
-_TvDataString = ["Tab", "Loadout"] select (_TvData isequalto "tvloadout");
-["showMessage",[(ctrlparent _CtrlTreeView), (format ["%1: ""%2"" Deleted", _TvDataString, _TvName])]] spawn BIS_fnc_arsenal;
+_tvDataString = ["Tab", "Loadout"] select (_tvData == "tvloadout");
+["showMessage", [(ctrlparent _ctrlTV), (format ["%1: ""%2"" Deleted", _tvDataString, _tvName])]] spawn BIS_fnc_arsenal;
 
-_CtrlTreeView tvDelete _TargetTv;
+_ctrlTV tvDelete _targetTV;
 
 //Select next subtv
-_AboveTab = +_TargetTv;
-_LastNumber = _AboveTab select (count _AboveTab-1);
+_aboveTab = +_targetTV;
+_lastNumber = _aboveTab select (count _aboveTab - 1);
 
-if !(_LastNumber isequalto 0) then
+if (_lastNumber != 0) then
 {
-	_AboveTab set [(Count _AboveTab -1), (_LastNumber -1)];
+	_aboveTab set [count _aboveTab - 1, _lastNumber - 1];
 };
 
-if ([_CtrlTreeView, _TargetTv] call VANA_fnc_TvExists) then
+if ([_ctrlTV, _targetTV] call VANA_fnc_tvExists) then
 {
-	_CtrlTreeview tvsetcursel _TargetTv;
-} else {
-	if ([_CtrlTreeView, _AboveTab] call VANA_fnc_TvExists) then
+	_ctrlTV tvSetCurSel _targetTV;
+}
+else
+{
+	if ([_ctrlTV, _aboveTab] call VANA_fnc_tvExists) then
 	{
-		_CtrlTreeview tvsetcursel _AboveTab;
-	} else {
-		if !(_TargetTvParent isequalto []) then
+		_ctrlTV tvSetCurSel _aboveTab;
+	}
+	else
+	{
+		if (_targetTvParent isNotEqualTo []) then
 		{
-			_CtrlTreeview tvsetcursel _TargetTvParent;
+			_ctrlTV tvSetCurSel _targetTvParent;
 		};
 	};
 };
 
-_TargetTv
+_targetTV

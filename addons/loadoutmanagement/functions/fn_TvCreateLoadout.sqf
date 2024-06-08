@@ -2,38 +2,38 @@ disableserialization;
 
 params
 [
-	["_CtrlTreeView", controlnull, [controlnull]],
-	["_Arguments", [], [[]]],
-	["_Behavior", "", [""]],
-	"_LoadoutData",
-	"_LoadoutPath",
-	"_LoadoutAdd"
+	["_ctrlTV", controlnull, [controlnull]],
+	["_arguments", [], [[]]],
+	["_behavior", "", [""]],
+	"_loadoutData",
+	"_loadoutPath",
+	"_loadoutAdd"
 ];
 
-_Arguments params
+_arguments params
 [
-	["_TargetTv", (tvCurSel _CtrlTreeView), [[]]],
-	["_LoadoutName", "", [""]]
+	["_targetTV", tvCurSel _ctrlTV, [[]]],
+	["_loadoutName", "", [""]]
 ];
 
-_Behavior = tolower _Behavior;
-_LoadoutData = profilenamespace getvariable ["bis_fnc_saveInventory_Data",[]];
+_behavior = toLower _behavior;
+_loadoutData = profileNamespace getVariable ["BIS_fnc_saveInventory_data",[]];
 
-If !(_LoadoutName in _LoadoutData) exitwith {[[-1], ""]};
+If !(_loadoutName in _loadoutData) exitwith {[[-1], ""]};
 
 //Create Loadout in treeview
-_LoadoutPath = +_TargetTv;
+_loadoutPath = +_targetTV;
 
-_LoadoutAdd = _CtrlTreeView tvAdd [_TargetTv,_LoadoutName];
-_LoadoutPath pushback _LoadoutAdd;
+_loadoutAdd = _ctrlTV tvAdd [_targetTV,_loadoutName];
+_loadoutPath pushBack _loadoutAdd;
 
 //Visualy/Technical classify Tab
-_CtrlTreeView tvSetData [_LoadoutPath, "tvloadout"];
+_ctrlTV tvSetData [_loadoutPath, "tvloadout"];
 
-if !(_Behavior in ["firsttimesetup", "dragdrop"]) then
+if !(_behavior in ["firsttimesetup", "dragdrop"]) then
 {
-	_CtrlTreeView tvExpand _TargetTv;
-	_CtrlTreeView tvSetCurSel ([_CtrlTreeView, [_TargetTv, _LoadoutName], "tvloadout"] call VANA_fnc_TvGetPosition);
+	_ctrlTV tvExpand _targetTV;
+	_ctrlTV tvSetCurSel ([_ctrlTV, [_targetTV, _loadoutName], "tvloadout"] call VANA_fnc_tvGetPosition);
 };
 
-[_LoadoutPath, _LoadoutName]
+[_loadoutPath, _loadoutName]

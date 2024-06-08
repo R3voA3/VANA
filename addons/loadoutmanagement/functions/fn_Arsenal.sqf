@@ -8,7 +8,7 @@ disableserialization;
 
 _mode = [_this,0,"Open",[displaynull,""]] call bis_fnc_param;
 _this = [_this,1,[]] call bis_fnc_param;
-_fullVersion = missionnamespace getvariable ["BIS_fnc_arsenal_fullArsenal",false];
+_fullVersion = missionnamespace getVariable ["BIS_fnc_arsenal_fullArsenal",false];
 
 #define IDCS_LEFT\
 	IDC_RSCDISPLAYARSENAL_TAB_PRIMARYWEAPON,\
@@ -90,8 +90,8 @@ switch _mode do {
 	case "Init": {
 		["bis_fnc_arsenal"] call bis_fnc_startloadingscreen;
 		_display = _this select 0;
-		_toggleSpace = uinamespace getvariable ["BIS_fnc_arsenal_toggleSpace",false];
-		_center = (missionnamespace getvariable ["BIS_fnc_arsenal_center",player]);
+		_toggleSpace = uinamespace getVariable ["BIS_fnc_arsenal_toggleSpace",false];
+		_center = (missionnamespace getVariable ["BIS_fnc_arsenal_center",player]);
 		BIS_fnc_arsenal_type = 0; //--- 0 - Arsenal, 1 - Garage
 		BIS_fnc_arsenal_toggleSpace = nil;
 
@@ -105,7 +105,7 @@ switch _mode do {
 
 				//--- Default appearance (only at the mission start)
 				if (time < 1) then {
-					_defaultArray = uinamespace getvariable ["bis_fnc_arsenal_defaultClass",[]];
+					_defaultArray = uinamespace getVariable ["bis_fnc_arsenal_defaultClass",[]];
 					_defaultClass = [_defaultArray,0,"",[""]] call bis_fnc_paramin;
 					if (isclass (configfile >> "cfgvehicles" >> _defaultClass)) then {
 
@@ -120,7 +120,7 @@ switch _mode do {
 						//--- Randomize default loadout
 						_soldiers = [];
 						{
-							_soldiers pushback (configname _x);
+							_soldiers pushBack (configname _x);
 						} foreach ("isclass _x && getnumber (_x >> 'scope') > 1 && gettext (_x >> 'simulation') == 'soldier'" configclasses (configfile >> "cfgvehicles"));
 						[player,_soldiers call bis_fnc_selectrandom] call bis_fnc_loadinventory;
 					};
@@ -140,7 +140,7 @@ switch _mode do {
 		call
 		{
 			[_display, "Init"] call VANA_fnc_ArsenalTreeView;
-			if !(_display getvariable ["Vana_Initialised", False]) exitwith {};
+			if !(_display getVariable ["Vana_Initialised", false]) exitwith {};
 			[_display, "Init"] call VANA_fnc_UIPopup;
 		};
 
@@ -153,7 +153,7 @@ switch _mode do {
 		};
 
 		//--- Load stats
-		if (isnil {uinamespace getvariable "bis_fnc_arsenal_weaponStats"}) then {
+		if (isnil {uinamespace getVariable "bis_fnc_arsenal_weaponStats"}) then {
 			uinamespace setvariable [
 				"bis_fnc_arsenal_weaponStats",
 				[
@@ -162,7 +162,7 @@ switch _mode do {
 				] call bis_fnc_configExtremes
 			];
 		};
-		if (isnil {uinamespace getvariable "bis_fnc_arsenal_equipmentStats"}) then {
+		if (isnil {uinamespace getVariable "bis_fnc_arsenal_equipmentStats"}) then {
 			_statsEquipment = [
 				("isclass _x && getnumber (_x >> 'scope') == 2 && getnumber (_x >> 'itemInfo' >> 'type') in [605,701,801]") configclasses (configfile >> "cfgweapons"),
 				STATS_EQUIPMENT
@@ -198,7 +198,7 @@ switch _mode do {
 		BIS_fnc_arsenal_mouse = [0,0];
 		BIS_fnc_arsenal_buttons = [[],[]];
 		BIS_fnc_arsenal_action = "";
-		_center = (missionnamespace getvariable ["BIS_fnc_arsenal_center",player]);
+		_center = (missionnamespace getVariable ["BIS_fnc_arsenal_center",player]);
 		_center hideobject false;
 		cuttext ["","plain"];
 		showcommandingmenu "";
@@ -348,7 +348,7 @@ switch _mode do {
 
 		//--- Menus
 		_ctrlIcon = _display displayctrl IDC_RSCDISPLAYARSENAL_TAB;
-		_sortValues = uinamespace getvariable ["bis_fnc_arsenal_sort",[]];
+		_sortValues = uinamespace getVariable ["bis_fnc_arsenal_sort",[]];
 		if !(isnull _ctrlIcon) then {
 			_ctrlIconPos = ctrlposition _ctrlIcon;
 			_ctrlTabs = _display displayctrl IDC_RSCDISPLAYARSENAL_TABS;
@@ -395,7 +395,7 @@ switch _mode do {
 		};
 		uinamespace setvariable ["bis_fnc_arsenal_sort",_sortValues];
 		['TabDeselect',[_display,-1]] call BIS_fnc_arsenal;
-		['SelectItem',[_display,controlnull,-1]] call (uinamespace getvariable _function);
+		['SelectItem',[_display,controlnull,-1]] call (uinamespace getVariable _function);
 
 		_ctrlButtonClose = _display displayctrl IDC_RSCDISPLAYARSENAL_CONTROLSBAR_BUTTONCLOSE;
 		_ctrlButtonClose ctrladdeventhandler ["buttonclick","with uinamespace do {['buttonClose',[ctrlparent (_this select 0)]] spawn BIS_fnc_arsenal;}; true"];
@@ -482,9 +482,9 @@ switch _mode do {
 
 		//--- Camera init
 		_camPosVar = format ["BIS_fnc_arsenal_campos_%1",BIS_fnc_arsenal_type];
-		BIS_fnc_arsenal_campos = missionnamespace getvariable [
+		BIS_fnc_arsenal_campos = missionnamespace getVariable [
 			_camPosVar,
-			uinamespace getvariable [
+			uinamespace getVariable [
 				_camPosVar,
 				if (BIS_fnc_arsenal_type == 0) then {[5,0,0,[0,0,0.85]]} else {[10,-45,15,[0,0,-1]]}
 			]
@@ -508,19 +508,19 @@ switch _mode do {
 		["Mouse",[controlnull,0,0]] call BIS_fnc_arsenal;
 		BIS_fnc_arsenal_draw3D = addMissionEventHandler ["draw3D",{with (uinamespace) do {['draw3D',_this] call BIS_fnc_arsenal;};}];
 
-		setacctime (missionnamespace getvariable ["BIS_fnc_arsenal_acctime",1]);
+		setacctime (missionnamespace getVariable ["BIS_fnc_arsenal_acctime",1]);
 	};
 
 	///////////////////////////////////////////////////////////////////////////////////////////
 	case "KeyDown": {
-		BIS_fnc_arsenal_type = uinamespace getvariable ["BIS_fnc_arsenal_type", 0]; //VANA
+		BIS_fnc_arsenal_type = uinamespace getVariable ["BIS_fnc_arsenal_type", 0]; //VANA
 
 		_display = _this select 0;
 		_key = _this select 1;
 		_shift = _this select 2;
 		_ctrl = _this select 3;
 		_alt = _this select 4;
-		_center = (missionnamespace getvariable ["BIS_fnc_arsenal_center",player]);
+		_center = (missionnamespace getVariable ["BIS_fnc_arsenal_center",player]);
 		_return = false;
 		_ctrlTemplate = _display displayctrl IDC_RSCDISPLAYARSENAL_TEMPLATE_TEMPLATE;
 		_inTemplate = ctrlfade _ctrlTemplate == 0;
@@ -654,7 +654,7 @@ switch _mode do {
 
 			//--- Vision mode
 			case (_key in (actionkeys "nightvision") && !_inTemplate): {
-				_mode = missionnamespace getvariable ["BIS_fnc_arsenal_visionMode",-1];
+				_mode = missionnamespace getVariable ["BIS_fnc_arsenal_visionMode",-1];
 				_mode = (_mode + 1) % 3;
 				missionnamespace setvariable ["BIS_fnc_arsenal_visionMode",_mode];
 				switch _mode do {

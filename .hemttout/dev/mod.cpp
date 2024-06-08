@@ -1,4 +1,4 @@
-name = "Vana - Loadout Management";
+name = "VANA - Loadout Management";
 author = "Eathox, modified by R3vo"
 tooltip = "$STR_VANA_Tooltip";
 tooltipOwned = "$STR_VANA_TooltipOwned";
@@ -9,4 +9,4 @@ picture = "v\vana\addons\loadoutmanagement\data\picture_ca.paa";
 logoSmall = "v\vana\addons\loadoutmanagement\data\logoSmall_ca.paa";
 logo = "v\vana\addons\loadoutmanagement\data\logoSmall_ca.paa";
 logoOver = "v\vana\addons\loadoutmanagement\data\logoSmall_ca.paa";
-action = "https://github.com/R3voA3/Vana";
+action = "https://github.com/R3voA3/VANA";

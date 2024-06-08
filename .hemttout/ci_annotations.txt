@@ -1,6 +1,6 @@
+306||306||13||13||notice||using `select` where `parseNumber` is more appropriate||using `select` where `parseNumber` is more appropriate||/addons/loadoutmanagement/functions/fn_arsenalTreeView.sqf
+482||482||5||5||notice||using `select` where `parseNumber` is more appropriate||using `select` where `parseNumber` is more appropriate||/addons/loadoutmanagement/functions/fn_arsenalTreeView.sqf
+509||509||5||5||notice||using `select` where `parseNumber` is more appropriate||using `select` where `parseNumber` is more appropriate||/addons/loadoutmanagement/functions/fn_arsenalTreeView.sqf
+592||592||7||7||notice||using `select` where `parseNumber` is more appropriate||using `select` where `parseNumber` is more appropriate||/addons/loadoutmanagement/functions/fn_arsenalTreeView.sqf
 368||368||13||84||notice||assignment to if can be replaced with select||use select||/addons/loadoutmanagement/functions/fn_arsenal.sqf
 591||591||13||54||notice||assignment to if can be replaced with select||use select||/addons/loadoutmanagement/functions/fn_arsenal.sqf
-305||305||13||13||notice||using `select` where `parseNumber` is more appropriate||using `select` where `parseNumber` is more appropriate||/addons/loadoutmanagement/functions/fn_ArsenalTreeView.sqf
-481||481||5||5||notice||using `select` where `parseNumber` is more appropriate||using `select` where `parseNumber` is more appropriate||/addons/loadoutmanagement/functions/fn_ArsenalTreeView.sqf
-508||508||5||5||notice||using `select` where `parseNumber` is more appropriate||using `select` where `parseNumber` is more appropriate||/addons/loadoutmanagement/functions/fn_ArsenalTreeView.sqf
-591||591||7||7||notice||using `select` where `parseNumber` is more appropriate||using `select` where `parseNumber` is more appropriate||/addons/loadoutmanagement/functions/fn_ArsenalTreeView.sqf

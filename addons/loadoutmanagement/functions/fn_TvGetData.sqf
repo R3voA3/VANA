@@ -2,53 +2,53 @@ disableserialization;
 
 params
 [
-	["_CtrlTreeView", controlnull, [controlnull]],
-	["_Arguments", [], [[]]],
+	["_ctrlTV", controlnull, [controlnull]],
+	["_arguments", [], [[]]],
 	["_ExportDataArray", [], [[],0]],
-	["_CheckSubTv", True, [True]],
-	["_Count", False, [False]],
+	["_CheckSubTv", true, [true]],
+	["_Count", false, [false]],
 	"_ExportDataArray"
 ];
 
-_Arguments params
+_arguments params
 [
   ["_ParentTv", [], [[]]],
-  ["_TypeData", "All", [""]]
+  ["_typeData", "All", [""]]
 ];
 
-_TypeData = toLower _TypeData;
-_ExportDataArray = ([+_ExportDataArray, 0] Select _Count);
+_typeData = toLower _typeData;
+_exportDataArray = ([+_ExportDataArray, 0] Select _Count);
 
-for "_i" from 0 to (_CtrlTreeView tvCount _ParentTv)-1 do
+for "_i" from 0 to (_ctrlTV tvCount _ParentTv)-1 do
 {
-	params ["_TargetTv","_TvData","_DataExport"];
+	params ["_targetTV","_tvData","_DataExport"];
 
 	//Declare current SubTv
-	_TargetTv = +_ParentTv;
-	_TargetTv Pushback _i;
+	_targetTV = +_ParentTv;
+	_targetTV Pushback _i;
 
-	_TvData = tolower (_CtrlTreeView tvData _TargetTv);
+	_tvData = toLower (_ctrlTV tvData _targetTV);
 
 	//Get currentSubTv Data
 	_DataExport =
 	[
-		(_CtrlTreeView tvText _TargetTv), //"Name"
-		_TargetTv, //Position
-		_TvData, //"Data"
-		(_CtrlTreeView tvValue _TargetTv) //"Value"
+		(_ctrlTV tvText _targetTV), //"Name"
+		_targetTV, //Position
+		_tvData, //"Data"
+		(_ctrlTV tvValue _targetTV) //"Value"
 	];
 
 	//Add data to Export Array/Value
-	if (_TypeData isequalto _TvData || _TypeData isequalto "all") then
+	if (_typeData isequalto _tvData || _typeData isequalto "all") then
 	{
 		call ([{_ExportDataArray append [_DataExport]}, {_ExportDataArray = _ExportDataArray +1}] select _Count);
 	};
 
 	//Execute function for all Subtv's
-	if (_CheckSubTv && _CtrlTreeView tvCount _TargetTv > 0) then
+	if (_CheckSubTv && _ctrlTV tvCount _targetTV > 0) then
 	{
-		_ExportDataArray = [_CtrlTreeView, [_TargetTv, _TypeData], _ExportDataArray, True, _Count] call VANA_fnc_TvGetData;
+		_ExportDataArray = [_ctrlTV, [_targetTV, _typeData], _ExportDataArray, true, _Count] call VANA_fnc_tvGetData;
 	};
 };
 
-_ExportDataArray
+_exportDataArray

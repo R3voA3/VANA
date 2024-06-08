@@ -1,12 +1,12 @@
 disableserialization;
 
-Private _TargetTv = +_This;
+private _targetTV = +_This;
 
-if !(_TargetTv isequalto []) then
+if !(_targetTV isequalto []) then
 {
-  _TargetTv resize (Count _TargetTv-1);
+  _targetTV resize (count _targetTV-1);
 
-  _TargetTv
+  _targetTV
 } else {
   []
 };
