@@ -1,12 +1,10 @@
 disableserialization;
 
-private _targetTV = +_this;
+private _path = +_this;
 
-if !(_targetTV isEqualTo []) then
+if (_path isNotEqualTo []) then
 {
-	_targetTV resize (count _targetTV-1);
-
-	_targetTV
-} else {
-	[]
+	_path resize (count _path - 1);
 };
+
+_path

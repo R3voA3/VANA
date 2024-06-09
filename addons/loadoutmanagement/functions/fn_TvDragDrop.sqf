@@ -95,7 +95,7 @@ switch (toLower _mode) do
 		[
 			["_targetTV", [-1], [[]]],
 			["_releaseTv", [-1], [[]]],
-			"_targetTvData",
+			"_targettvData",
 			"_targetTvText",
 			"_targetTvValue",
 			"_targetTvParent",
@@ -107,7 +107,7 @@ switch (toLower _mode) do
 			"_movedSubtvGrandParent"
 		];
 
-		_targetTvData = _ctrlTV tvData _targetTV;
+		_targettvData = _ctrlTV tvData _targetTV;
 		_targetTvText = _ctrlTV tvText _targetTV;
 		_targetTvValue = _ctrlTV tvValue _targetTV;
 
@@ -134,13 +134,13 @@ switch (toLower _mode) do
 		_movedSubtv pushBack _newSubTVPath;
 
 		//Visualy/Technical classify Moved SubTv
-		_ctrlTV tvSetData [_movedSubtv, _targetTvData];
+		_ctrlTV tvSetData [_movedSubtv, _targettvData];
 		_ctrlTV TvSetValue [_movedSubtv, _targetTvValue];
 
 		if (_targetTvValue < 0) then {_ctrlTV tvSetColor [_movedSubtv, [1,1,1,0.25]]};
 		If (_targetTvValue isEqualTo Expanded) then {_ctrlTV TvExpand _movedSubtv};
 
-		if (_targetTvData isEqualTo "tvtab") then
+		if (_targettvData isEqualTo "tvtab") then
 		{
 			_ctrlTV tvSetPicture [_movedSubtv, "\loadoutManagement\UI\data\Tab_Icon.paa"];
 			_movedLoadouts = [];

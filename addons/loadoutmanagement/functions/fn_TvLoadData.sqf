@@ -42,8 +42,8 @@ if (_vANAData isEqualTo []) exitwith
 
 	call
 	{
-		if (_tvData isEqualTo "tvtab") exitwith {[_ctrlTV, [_tvPosition, _tvName], "FirstTimeSetup"] call VANA_fnc_tvCreateTab;};
-		if (_tvData isEqualTo "tvloadout") exitwith
+		if (_tvData isEqualTo "tvtab")  {[_ctrlTV, [_tvPosition, _tvName], "FirstTimeSetup"] call VANA_fnc_tvCreateTab;};
+		if (_tvData isEqualTo "tvloadout")
 		{
 			_loadoutNames pushBack _tvName;
 			[_ctrlTV, [_tvPosition, _tvName], "FirstTimeSetup"] call VANA_fnc_tvCreateLoadout;

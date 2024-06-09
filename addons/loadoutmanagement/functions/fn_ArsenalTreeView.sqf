@@ -183,7 +183,7 @@ switch toLower _mode do
 			["_expanded", false, [false]]
 		];
 
-		_ctrlTV TvSetValue [_targetTV, ([Collapsed, Expanded] Select _expanded)];
+		_ctrlTV TvSetValue [_targetTV, ([Collapsed, Expanded] select _expanded)];
 	};
 
 	///////////////////////////////////////////////////////////////////////////////////////////
@@ -556,7 +556,7 @@ switch toLower _mode do
 		} else {
 			//Load (Taken Directly from BIS_fnc_Arsenal and modified to work with treeview)
 			_center = (missionNamespace getVariable ["BIS_fnc_arsenal_center",player]);
-			if ((_ctrlTV TvValue _selectedTab) >= 0 && (_ctrlTV TvData _selectedTab) isEqualTo "tvloadout") then
+			if ((_ctrlTV TvValue _selectedTab) >= 0 && (_ctrlTV tvData _selectedTab) isEqualTo "tvloadout") then
 			{
 				_inventory = _ctrlTV tvText _selectedTab;
 

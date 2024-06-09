@@ -1,9 +1,3 @@
-#define BUTTON_CLICK "params ['_display'];\
-					 if !(_display getVariable ['Vana_Initialised', 0]) then\
-					 {\
-					 	_display displayCtrl 979000 ctrlShow 0;\
-					 }"
-
 #define QUOTE(var1) #var1
 
 #include "\a3\ui_f\hpp\defineCommonGrids.inc"
@@ -204,10 +198,10 @@ class RscDisplayArsenal
 				class VANA_Background: RscBackgroundGUI
 				{
 					idc = 979003;
-					y = QUOTE(1.GUI_GRID_CENTER_H);
+					y = QUOTE(GUI_GRID_CENTER_H);
 					w = QUOTE(18.8 * GUI_GRID_CENTER_W);
 					h = QUOTE(2.6 * GUI_GRID_CENTER_H);
-					colorBackground[] = {0.3, 0.3, 0.3, 0.8};
+					colorBackground[] = {0, 0, 0, 1};
 				};
 				class VANA_Text: RscStructuredText
 				{
@@ -221,8 +215,7 @@ class RscDisplayArsenal
 				class VANA_ButtonCancel: RscButtonMenuCancel
 				{
 					idc = 979005;
-					onButtonClick = BUTTON_CLICK;
-					// colorBackground[] = {0, 0, 0, 1.21};
+					onButtonClick = "_this call VANA_fnc_hidePopup";
 					y = QUOTE(3.8 * GUI_GRID_CENTER_H);
 					w = QUOTE(6.2 * GUI_GRID_CENTER_W);
 					h = QUOTE(GUI_GRID_CENTER_H);
@@ -230,7 +223,6 @@ class RscDisplayArsenal
 				class VANA_ButtonOK: VANA_ButtonCancel
 				{
 					idc = 979007;
-					onButtonClick = BUTTON_CLICK;
 					text = "$STR_VANA_ButtonOK_Text";
 					x = QUOTE(12.6 * GUI_GRID_CENTER_W);
 				};
@@ -243,7 +235,6 @@ class RscDisplayArsenal
 					y = QUOTE(2.65 * GUI_GRID_CENTER_H);
 					w = QUOTE(GUI_GRID_CENTER_W);
 					h = QUOTE(GUI_GRID_CENTER_H);
-					// colorBackground[] = {0, 0, 0, 1.21};
 				};
 				class VANA_CheckboxText: RscText
 				{

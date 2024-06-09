@@ -17,9 +17,9 @@ _arguments params
 ];
 
 _typeData = toLower _typeData;
-_exportDataArray = ([+_exportDataArray, 0] Select _count);
+_exportDataArray = ([+_exportDataArray, 0] select _count);
 
-for "_i" from 0 to (_ctrlTV tvCount _parentTv)-1 do
+for "_i" from 0 to (_ctrlTV tvCount _parentTv) - 1 do
 {
 	params ["_targetTV","_tvData","_dataExport"];
 
@@ -39,9 +39,9 @@ for "_i" from 0 to (_ctrlTV tvCount _parentTv)-1 do
 	];
 
 	//Add data to Export Array/Value
-	if (_typeData isEqualTo _tvData || _typeData isEqualTo "all") then
+	if (_typeData isEqualTo _tvData || _typeData == "all") then
 	{
-		call ([{_exportDataArray append [_dataExport]}, {_exportDataArray = _exportDataArray +1}] select _count);
+		call ([{_exportDataArray append [_dataExport]}, {_exportDataArray = _exportDataArray + 1}] select _count);
 	};
 
 	//Execute function for all Subtv's
