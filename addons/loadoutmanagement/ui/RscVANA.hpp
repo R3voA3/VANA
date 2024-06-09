@@ -1,7 +1,7 @@
 #define BUTTON_CLICK "params ['_display'];\
 					 if !(_display getVariable ['Vana_Initialised', 0]) then\
 					 {\
-					 	_display displayCtrl 979000 ctrlshow 0;\
+					 	_display displayCtrl 979000 ctrlShow 0;\
 					 }"
 
 #define QUOTE(var1) #var1
@@ -61,8 +61,8 @@ class RscDisplayArsenal
 {
 	scriptName = "VANAInit";
 	scriptPath = "VANAInit";
-	onLoad = "['onLoad', _this, 'VANAInit', 'VANAInit'] call (uinamespace getvariable 'BIS_fnc_initDisplay')";
-	onUnload = "['onUnload', _this, 'VANAInit', 'VANAInit'] call (uinamespace getvariable 'BIS_fnc_initDisplay')";
+	onLoad = "['onLoad', _this, 'VANAInit', 'VANAInit'] call (uiNamespace getVariable 'BIS_fnc_initDisplay')";
+	onUnload = "['onUnload', _this, 'VANAInit', 'VANAInit'] call (uiNamespace getVariable 'BIS_fnc_initDisplay')";
 	class Controls
 	{
 		class Template: RscControlsGroup //Save & Load UI
@@ -186,10 +186,10 @@ class RscDisplayArsenal
 					h = QUOTE(GUI_GRID_CENTER_H);
 					colorBackground[] =
 					{
-						"(profilenamespace getvariable ['GUI_BCG_RGB_R', 0.13])",
-						"(profilenamespace getvariable ['GUI_BCG_RGB_G', 0.54])",
-						"(profilenamespace getvariable ['GUI_BCG_RGB_B', 0.21])",
-						"(profilenamespace getvariable ['GUI_BCG_RGB_A', 1.21])"
+						"(profileNamespace getVariable ['GUI_BCG_RGB_R', 0.13])",
+						"(profileNamespace getVariable ['GUI_BCG_RGB_G', 0.54])",
+						"(profileNamespace getVariable ['GUI_BCG_RGB_B', 0.21])",
+						"(profileNamespace getVariable ['GUI_BCG_RGB_A', 1.21])"
 					};
 				};
 				class VANA_Picture: RscPictureKeepAspect

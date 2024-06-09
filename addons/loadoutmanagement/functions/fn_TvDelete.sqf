@@ -2,7 +2,7 @@ disableserialization;
 
 params
 [
-	["_ctrlTV", controlnull, [controlnull]],
+	["_ctrlTV", controlNull, [controlNull]],
 	["_targetTV", tvCurSel (_this select 0), [[]]],
 	"_tvName",
 	"_tvData",
@@ -36,8 +36,8 @@ switch _tvData do
 	case "tvloadout":
 	{
 		//Delete loadout from profiledata
-		_center = (missionnamespace getVariable ["BIS_fnc_arsenal_center", player]);
-		[_center, [profilenamespace, _tvName], nil, true] call BIS_fnc_saveInventory;
+		_center = (missionNamespace getVariable ["BIS_fnc_arsenal_center", player]);
+		[_center, [profileNamespace, _tvName], nil, true] call BIS_fnc_saveInventory;
 	};
 };
 

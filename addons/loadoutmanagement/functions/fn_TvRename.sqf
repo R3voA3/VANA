@@ -2,7 +2,7 @@ disableserialization;
 
 params
 [
-	["_ctrlTV", controlnull, [controlnull]],
+	["_ctrlTV", controlNull, [controlNull]],
 	["_arguments", [], [[]]],
 	"_tvData",
 	"_tvName",
@@ -23,7 +23,7 @@ _ctrlTV tvSetText [_targetTV, _Name];
 if (_tvData == "tvloadout") then
 {
 	//rename loadout in profile data
-	_LoadoutData = profilenamespace getVariable ["bis_fnc_saveInventory_Data",[]];
+	_LoadoutData = profileNamespace getVariable ["BIS_fnc_saveInventory_Data",[]];
 	_DataPosistion = _LoadoutData find _tvName;
 
 	_LoadoutData set [_DataPosistion, _Name];

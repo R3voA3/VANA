@@ -2,7 +2,7 @@ disableserialization;
 
 params
 [
-	["_ctrlTV", controlnull, [controlnull]],
+	["_ctrlTV", controlNull, [controlNull]],
 	["_arguments", [], [[]]],
 	["_ExportDataArray", [], [[],0]],
 	["_CheckSubTv", true, [true]],
@@ -12,8 +12,8 @@ params
 
 _arguments params
 [
-  ["_ParentTv", [], [[]]],
-  ["_typeData", "All", [""]]
+	["_ParentTv", [], [[]]],
+	["_typeData", "All", [""]]
 ];
 
 _typeData = toLower _typeData;
@@ -39,7 +39,7 @@ for "_i" from 0 to (_ctrlTV tvCount _ParentTv)-1 do
 	];
 
 	//Add data to Export Array/Value
-	if (_typeData isequalto _tvData || _typeData isequalto "all") then
+	if (_typeData isEqualTo _tvData || _typeData isEqualTo "all") then
 	{
 		call ([{_ExportDataArray append [_DataExport]}, {_ExportDataArray = _ExportDataArray +1}] select _Count);
 	};

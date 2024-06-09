@@ -2,7 +2,7 @@ disableserialization;
 
 params
 [
-	["_ctrlTV", controlnull, [controlnull]],
+	["_ctrlTV", controlNull, [controlNull]],
 	["_arguments", [], [[]]],
 	["_behavior", "", [""]],
 	"_tvData",
