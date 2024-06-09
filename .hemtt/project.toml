@@ -27,8 +27,9 @@ workshop = [
 	"1751569185",	# Pythia
 	"1387934106",	# 7erra's Editing Extensions
 	"2073243184",	# 3Den Stringtable Viewer
+	"623475643",	# 3den Enhanced
 ]
 
-mission = "scriptLibrary.VR" # Mission to launch directly into the editor with
+mission = "VANA.VR" # Mission to launch directly into the editor with
 
 executable = "arma3_x64"

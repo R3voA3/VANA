@@ -2,7 +2,6 @@ disableserialization;
 
 #define EndSegment(BOOL)\
 	[_ctrlTV, ([_ctrlTV, [[], "TvLoadout"]] call VANA_fnc_tvGetData)] call VANA_fnc_tvValidateLoadouts;\
-	diag_log text "[VANA_fnc_tvLoadData]: Data loaded.";\
 	BOOL
 
 params
@@ -18,10 +17,8 @@ _vANAData = +_vANAData;
 _loadoutData = profileNamespace getVariable ["BIS_fnc_saveInventory_Data",[]];
 _loadoutNames = [];
 
-diag_log text "[VANA_fnc_tvLoadData]: Loading Data...";
-
 //Create all loadouts if there is no saved data
-if (_vANAData isEqualTo []) exitwith
+if (_vANAData isEqualTo []) exitWith
 {
 	{
 		[_ctrlTV, [[], _x], "FirstTimeSetup"] call VANA_fnc_tvCreateLoadout;
@@ -42,8 +39,8 @@ if (_vANAData isEqualTo []) exitwith
 
 	call
 	{
-		if (_tvData isEqualTo "tvtab")  {[_ctrlTV, [_tvPosition, _tvName], "FirstTimeSetup"] call VANA_fnc_tvCreateTab;};
-		if (_tvData isEqualTo "tvloadout")
+		if (_tvData == "tvtab") exitWith {[_ctrlTV, [_tvPosition, _tvName], "FirstTimeSetup"] call VANA_fnc_tvCreateTab;};
+		if (_tvData == "tvloadout") exitWith
 		{
 			_loadoutNames pushBack _tvName;
 			[_ctrlTV, [_tvPosition, _tvName], "FirstTimeSetup"] call VANA_fnc_tvCreateLoadout;

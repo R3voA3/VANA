@@ -9,7 +9,7 @@ params
 	"_targetTvLoadouts"
 ];
 
-if (_parentTv isEqualTo [-1]) exitwith {false};
+if (_parentTv isEqualTo [-1]) exitWith {false};
 
 //Add ! to all loadouts
 _targetTvLoadouts = [_ctrlTV, [_parentTv, "Tvloadout"], [], false] call VANA_fnc_tvGetData;

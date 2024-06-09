@@ -6,8 +6,7 @@ params
 	["_arguments", [], [[]]],
 	["_exportDataArray", [], [[],0]],
 	["_checkSubTv", true, [true]],
-	["_count", false, [false]],
-	"_exportDataArray"
+	["_count", false, [false]]
 ];
 
 _arguments params
@@ -17,7 +16,7 @@ _arguments params
 ];
 
 _typeData = toLower _typeData;
-_exportDataArray = ([+_exportDataArray, 0] select _count);
+private _exportDataArray = ([+_exportDataArray, 0] select _count);
 
 for "_i" from 0 to (_ctrlTV tvCount _parentTv) - 1 do
 {

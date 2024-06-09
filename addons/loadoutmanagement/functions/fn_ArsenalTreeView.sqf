@@ -2,25 +2,7 @@ disableserialization;
 
 #include "\a3\ui_f\hpp\defineDIKCodes.inc"
 #include "\a3\ui_f\hpp\defineResinclDesign.inc"
-#include "\v\vana\addons\loadoutmanagement\defineResinclDesignVANA.hpp"
-
-#define ShowUI(BOOL)\
-	private _ctrlTemplate = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENAL_TEMPLATE_TEMPLATE;\
-	_ctrlTemplate ctrlsetfade (1 - parseNumber BOOL);\
-	_ctrlTemplate ctrlcommit 0;\
-	_ctrlTemplate ctrlEnable BOOL;\
-	private _ctrlMouseBlock = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENAL_MOUSEBLOCK;\
-	_ctrlMouseBlock ctrlEnable BOOL;
-
-#define ShowSaveUIParts(BOOL)\
-	{\
-		private _ctrl = _arsenalDisplay displayCtrl _x;\
-		_ctrl ctrlShow BOOL;\
-		_ctrl ctrlEnable BOOL;\
-	} foreach [IDC_RSCDISPLAYARSENAL_TEMPLATE_TEXTNAME,IDC_RSCDISPLAYARSENAL_TEMPLATE_EDITNAME,IDC_RSCDISPLAYARSENAL_VANA_DecorativeBar];
-
-#define Expanded 1
-#define Collapsed 0
+#include "\v\vana\addons\loadoutmanagement\defines.inc"
 
 params
 [
@@ -42,45 +24,45 @@ switch toLower _mode do
 		_arsenalDisplay displayseteventhandler ["keyDown","[(_this select 0), 'KeyDown', _this] call VANA_fnc_ArsenalTreeView;"];
 
 		_ctrlTV = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENAL_TEMPLATE_VALUENAME;
-		_ctrlTV ctrlAddeventHandler ["TreeSelChanged","[ctrlparent (_this select 0), 'TreeViewSelChanged'] call VANA_fnc_ArsenalTreeView;"];
-		_ctrlTV ctrlAddeventHandler ["TreeDblClick","[ctrlparent (_this select 0), 'TreeDblClick'] call VANA_fnc_ArsenalTreeView;"];
-		_ctrlTV ctrlAddeventHandler ["MouseMoving", "[ctrlparent (_this select 0), 'MouseMove', _this] call VANA_fnc_ArsenalTreeView;"];
+		_ctrlTV ctrlAddEventHandler ["TreeSelChanged","[ctrlparent (_this select 0), 'TreeViewSelChanged'] call VANA_fnc_ArsenalTreeView;"];
+		_ctrlTV ctrlAddEventHandler ["TreeDblClick","[ctrlparent (_this select 0), 'TreeDblClick'] call VANA_fnc_ArsenalTreeView;"];
+		_ctrlTV ctrlAddEventHandler ["MouseMoving", "[ctrlparent (_this select 0), 'MouseMove', _this] call VANA_fnc_ArsenalTreeView;"];
 
-		_ctrlTV ctrlAddeventHandler ["TreeExpanded", "[ctrlparent (_this select 0), 'SubTvToggle', (_this + [true])] call VANA_fnc_ArsenalTreeView;"];
-		_ctrlTV ctrlAddeventHandler ["TreeCollapsed", "[ctrlparent (_this select 0), 'SubTvToggle', (_this + [false])] call VANA_fnc_ArsenalTreeView;"];
+		_ctrlTV ctrlAddEventHandler ["TreeExpanded", "[ctrlparent (_this select 0), 'SubTvToggle', (_this + [true])] call VANA_fnc_ArsenalTreeView;"];
+		_ctrlTV ctrlAddEventHandler ["TreeCollapsed", "[ctrlparent (_this select 0), 'SubTvToggle', (_this + [false])] call VANA_fnc_ArsenalTreeView;"];
 
-		_ctrlTV ctrlAddeventHandler ["MouseButtonDown","[ctrlparent (_this select 0), 'TvDragDrop', ['MouseDown']] spawn VANA_fnc_ArsenalTreeView;"];
-		_ctrlTV ctrlAddeventHandler ["TreeMouseMove","[ctrlparent (_this select 0), 'TvDragDrop', ['MouseMove', _this]] spawn VANA_fnc_ArsenalTreeView;"];
-		_ctrlTV ctrlAddeventHandler ["MouseButtonUp","[ctrlparent (_this select 0), 'TvDragDrop', ['MouseUp']] spawn VANA_fnc_ArsenalTreeView;"];
+		_ctrlTV ctrlAddEventHandler ["MouseButtonDown","[ctrlparent (_this select 0), 'TvDragDrop', ['MouseDown']] spawn VANA_fnc_ArsenalTreeView;"];
+		_ctrlTV ctrlAddEventHandler ["TreeMouseMove","[ctrlparent (_this select 0), 'TvDragDrop', ['MouseMove', _this]] spawn VANA_fnc_ArsenalTreeView;"];
+		_ctrlTV ctrlAddEventHandler ["MouseButtonUp","[ctrlparent (_this select 0), 'TvDragDrop', ['MouseUp']] spawn VANA_fnc_ArsenalTreeView;"];
 
 		_ctrlTemplateEdit = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENAL_TEMPLATE_EDITNAME;
-		_ctrlTemplateEdit ctrlAddeventHandler ["KeyDown","[ctrlparent (_this select 0), 'CheckOverWrite'] spawn VANA_fnc_ArsenalTreeView;"];
-		_ctrlTemplateEdit ctrlAddeventHandler ["char","[ctrlparent (_this select 0), 'CheckOverWrite'] spawn VANA_fnc_ArsenalTreeView;"];
+		_ctrlTemplateEdit ctrlAddEventHandler ["KeyDown","[ctrlparent (_this select 0), 'CheckOverWrite'] spawn VANA_fnc_ArsenalTreeView;"];
+		_ctrlTemplateEdit ctrlAddEventHandler ["char","[ctrlparent (_this select 0), 'CheckOverWrite'] spawn VANA_fnc_ArsenalTreeView;"];
 
 		_ctrlButtonSave = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENAL_CONTROLSBAR_BUTTONSAVE;
-		_ctrlButtonSave ctrlAddeventHandler ["buttonclick","[ctrlparent (_this select 0), 'ButtonSave'] call VANA_fnc_ArsenalTreeView;"];
+		_ctrlButtonSave ctrlAddEventHandler ["buttonclick","[ctrlparent (_this select 0), 'ButtonSave'] call VANA_fnc_ArsenalTreeView;"];
 
 		_ctrlButtonLoad = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENAL_CONTROLSBAR_BUTTONLOAD;
-		_ctrlButtonLoad ctrlAddeventHandler ["buttonclick","[ctrlparent (_this select 0), 'ButtonLoad'] call VANA_fnc_ArsenalTreeView;"];
+		_ctrlButtonLoad ctrlAddEventHandler ["buttonclick","[ctrlparent (_this select 0), 'ButtonLoad'] call VANA_fnc_ArsenalTreeView;"];
 
 		_ctrlTemplateOKButton = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENAL_TEMPLATE_BUTTONOK;
-		_ctrlTemplateOKButton ctrlAddeventHandler ["buttonclick","[ctrlparent (_this select 0), 'ButtonTemplateOK'] call VANA_fnc_ArsenalTreeView;"];
+		_ctrlTemplateOKButton ctrlAddEventHandler ["buttonclick","[ctrlparent (_this select 0), 'ButtonTemplateOK'] call VANA_fnc_ArsenalTreeView;"];
 
 		_ctrlButtonTabCreate = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENAL_VANA_ButtonTabCreate;
-		_ctrlButtonTabCreate ctrlAddeventHandler ["buttonclick","[ctrlparent (_this select 0), 'Create'] call VANA_fnc_ArsenalTreeView;"];
+		_ctrlButtonTabCreate ctrlAddEventHandler ["buttonclick","[ctrlparent (_this select 0), 'Create'] call VANA_fnc_ArsenalTreeView;"];
 
 		_ctrlButtonRename = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENAL_VANA_ButtonRename;
-		_ctrlButtonRename ctrlAddeventHandler ["buttonclick","[ctrlparent (_this select 0), 'Rename'] spawn VANA_fnc_ArsenalTreeView;"];
+		_ctrlButtonRename ctrlAddEventHandler ["buttonclick","[ctrlparent (_this select 0), 'Rename'] spawn VANA_fnc_ArsenalTreeView;"];
 
 		_ctrlDeleteButton = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENAL_TEMPLATE_BUTTONDELETE;
-		_ctrlDeleteButton ctrlAddeventHandler ["buttonclick","[ctrlparent (_this select 0), 'Delete'] spawn VANA_fnc_ArsenalTreeView;"];
+		_ctrlDeleteButton ctrlAddEventHandler ["buttonclick","[ctrlparent (_this select 0), 'Delete'] spawn VANA_fnc_ArsenalTreeView;"];
 
 		//Load and Sort treeview
 		[_ctrlTV] call VANA_fnc_tvLoadData;
 		[_ctrlTV] call VANA_fnc_tvSorting;
 
-		TvCollapseAll _ctrlTV;
-		_ctrlTV TvExpand [];
+		tvCollapseAll _ctrlTV;
+		_ctrlTV tvExpand [];
 		_ctrlTV tvSetCurSel [0];
 
 		true
@@ -166,8 +148,8 @@ switch toLower _mode do
 		if (ctrlEnabled _ctrlTemplateEdit) then
 		{
 			_duplicate = _name in _loadoutData;
-			_ctrlTemplateBUTTONOK Ctrlsettext (["Save", "Replace"] select _duplicate);
-			_ctrlTemplateBUTTONOK Ctrlenable ([true, false] select (_name isEqualTo ""));
+			_ctrlTemplateBUTTONOK ctrlSetText (["Save", "Replace"] select _duplicate);
+			_ctrlTemplateBUTTONOK ctrlEnable ([true, false] select (_name isEqualTo ""));
 
 			_duplicate
 		};
@@ -183,7 +165,7 @@ switch toLower _mode do
 			["_expanded", false, [false]]
 		];
 
-		_ctrlTV TvSetValue [_targetTV, ([Collapsed, Expanded] select _expanded)];
+		_ctrlTV tvSetValue [_targetTV, ([COLLAPSED, EXPANDED] select _expanded)];
 	};
 
 	///////////////////////////////////////////////////////////////////////////////////////////
@@ -195,7 +177,7 @@ switch toLower _mode do
 		_selectedTab = tvCurSel _ctrlTV;
 		_tvData = toLower (_ctrlTV tvData _selectedTab);
 
-		if !(_ctrlTV getVariable ["MouseInTreeView", true]) exitwith {false};
+		if !(_ctrlTV getVariable ["MouseInTreeView", true]) exitWith {false};
 
 		switch _tvData do
 		{
@@ -207,8 +189,8 @@ switch toLower _mode do
 			case "tvtab":
 			{
 				//Expand or Collapse Tab
-				_tvCollapsed = (_ctrlTV TvValue _selectedTab) isEqualTo Collapsed;
-				call ([{_ctrlTV TvCollapse _selectedTab}, {_ctrlTV TvExpand _selectedTab}] select _tvCollapsed);
+				_tvCollapsed = (_ctrlTV TvValue _selectedTab) isEqualTo COLLAPSED;
+				call ([{_ctrlTV TvCollapse _selectedTab}, {_ctrlTV tvExpand _selectedTab}] select _tvCollapsed);
 
 				[_arsenalDisplay, "SubTvToggle", [_ctrlTV, _selectedTab, ([false, true] select _tvCollapsed)]] call VANA_fnc_ArsenalTreeView;
 				true
@@ -303,7 +285,7 @@ switch toLower _mode do
 					{
 						_ctrlTvUIPopup setVariable ["TvUIPopup_Status",false];
 					} else {
-						ShowUI(false)
+						SHOW_UI(false)
 					};
 				} else {
 					private _fullVersion = missionNamespace getVariable ["BIS_fnc_arsenal_fullArsenal", false];
@@ -333,7 +315,7 @@ switch toLower _mode do
 			Default
 			{
 				//Allow Ctrl + C in edit bars
-				if ((_key == DIK_C && _ctrl) && (_inTemplate || _inPopupUI)) exitwith {};
+				if ((_key == DIK_C && _ctrl) && (_inTemplate || _inPopupUI)) exitWith {};
 
 				if ((_inTemplate || _inPopupUI) && _key == DIK_TAB) then
 				{
@@ -381,7 +363,7 @@ switch toLower _mode do
 		_fncMode = toLower (_fncReturn select 0);
 		_fncArguments = _fncReturn select 1;
 
-		if (!(_fncMode isEqualTo "dragdropfnc") || !(_fncArguments isEqualType [])) exitwith {false};
+		if (!(_fncMode isEqualTo "dragdropfnc") || !(_fncArguments isEqualType [])) exitWith {false};
 
 		_tvParent = _fncArguments call VANA_fnc_tvGetParent;
 
@@ -399,7 +381,7 @@ switch toLower _mode do
 		_ctrlTV = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENAL_TEMPLATE_VALUENAME;
 		_fncReturn = [_ctrlTV] call VANA_fnc_tvCreateTab;
 
-		if (_fncReturn isEqualTo [-1]) exitwith {false};
+		if (_fncReturn isEqualTo [-1]) exitWith {false};
 
 		_tvParent = _fncReturn call VANA_fnc_tvGetParent;
 
@@ -424,7 +406,7 @@ switch toLower _mode do
 
 			_fncReturn = [_ctrlTV, _targetTV] call VANA_fnc_tvDelete;
 
-			if !(_fncReturn isEqualType []) exitwith {false};
+			if !(_fncReturn isEqualType []) exitWith {false};
 
 			_tvParent = _fncReturn call VANA_fnc_tvGetParent;
 
@@ -435,7 +417,7 @@ switch toLower _mode do
 			true
 		};
 
-		if (_targetTV isEqualTo []) exitwith {false};
+		if (_targetTV isEqualTo []) exitWith {false};
 
 		if !(Profilenamespace getVariable ["TEMP_Popup_Value", false]) then
 		{
@@ -458,7 +440,7 @@ switch toLower _mode do
 
 		_return = [_arsenalDisplay, "Rename"] call VANA_fnc_UIPopup;
 
-		if !_return exitwith {false};
+		if !_return exitWith {false};
 
 		_targetTV = tvCurSel _ctrlTV;
 		_name = ctrlText _ctrlRenameEdit;
@@ -479,8 +461,8 @@ switch toLower _mode do
 	{
 		params ["_ctrlTV"];
 
-		ShowUI(true)
-		ShowSaveUIParts(false)
+		SHOW_UI(true)
+		SHOW_SAVE_UI_PARTS(false)
 		ctrlSetFocus _ctrlMouseBlock;
 
 		//Show "Load"
@@ -506,8 +488,8 @@ switch toLower _mode do
 	{
 		params ["_ctrlTemplateTitle","_ctrlTemplateEdit","_ctrlTV"];
 
-		ShowUI(true)
-		ShowSaveUIParts(true)
+		SHOW_UI(true)
+		SHOW_SAVE_UI_PARTS(true)
 
 		//Show "Save"
 		_ctrlTemplateTitle = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENAL_TEMPLATE_TITLE;
@@ -546,7 +528,7 @@ switch toLower _mode do
 			_loadoutName = ctrlText _ctrlTemplateEdit;
 			_fncReturn = [_ctrlTV, _loadoutName] call VANA_fnc_tvSaveLoadout;
 
-			if (_fncReturn select 0 isEqualTo [-1]) exitwith {};
+			if (_fncReturn select 0 isEqualTo [-1]) exitWith {};
 
 			_tvParent = (_fncReturn select 0) call VANA_fnc_tvGetParent;
 
@@ -589,7 +571,7 @@ switch toLower _mode do
 
 		if _hideTemplate then
 		{
-			ShowUI(false)
+			SHOW_UI(false)
 		};
 
 		true

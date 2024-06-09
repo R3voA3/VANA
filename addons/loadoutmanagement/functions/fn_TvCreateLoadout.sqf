@@ -19,7 +19,7 @@ _arguments params
 _behavior = toLower _behavior;
 _loadoutData = profileNamespace getVariable ["BIS_fnc_saveInventory_data",[]];
 
-If !(_loadoutName in _loadoutData) exitwith {[[-1], ""]};
+If !(_loadoutName in _loadoutData) exitWith {[[-1], ""]};
 
 //Create Loadout in treeview
 _loadoutPath = +_targetTV;

@@ -64,7 +64,7 @@ GETVIRTUALCARGO
 			(_inventoryData select 8 select 0) //Handgun
 		] - [""];
 
-		if ({_item = _x; !CONDITION(_virtualWeaponCargo) || !isClass(configFile >> "cfgweapons" >> _item)} count _inventoryDataWeapons > 0) exitwith {MarkTv};
+		if ({_item = _x; !CONDITION(_virtualWeaponCargo) || !isClass(configFile >> "cfgweapons" >> _item)} count _inventoryDataWeapons > 0) exitWith {MarkTv};
 
 		//Second Phase Validation
 		_inventoryDataMagazines =
@@ -74,7 +74,7 @@ GETVIRTUALCARGO
 			(_inventoryData select 2 select 1) //Backpack items
 		) - [""];
 
-		if ({_item = _x; !CONDITION(_virtualItemCargo + _virtualMagazineCargo) || {isClass(configFile >> _x >> _item)} count ["cfgweapons","cfgglasses","cfgmagazines"] == 0} count _inventoryDataMagazines > 0) exitwith {MarkTv};
+		if ({_item = _x; !CONDITION(_virtualItemCargo + _virtualMagazineCargo) || {isClass(configFile >> _x >> _item)} count ["cfgweapons","cfgglasses","cfgmagazines"] == 0} count _inventoryDataMagazines > 0) exitWith {MarkTv};
 
 		//Third Phase Validation
 		_inventoryDataItems =
@@ -90,12 +90,12 @@ GETVIRTUALCARGO
 			(_inventoryData select 9) //Assigned items
 		) - [""];
 
-		if ({_item = _x; !CONDITION(_virtualItemCargo + _virtualMagazineCargo) || {isClass(configFile >> _x >> _item)} count ["cfgweapons","cfgglasses","cfgmagazines"] == 0} count _inventoryDataItems > 0) exitwith {MarkTv};
+		if ({_item = _x; !CONDITION(_virtualItemCargo + _virtualMagazineCargo) || {isClass(configFile >> _x >> _item)} count ["cfgweapons","cfgglasses","cfgmagazines"] == 0} count _inventoryDataItems > 0) exitWith {MarkTv};
 
 		//Forth Phase Validation
 		_inventoryDataBackpacks = [_inventoryData select 2 select 0] - [""];
 
-		if ({_item = _x; !CONDITION(_virtualBackpackCargo) || !isClass(configFile >> "cfgvehicles" >> _item)} count _inventoryDataBackpacks > 0) exitwith {MarkTv};
+		if ({_item = _x; !CONDITION(_virtualBackpackCargo) || !isClass(configFile >> "cfgvehicles" >> _item)} count _inventoryDataBackpacks > 0) exitWith {MarkTv};
 	};
 } foreach _targetLoadouts;
 

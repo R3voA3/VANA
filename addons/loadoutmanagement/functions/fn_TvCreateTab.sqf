@@ -42,7 +42,7 @@ else
 _newSubTvPath pushBack _addSubTV;
 
 _ctrlTV tvSetData [_newSubTVPath, "tvtab"];
-_ctrlTV tvSetPicture [_newSubTVPath, "\loadoutManagement\UI\data\Tab_Icon.paa"];
+_ctrlTV tvSetPicture [_newSubTVPath, "a3\3den\data\cfg3den\layer\icon_ca.paa"];
 
 if !(_behavior in ["firsttimesetup", "dragdrop"]) then {_ctrlTV tvExpand _path;};
 

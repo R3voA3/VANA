@@ -23,7 +23,7 @@ switch _tvData do
 	case "tvtab":
 	{
 		//Recreates all loadouts under tab
-		_targetTVChildren = [_ctrlTV, [_targetTV]] call VANA_fnc_zvGetData;
+		_targetTVChildren = [_ctrlTV, [_targetTV]] call VANA_fnc_tvGetData;
 
 		{
 			if (toLower (_x select 2) == "tvloadout") then

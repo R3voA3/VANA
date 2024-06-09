@@ -115,7 +115,7 @@ class RscDisplayArsenal
 					idc = 978000;
 					text = "v\vana\addons\loadoutmanagement\data\logoSmall_ca.paa";
 					x = QUOTE(18.2 * GUI_GRID_CENTER_W);
-					// y = QUOTE(0.GUI_GRID_CENTER_H);
+					y = QUOTE(0.1 * GUI_GRID_CENTER_H);
 					w = QUOTE(1.6 * GUI_GRID_CENTER_W);
 					h = QUOTE(0.80 * GUI_GRID_CENTER_H);
 				};
@@ -132,7 +132,7 @@ class RscDisplayArsenal
 				class VANA_ButtonCreate: RscVANAPictureButton
 				{
 					idc = 978002;
-					text = "v\vana\addons\loadoutmanagement\data\buttonTabCreate.paa";
+					text = "a3\3den\data\displays\display3den\panelleft\entitylist_layer_ca.paa";
 					tooltip = "$STR_VANA_ButtonCreate_ToolTip";
 					x = QUOTE(18.5 * GUI_GRID_CENTER_W);
 					y = QUOTE(19.6 * GUI_GRID_CENTER_H);
@@ -142,7 +142,7 @@ class RscDisplayArsenal
 				class VANA_ButtonRename: VANA_ButtonCreate
 				{
 					idc = 978003;
-					text = "v\vana\addons\loadoutmanagement\data\buttonRename.paa";
+					text = "a3\3den\data\displays\display3den\panelright\customcomposition_edit_ca.paa";
 					tooltip = "$STR_VANA_ButtonRename_ToolTip";
 					x = QUOTE(17.3  * GUI_GRID_CENTER_W);
 				};

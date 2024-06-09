@@ -27,7 +27,7 @@ _center = (missionNamespace getVariable ["BIS_fnc_arsenal_center",player]);
 ] call BIS_fnc_saveInventory;
 
 //Find and Validate Updated Loadout
-if _duplicateLoadout exitwith
+if _duplicateLoadout exitWith
 {
 	[_ctrlTV, [([_ctrlTV, [[-1], _loadoutName], "TvLoadout"] Call VANA_fnc_tvGetPosition), _loadoutName]] call VANA_fnc_tvValidateLoadout;
 	["showMessage",[(ctrlparent _ctrlTV), (format ["Replaced existing loadout: ""%1""", _loadoutName])]] spawn BIS_fnc_arsenal;
