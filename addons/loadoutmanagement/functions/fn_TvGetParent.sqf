@@ -1,6 +1,6 @@
 disableserialization;
 
-private _targetTV = +_This;
+private _targetTV = +_this;
 
 if !(_targetTV isEqualTo []) then
 {

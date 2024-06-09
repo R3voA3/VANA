@@ -6,27 +6,27 @@ params
 	["_arguments", [], [[]]],
 	"_tvData",
 	"_tvName",
-	"_LoadoutData",
-	"_DataPosistion"
+	"_loadoutData",
+	"_dataPosistion"
 ];
 
 _arguments params
 [
 	["_targetTV", (tvCurSel _ctrlTV), [[]]],
-	["_Name", "", [""]]
+	["_name", "", [""]]
 ];
 
 _tvData = toLower (_ctrlTV tvData _targetTV);
 _tvName = _ctrlTV tvText _targetTV;
 
-_ctrlTV tvSetText [_targetTV, _Name];
+_ctrlTV tvSetText [_targetTV, _name];
 if (_tvData == "tvloadout") then
 {
 	//rename loadout in profile data
-	_LoadoutData = profileNamespace getVariable ["BIS_fnc_saveInventory_Data",[]];
-	_DataPosistion = _LoadoutData find _tvName;
+	_loadoutData = profileNamespace getVariable ["BIS_fnc_saveInventory_Data",[]];
+	_dataPosistion = _loadoutData find _tvName;
 
-	_LoadoutData set [_DataPosistion, _Name];
+	_loadoutData set [_dataPosistion, _name];
 	saveProfileNamespace;
 };
 

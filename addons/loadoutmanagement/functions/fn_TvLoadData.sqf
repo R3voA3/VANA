@@ -8,52 +8,52 @@ disableserialization;
 params
 [
 	["_ctrlTV", controlNull, [controlNull]],
-	["_VANAData", (profileNamespace getVariable ["VANA_fnc_treeViewSave_Data",[]]), [[]]],
+	["_vANAData", (profileNamespace getVariable ["VANA_fnc_treeViewSave_Data",[]]), [[]]],
 	//Form wich data is saved in is [["Name",[Position],"DataType",Value],["Name",[Position],"DataType",Value],["Name",[Position],"DataType",Value]] ect.
-	"_LoadoutData",
-	"_LoadoutNames"
+	"_loadoutData",
+	"_loadoutNames"
 ];
 
-_vANAData = +_VANAData;
+_vANAData = +_vANAData;
 _loadoutData = profileNamespace getVariable ["BIS_fnc_saveInventory_Data",[]];
 _loadoutNames = [];
 
 diag_log text "[VANA_fnc_tvLoadData]: Loading Data...";
 
 //Create all loadouts if there is no saved data
-if (_VANAData isEqualTo []) exitwith
+if (_vANAData isEqualTo []) exitwith
 {
 	{
 		[_ctrlTV, [[], _x], "FirstTimeSetup"] call VANA_fnc_tvCreateLoadout;
-	} foreach (_LoadoutData select {_x isEqualType ""});
+	} foreach (_loadoutData select {_x isEqualType ""});
 
 	EndSegment(false)
 };
 
 //Send data to co responding create fucntions
 {
-	params ["_tvName","_TvPosition","_tvData"];
+	params ["_tvName","_tvPosition","_tvData"];
 
 	_tvName = _x select 0;
-	_TvPosition = +_x select 1;
+	_tvPosition = +_x select 1;
 	_tvData = toLower (_x select 2);
 
-	_TvPosition resize (count _TvPosition-1);
+	_tvPosition resize (count _tvPosition-1);
 
 	call
 	{
-		if (_tvData isEqualTo "tvtab") exitwith {[_ctrlTV, [_TvPosition, _tvName], "FirstTimeSetup"] call VANA_fnc_tvCreateTab;};
+		if (_tvData isEqualTo "tvtab") exitwith {[_ctrlTV, [_tvPosition, _tvName], "FirstTimeSetup"] call VANA_fnc_tvCreateTab;};
 		if (_tvData isEqualTo "tvloadout") exitwith
 		{
-			_LoadoutNames pushBack _tvName;
-			[_ctrlTV, [_TvPosition, _tvName], "FirstTimeSetup"] call VANA_fnc_tvCreateLoadout;
+			_loadoutNames pushBack _tvName;
+			[_ctrlTV, [_tvPosition, _tvName], "FirstTimeSetup"] call VANA_fnc_tvCreateLoadout;
 		};
 	};
-} foreach _VANAData;
+} foreach _vANAData;
 
 //Create loadouts that werent created
 {
 	[_ctrlTV, [[], _x]] call VANA_fnc_tvCreateLoadout;
-} foreach (_LoadoutData select {_x isEqualType "" && !(_x in _LoadoutNames)});
+} foreach (_loadoutData select {_x isEqualType "" && !(_x in _loadoutNames)});
 
 EndSegment(true)
