@@ -56,7 +56,3 @@
 
 #define EXPANDED 1
 #define COLLAPSED 0
-
-#define ACTION_NOT_IN_PROGRESS 0
-#define ACTION_IN_PROGRESS 1
-#define ACTION_WAITING 2

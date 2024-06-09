@@ -18,17 +18,28 @@ switch (toLower _mode) do
 		//Check if user is using scroll bar
 		If !(_ctrlTV getVariable ["MouseInTreeView", true]) exitWith {["mousedown", false]};
 
-		//Tell script to get Target
+		//Tell script to get target
 		_ctrlTV setVariable ["TvDragDrop_GetTarget", true];
 
 		//Double check user is initiating TvDragDrop action
 		_ctrlTV setVariable ["TvDragDrop_InAction", "Double Check"];
+
 		sleep 0.1;
 
 		_inAction = _ctrlTV getVariable ["TvDragDrop_InAction", false];
-		_ctrlTV setVariable ["TvDragDrop_InAction", ([false, true] select (_inAction == "Double Check"))];
 
-		["mousedown", (_ctrlTV getVariable ["TvDragDrop_InAction", false])]
+		private _finalActionState = if (_inAction isEqualType "") then
+		{
+			true
+		}
+		else
+		{
+			false
+		};
+
+		_ctrlTV setVariable ["TvDragDrop_InAction", _finalActionState];
+
+		["mousedown", _finalActionState]
 	};
 	case "mousemove":
 	{
@@ -48,7 +59,7 @@ switch (toLower _mode) do
 			_return = ["mousemove", true];
 		};
 
-		//Get release Subtv
+		//Get release sub tv
 		if (_inAction isEqualType true && {_inAction}) then
 		{
 			_ctrlTV setVariable ["TvDragDrop_ReleaseTv", _cursorTab];
@@ -60,21 +71,21 @@ switch (toLower _mode) do
 	};
 	case "mouseup":
 	{
-		params ["_fncReturn", "_targetTV", "_releaseTv"];
+		params ["_fncReturn", "_targetTV", "_releaseTV"];
 
 		_targetTV = _ctrlTV getVariable ["TvDragDrop_targetTv", [-1]];
-		_releaseTv = _ctrlTV getVariable ["TvDragDrop_ReleaseTv", [-1]];
+		_releaseTV = _ctrlTV getVariable ["TvDragDrop_ReleaseTv", [-1]];
 
-		//Clear Values
+		//Clear values
 		_ctrlTV setVariable ["TvDragDrop_InAction", nil];
 		_ctrlTV setVariable ["TvDragDrop_GetTarget", nil];
 		_ctrlTV setVariable ["TvDragDrop_targetTv", nil];
 		_ctrlTV setVariable ["TvDragDrop_ReleaseTv", nil];
 
 		//Call TvDragDrop function
-		if !(_targetTV isEqualTo [-1]) exitWith
+		if (_targetTV isNotEqualTo [-1]) exitWith
 		{
-			_fncReturn = [_ctrlTV, "DragDropFnc", [_targetTV, _releaseTv]] call VANA_fnc_tvDragDrop;
+			_fncReturn = [_ctrlTV, "DragDropFnc", [_targetTV, _releaseTV]] call VANA_fnc_tvDragDrop;
 
 			["DragDropFnc", _fncReturn]
 		};
@@ -86,58 +97,49 @@ switch (toLower _mode) do
 		_arguments params
 		[
 			["_targetTV", [-1], [[]]],
-			["_releaseTv", [-1], [[]]],
-			"_targettvData",
-			"_targetTvText",
-			"_targetTvValue",
-			"_targetTvParent",
-			"_isParent",
-			"_isChild",
-			"_movedSubtv",
-			"_movedLoadouts",
-			"_newSubTVPath",
-			"_movedSubtvGrandParent"
+			["_releaseTV", [-1], [[]]]
 		];
 
-		_targettvData = _ctrlTV tvData _targetTV;
-		_targetTvText = _ctrlTV tvText _targetTV;
-		_targetTvValue = _ctrlTV tvValue _targetTV;
+		private _targettvData = _ctrlTV tvData _targetTV;
+		private _targetTvText = _ctrlTV tvText _targetTV;
+		private _targetTvValue = _ctrlTV tvValue _targetTV;
 
 		//Making sure the DragDrop action is valid
-		if (_releaseTv isEqualTo [-1] || _targetTV isEqualTo [] || _targetTV isEqualTo _releaseTv) exitWith {false};
+		if (_releaseTV isEqualTo [-1] || _targetTV isEqualTo [] || _targetTV isEqualTo _releaseTV) exitWith {false};
 
-		if (_ctrlTV tvData _releaseTv isEqualTo "tvloadout") then
+		if (_ctrlTV tvData _releaseTV isEqualTo "tvloadout") then
 		{
-			_releaseTv = _releaseTv call VANA_fnc_tvGetParent;
+			_releaseTV = _releaseTV call VANA_fnc_tvGetParent;
 		};
-		_targetTvParent = _targetTV call VANA_fnc_tvGetParent;
 
-		//Making sure the DragDrop action is valid
-		_isParent = _targetTvParent isEqualTo _releaseTv;
-		_isChild = _releaseTv select [0, (count _targetTV)] isEqualTo _targetTV;
+		private _targetTvParent = _targetTV call VANA_fnc_tvGetParent;
+
+		//Making sure the Drag & Drop action is valid
+		private _isParent = _targetTvParent isEqualTo _releaseTV;
+		private _isChild = _releaseTV select [0, count _targetTV] isEqualTo _targetTV;
 
 		if (_isParent || _isChild) exitWith {false};
 
-		//Create Moved SubTv
-		_movedSubtv = +_releaseTv;
-		_newSubTVPath = _ctrlTV tvadd [_releaseTv, _targetTvText];
+		//Create moved sub tv
+		private _movedSubtv = +_releaseTV;
+		private _newSubTVPath = _ctrlTV tvadd [_releaseTV, _targetTvText];
 
-		_ctrlTV tvExpand _releaseTv;
+		_ctrlTV tvExpand _releaseTV;
 		_movedSubtv pushBack _newSubTVPath;
 
-		//Visualy/Technical classify Moved SubTv
+		//Classify moved sub tv
 		_ctrlTV tvSetData [_movedSubtv, _targettvData];
 		_ctrlTV tvSetValue [_movedSubtv, _targetTvValue];
 
 		if (_targetTvValue < 0) then {_ctrlTV tvSetColor [_movedSubtv, [1, 1, 1, 0.25]]};
-		If (_targetTvValue isEqualTo EXPANDED) then {_ctrlTV tvExpand _movedSubtv};
+		If (_targetTvValue == EXPANDED) then {_ctrlTV tvExpand _movedSubtv};
 
-		if (_targettvData isEqualTo "tvtab") then
+		if (_targettvData == "tvtab") then
 		{
 			_ctrlTV tvSetPicture [_movedSubtv, "a3\3den\data\cfg3den\layer\icon_ca.paa"];
-			_movedLoadouts = [];
+			private _movedLoadouts = [];
 
-			//Move Child SubTv's
+			//Move child Sub tv's
 			{
 				params ["_tvName", "_tvPosition", "_tvNewParent", "_return"];
 
@@ -145,14 +147,14 @@ switch (toLower _mode) do
 				_tvPosition = (_x select 1) select [(count _targetTV), (count (_x select 1) - count _targetTV)]; //Selects [Position] and removes _targetTV array from the front of it
 
 				_tvNewParent = _movedSubtv + _tvPosition;
-				_tvNewParent resize (count _tvNewParent)-1;
+				_tvNewParent resize (count _tvNewParent) - 1;
 
 				switch toLower (_x select 2) do
 				{
 					case "tvtab":
 					{
 						private _tab = [_ctrlTV, [_tvNewParent, _tvName], "DragDrop"] call VANA_fnc_tvCreateTab;
-						private _EXPANDED = (_x select 3) isEqualTo EXPANDED;
+						private _EXPANDED = (_x select 3) == EXPANDED;
 
 						If _EXPANDED then {_ctrlTV tvExpand _tab};
 						_ctrlTV tvSetValue [_tab, ([COLLAPSED, EXPANDED] select _EXPANDED)];
@@ -160,7 +162,7 @@ switch (toLower _mode) do
 					case "tvloadout":
 					{
 						_return = [_ctrlTV, [_tvNewParent, _tvName], "DragDrop"] call VANA_fnc_tvCreateLoadout;
-						_movedLoadouts pushBack [_tvName, (_return select 0)];
+						_movedLoadouts pushBack [_tvName, _return select 0];
 					};
 				};
 			} foreach ([_ctrlTV, [_targetTV]] call VANA_fnc_tvGetData);
@@ -171,14 +173,14 @@ switch (toLower _mode) do
 		_ctrlTV tvSetCurSel _movedSubtv;
 		_ctrlTV tvDelete _targetTV;
 
-		//Get _movedSubtv true posistion
-		_movedSubtvGrandParent = +_movedSubtv;
+		//Get _movedSubtv true position
+		private _movedSubtvGrandParent = +_movedSubtv;
 		_movedSubtvGrandParent resize (count _targetTvParent);
 
 		if (_targetTvParent isEqualTo _movedSubtvGrandParent) then
 		{
 			private _number = _movedSubtv select (count _targetTvParent);
-			_movedSubtv set [(count _targetTvParent), _number -1];
+			_movedSubtv set [count _targetTvParent, _number -1];
 		};
 
 		_movedSubtv
