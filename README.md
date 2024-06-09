@@ -1,6 +1,7 @@
 # VANA
 VANA's purpose is to add extra loadout sorting options to the Virtual Arsenal. The modifiction is fully client-sided.
-The original mod was created by *Eathox*
+
+*Originally, this modification was created by Eathox.*
 
 ## Compatibility
 This mod is incompatible with other mods that affect the arsenal.
