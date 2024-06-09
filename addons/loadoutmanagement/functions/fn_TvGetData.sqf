@@ -16,34 +16,32 @@ _arguments params
 ];
 
 _typeData = toLower _typeData;
-private _exportDataArray = ([+_exportDataArray, 0] select _count);
+private _exportDataArray = [+_exportDataArray, 0] select _count;
 
 for "_i" from 0 to (_ctrlTV tvCount _parentTv) - 1 do
 {
-	params ["_targetTV","_tvData","_dataExport"];
+	//Declare current sub item
+	private _targetTV = +_parentTv;
+	_targetTV pushBack _i;
 
-	//Declare current SubTv
-	_targetTV = +_parentTv;
-	_targetTV Pushback _i;
+	private _tvData = toLower (_ctrlTV tvData _targetTV);
 
-	_tvData = toLower (_ctrlTV tvData _targetTV);
-
-	//Get currentSubTv Data
-	_dataExport =
+	//Get sub item data
+	private _dataExport =
 	[
-		(_ctrlTV tvText _targetTV), //"Name"
-		_targetTV, //Position
-		_tvData, //"Data"
-		(_ctrlTV tvValue _targetTV) //"Value"
+		_ctrlTV tvText _targetTV, 	//Name
+		_targetTV, 									//Position
+		_tvData, 										//Data
+		_ctrlTV tvValue _targetTV 	//Value
 	];
 
-	//Add data to Export Array/Value
+	//Add data to export array
 	if (_typeData isEqualTo _tvData || _typeData == "all") then
 	{
 		call ([{_exportDataArray append [_dataExport]}, {_exportDataArray = _exportDataArray + 1}] select _count);
 	};
 
-	//Execute function for all Subtv's
+	//Execute function for all sub items
 	if (_checkSubTv && _ctrlTV tvCount _targetTV > 0) then
 	{
 		_exportDataArray = [_ctrlTV, [_targetTV, _typeData], _exportDataArray, true, _count] call VANA_fnc_tvGetData;

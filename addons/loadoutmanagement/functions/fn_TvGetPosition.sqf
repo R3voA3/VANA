@@ -13,8 +13,13 @@ _arguments params
 	["_name", "", [""]]
 ];
 
-//Find Correct SubTv
-private _fncArguments = [[_ctrlTV, [_tvParent, (toLower _typeData)], [], false], [_ctrlTV, [[], (toLower _typeData)]]] select (_tvParent isEqualTo [-1]);
+//Find correct sub item
+private _fncArguments =
+[
+	[_ctrlTV, [_tvParent, toLower _typeData], [], false],
+	[_ctrlTV, [[], toLower _typeData]]
+] select (_tvParent isEqualTo [-1]);
+
 private _target = (_fncArguments call VANA_fnc_tvGetData) select {(_x select 0) isEqualTo _name};
 
 if (_target isEqualTo []) exitWith {[-1]};

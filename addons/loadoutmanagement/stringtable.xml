@@ -32,7 +32,7 @@
 				<English>Disable delete confirmation (Temporary button)</English>
 			</Key> -->
 		</Container>
-		<Container Name="VANA_UIPopupControlGroup">
+		<Container Name="UIPopupControlGroup">
 			<Key ID="STR_VANA_TITLE_TEXT">
 				<English>VANA didn't initialize</English>
 			</Key>
@@ -44,6 +44,23 @@
 			</Key>
 			<Key ID="STR_VANA_CHECKBOXTEXT_TEXT">
 				<English>Disable Popup</English>
+			</Key>
+			<Key ID="STR_VANA_HINTTEXT_TEXT">
+				<English>(Loadouts under tabs wont be deleted)</English>
+			</Key>
+		</Container>
+		<Container Name="Notifications">
+			<Key ID="STR_VANA_LOADOUT_SAVED">
+				<English>Loadout ""%1"" has been saved</English>
+			</Key>
+			<Key ID="STR_VANA_LOADOUT_REPLACED">
+				<English>Loadout ""%1"" has been replaced</English>
+			</Key>
+			<Key ID="STR_VANA_LOADOUT_DELETED">
+				<English>Loadout ""%1"" has been deleted</English>
+			</Key>
+			<Key ID="STR_VANA_TAB_DELETED">
+				<English>Tab ""%1"" has been deleted</English>
 			</Key>
 			<Key ID="STR_VANA_HINTTEXT_TEXT">
 				<English>(Loadouts under tabs wont be deleted)</English>

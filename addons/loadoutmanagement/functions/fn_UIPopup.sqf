@@ -12,12 +12,11 @@ params
 
 switch (toLower _mode) do
 {
-	///////////////////////////////////////////////////////////////////////////////////////////
 	case "init":
 	{
 		params ["_ctrlRenameEdit","_ctrlButtonCancel","_ctrlButtonOk","_ctrlPopupCheckBox","_ctrlTempCheckbox"];
 
-		//Hide Vana dint init popup
+		//Hide VANA did not init popup
 		SHOW_UI_POPUP(false)
 
 		//Apply Event handlers
@@ -34,24 +33,20 @@ switch (toLower _mode) do
 
 		_ctrlPopupCheckBox = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENALPOPUP_VANA_TogglePopup;
 		_ctrlPopupCheckBox ctrlAddEventHandler ["killFocus","[ctrlparent (_this select 0),'KeepFocus'] spawn VANA_fnc_UIPopup;"];
-		_ctrlPopupCheckBox ctrlAddEventHandler ["CheckedChanged","if (Profilenamespace getVariable ['TEMP_Popup_Value', false]) then {Profilenamespace setVariable ['TEMP_Popup_Value', false];} else {Profilenamespace setVariable ['TEMP_Popup_Value', true];}; [ctrlparent (_this select 0),'TreeViewSelChanged'] call VANA_fnc_ArsenalTreeView;"];
+		_ctrlPopupCheckBox ctrlAddEventHandler ["CheckedChanged","if (profileNameSpace getVariable ['TEMP_Popup_Value', false]) then {profileNameSpace setVariable ['TEMP_Popup_Value', false];} else {profileNameSpace setVariable ['TEMP_Popup_Value', true];}; [ctrlparent (_this select 0),'TreeViewSelChanged'] call VANA_fnc_ArsenalTreeView;"];
 
 		_ctrlTempCheckbox = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENAL_VANA_DelConfirmToggle; //Temp
-		_ctrlTempCheckbox ctrlAddEventHandler ["CheckedChanged","if (Profilenamespace getVariable ['TEMP_Popup_Value', false]) then {Profilenamespace setVariable ['TEMP_Popup_Value', false];} else {Profilenamespace setVariable ['TEMP_Popup_Value', true];};"];
+		_ctrlTempCheckbox ctrlAddEventHandler ["CheckedChanged","if (profileNameSpace getVariable ['TEMP_Popup_Value', false]) then {profileNameSpace setVariable ['TEMP_Popup_Value', false];} else {profileNameSpace setVariable ['TEMP_Popup_Value', true];};"];
 	};
-
-	///////////////////////////////////////////////////////////////////////////////////////////
 	case "waituntilstatus":
 	{
-		params ["_ctrlTemplate","_ctrlTvUIPopup","_ctrlRenameEdit","_status"];
-
-		_ctrlTemplate = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENAL_TEMPLATE_TEMPLATE;
-		_ctrlTvUIPopup = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENALPOPUP_VANA_UIPopupControlGroup;
-		_ctrlRenameEdit = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENALPOPUP_VANA_RenameEdit;
+		private _ctrlTemplate = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENAL_TEMPLATE_TEMPLATE;
+		private _ctrlTvUIPopup = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENALPOPUP_VANA_UIPopupControlGroup;
+		private _ctrlRenameEdit = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENALPOPUP_VANA_RenameEdit;
 
 		//Waituntil Confirm or cancel button was pressed
 		waituntil {!isnil {_ctrlTvUIPopup getVariable "TvUIPopup_Status"}};
-		_status = (_ctrlTvUIPopup getVariable "TvUIPopup_Status");
+		private _status = _ctrlTvUIPopup getVariable "TvUIPopup_Status";
 
 		SHOW_UI_POPUP(false)
 
@@ -60,15 +55,11 @@ switch (toLower _mode) do
 
 		_status
 	};
-
-	///////////////////////////////////////////////////////////////////////////////////////////
 	case "keepfocus":
 	{
-		params ["_ctrlTvUIPopup","_ctrlPopupCheckBox","_ctrlRenameEdit"];
-
-		_ctrlTvUIPopup = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENALPOPUP_VANA_UIPopupControlGroup;
-		_ctrlPopupCheckBox = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENALPOPUP_VANA_TogglePopup;
-		_ctrlRenameEdit = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENALPOPUP_VANA_RenameEdit;
+		private _ctrlTvUIPopup = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENALPOPUP_VANA_UIPopupControlGroup;
+		private _ctrlPopupCheckBox = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENALPOPUP_VANA_TogglePopup;
+		private _ctrlRenameEdit = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENALPOPUP_VANA_RenameEdit;
 
 		//Keep focus on Popup UI
 		if (ctrlShown _ctrlTvUIPopup) exitWith
@@ -79,8 +70,6 @@ switch (toLower _mode) do
 		};
 		false
 	};
-
-	///////////////////////////////////////////////////////////////////////////////////////////
 	case "delete":
 	{
 		params ["_ctrlTV","_ctrlTitle","_ctrlTextMessage","_ctrlButtonOk","_ctrlPopupCheckBox","_path","_tvName","_tvData","_tvDataString"];
@@ -90,22 +79,22 @@ switch (toLower _mode) do
 		//Show Delete UI
 		SHOW_DELETE_UI(true)
 
-		_ctrlTV = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENAL_TEMPLATE_VALUENAME;
+		private _ctrlTV = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENAL_TEMPLATE_VALUENAME;
 		TV_INFO
 
 		//Apply header and Message text
-		_ctrlTitle = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENALPOPUP_VANA_Title;
+		private _ctrlTitle = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENALPOPUP_VANA_Title;
 		_ctrlTitle ctrlSetText "Delete Confirmation";
 
-		_ctrlTextMessage = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENALPOPUP_VANA_Text;
+		private _ctrlTextMessage = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENALPOPUP_VANA_Text;
 		_ctrlTextMessage ctrlsetStructuredText parseText format ["Delete %1: '%2'",_tvDataString, _tvName];
 
-		_ctrlButtonOk = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENALPOPUP_VANA_ButtonOK;
+		private _ctrlButtonOk = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENALPOPUP_VANA_ButtonOK;
 		_ctrlButtonOk ctrlEnable true;
 
 		//Set checkbox state
-		_ctrlPopupCheckBox = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENALPOPUP_VANA_TogglePopup;
-		if !(Profilenamespace getVariable ['TEMP_Popup_Value', false]) then
+		private _ctrlPopupCheckBox = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENALPOPUP_VANA_TogglePopup;
+		if !(profileNameSpace getVariable ['TEMP_Popup_Value', false]) then
 		{
 			_ctrlPopupCheckBox cbSetChecked false;
 		};
@@ -113,8 +102,6 @@ switch (toLower _mode) do
 
 		[_arsenalDisplay,"WaituntilStatus"] call VANA_fnc_UIPopup;
 	};
-
-	///////////////////////////////////////////////////////////////////////////////////////////
 	case "rename":
 	{
 		params ["_ctrlTV","_ctrlTitle","_ctrlRenameEdit","_path","_tvName","_tvData","_tvDataString"];
@@ -142,8 +129,6 @@ switch (toLower _mode) do
 		[_arsenalDisplay,"CheckNameTaken"] call VANA_fnc_UIPopup;
 		[_arsenalDisplay,"WaituntilStatus"] call VANA_fnc_UIPopup;
 	};
-
-	///////////////////////////////////////////////////////////////////////////////////////////
 	case "checknametaken":
 	{
 		params ["_ctrlTV","_ctrlRenameEdit","_ctrlButtonOk","_loadoutData","_name","_path","_tvName","_tvData","_tvDataString","_duplicate"];
@@ -151,7 +136,7 @@ switch (toLower _mode) do
 		_ctrlTV = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENAL_TEMPLATE_VALUENAME;
 		_ctrlRenameEdit = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENALPOPUP_VANA_RenameEdit;
 		_ctrlButtonOk = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENALPOPUP_VANA_ButtonOK;
-		_loadoutData = (profileNamespace getVariable ["BIS_fnc_saveInventory_Data",[]]) select {_x isEqualType ""};
+		_loadoutData = (profileNameSpace getVariable ["BIS_fnc_saveInventory_Data",[]]) select {_x isEqualType ""};
 
 		_name = ctrlText _ctrlRenameEdit;
 		TV_INFO

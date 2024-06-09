@@ -28,14 +28,7 @@ switch (toLower _mode) do
 
 		_inAction = _ctrlTV getVariable ["TvDragDrop_InAction", false];
 
-		private _finalActionState = if (_inAction isEqualType "") then
-		{
-			true
-		}
-		else
-		{
-			false
-		};
+		private _finalActionState = [false, true] select (_inAction isEqualType "");
 
 		_ctrlTV setVariable ["TvDragDrop_InAction", _finalActionState];
 

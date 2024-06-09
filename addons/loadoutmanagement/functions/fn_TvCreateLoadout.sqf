@@ -4,10 +4,7 @@ params
 [
 	["_ctrlTV", controlNull, [controlNull]],
 	["_arguments", [], [[]]],
-	["_behavior", "", [""]],
-	"_loadoutData",
-	"_loadoutPath",
-	"_loadoutAdd"
+	["_behavior", "", [""]]
 ];
 
 _arguments params
@@ -17,14 +14,14 @@ _arguments params
 ];
 
 _behavior = toLower _behavior;
-_loadoutData = profileNamespace getVariable ["BIS_fnc_saveInventory_data",[]];
+private _loadoutData = profileNamespace getVariable ["BIS_fnc_saveInventory_data",[]];
 
 If !(_loadoutName in _loadoutData) exitWith {[[-1], ""]};
 
 //Create Loadout in treeview
-_loadoutPath = +_targetTV;
+private _loadoutPath = +_targetTV;
 
-_loadoutAdd = _ctrlTV tvAdd [_targetTV,_loadoutName];
+private _loadoutAdd = _ctrlTV tvAdd [_targetTV,_loadoutName];
 _loadoutPath pushBack _loadoutAdd;
 
 //Visualy/Technical classify Tab

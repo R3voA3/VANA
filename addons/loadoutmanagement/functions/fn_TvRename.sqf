@@ -21,9 +21,9 @@ if (_tvData == "tvloadout") then
 {
 	//rename loadout in profile data
 	private _loadoutData = profileNamespace getVariable ["BIS_fnc_saveInventory_data",[]];
-	private _dataPosistion = _loadoutData find _tvName;
+	private _index = _loadoutData find _tvName;
 
-	_loadoutData set [_dataPosistion, _name];
+	_loadoutData set [_index, _name];
 	saveProfileNamespace;
 };
 
