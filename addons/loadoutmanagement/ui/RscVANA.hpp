@@ -17,7 +17,9 @@ class RscStructuredText;
 class RscText;
 class RscTree;
 
-class RscVANAPictureButton:	RscButtonMenu
+class RscTitle;
+
+class RscVANAPictureButton: RscButtonMenu
 {
 	type = 1;
 	style = "0x02 + 0x30 + 0x800";
@@ -32,24 +34,6 @@ class RscVANAPictureButton:	RscButtonMenu
 	offsetY = 0;
 	offsetPressedX = "pixelW";
 	offsetPressedY = "pixelH";
-};
-class RscVANATitleBar: RscBackgroundGUITop
-{
-	x = 0;
-	y = 0;
-	h = 0.037;
-	w = 0.3;
-	style = 0;
-	shadow = 0;
-	colorShadow[] = {0, 0, 0, 0.5};
-	sizeEx = QUOTE(GUI_GRID_CENTER_H);
-	colorText[] = {0.95, 0.95, 0.95, 1};
-	font = "PuristaMedium";
-	colorBackground[] = {0, 0, 0, 0};
-	linespacing = 1;
-	tooltipColorText[] = {1, 1, 1, 1};
-	tooltipColorBox[] = {1, 1, 1, 1};
-	tooltipColorShade[] = {0, 0, 0, 0.65};
 };
 class RscDisplayArsenal
 {
@@ -172,10 +156,12 @@ class RscDisplayArsenal
 			h = QUOTE(5.6 * GUI_GRID_CENTER_H);
 			class Controls
 			{
-				class VANA_Title: RscVANATitleBar
+				class VANA_Title: RscTitle
 				{
 					idc = 979001;
 					text = "$STR_VANA_Title_Text";
+					x = 0;
+					y = 0;
 					w = QUOTE(18.8 * GUI_GRID_CENTER_W);
 					h = QUOTE(GUI_GRID_CENTER_H);
 					colorBackground[] =
@@ -183,7 +169,7 @@ class RscDisplayArsenal
 						"(profileNamespace getVariable ['GUI_BCG_RGB_R', 0.13])",
 						"(profileNamespace getVariable ['GUI_BCG_RGB_G', 0.54])",
 						"(profileNamespace getVariable ['GUI_BCG_RGB_B', 0.21])",
-						"(profileNamespace getVariable ['GUI_BCG_RGB_A', 1.21])"
+						"(profileNamespace getVariable ['GUI_BCG_RGB_A', 0.8])"
 					};
 				};
 				class VANA_Picture: RscPictureKeepAspect
