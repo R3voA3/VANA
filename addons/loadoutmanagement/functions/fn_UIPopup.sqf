@@ -21,18 +21,18 @@ switch (toLower _mode) do
 
 		//Apply Event handlers
 		_ctrlRenameEdit = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENALPOPUP_VANA_RenameEdit;
-		_ctrlRenameEdit ctrlAddEventHandler ["killFocus","[ctrlparent (_this select 0),'KeepFocus'] spawn VANA_fnc_UIPopup;"];
+		_ctrlRenameEdit ctrlAddEventHandler ["KillFocus","[ctrlparent (_this select 0),'KeepFocus'] spawn VANA_fnc_UIPopup;"];
 		_ctrlRenameEdit ctrlAddEventHandler ["KeyDown","[ctrlparent (_this select 0),'CheckNameTaken'] spawn VANA_fnc_UIPopup;"];
-		_ctrlRenameEdit ctrlAddEventHandler ["char","[ctrlparent (_this select 0),'CheckNameTaken'] spawn VANA_fnc_UIPopup;"];
+		_ctrlRenameEdit ctrlAddEventHandler ["Char","[ctrlparent (_this select 0),'CheckNameTaken'] spawn VANA_fnc_UIPopup;"];
 
 		_ctrlButtonCancel = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENALPOPUP_VANA_ButtonCancel;
-		_ctrlButtonCancel ctrlAddEventHandler ["buttonclick","(ctrlParent (_this select 0) displayCtrl 979000) setVariable ['TvUIPopup_Status', false]"];
+		_ctrlButtonCancel ctrlAddEventHandler ["ButtonClick","(ctrlParent (_this select 0) displayCtrl 979000) setVariable ['TvUIPopup_Status', false]"];
 
 		_ctrlButtonOk = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENALPOPUP_VANA_ButtonOK;
-		_ctrlButtonOk ctrlAddEventHandler ["buttonclick","(ctrlParent (_this select 0) displayCtrl 979000) setVariable ['TvUIPopup_Status', true]"];
+		_ctrlButtonOk ctrlAddEventHandler ["ButtonClick","(ctrlParent (_this select 0) displayCtrl 979000) setVariable ['TvUIPopup_Status', true]"];
 
 		_ctrlPopupCheckBox = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENALPOPUP_VANA_TogglePopup;
-		_ctrlPopupCheckBox ctrlAddEventHandler ["killFocus","[ctrlparent (_this select 0),'KeepFocus'] spawn VANA_fnc_UIPopup;"];
+		_ctrlPopupCheckBox ctrlAddEventHandler ["KillFocus","[ctrlparent (_this select 0),'KeepFocus'] spawn VANA_fnc_UIPopup;"];
 		_ctrlPopupCheckBox ctrlAddEventHandler ["CheckedChanged","if (profileNameSpace getVariable ['TEMP_Popup_Value', false]) then {profileNameSpace setVariable ['TEMP_Popup_Value', false];} else {profileNameSpace setVariable ['TEMP_Popup_Value', true];}; [ctrlparent (_this select 0),'TreeViewSelChanged'] call VANA_fnc_ArsenalTreeView;"];
 
 		_ctrlTempCheckbox = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENAL_VANA_DelConfirmToggle; //Temp

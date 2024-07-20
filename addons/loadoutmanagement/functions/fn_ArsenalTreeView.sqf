@@ -37,25 +37,25 @@ switch toLower _mode do
 
 		_ctrlTemplateEdit = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENAL_TEMPLATE_EDITNAME;
 		_ctrlTemplateEdit ctrlAddEventHandler ["KeyDown","[ctrlparent (_this select 0), 'CheckOverWrite'] spawn VANA_fnc_ArsenalTreeView;"];
-		_ctrlTemplateEdit ctrlAddEventHandler ["char","[ctrlparent (_this select 0), 'CheckOverWrite'] spawn VANA_fnc_ArsenalTreeView;"];
+		_ctrlTemplateEdit ctrlAddEventHandler ["Char","[ctrlparent (_this select 0), 'CheckOverWrite'] spawn VANA_fnc_ArsenalTreeView;"];
 
 		_ctrlButtonSave = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENAL_CONTROLSBAR_BUTTONSAVE;
-		_ctrlButtonSave ctrlAddEventHandler ["buttonclick","[ctrlparent (_this select 0), 'ButtonSave'] call VANA_fnc_ArsenalTreeView;"];
+		_ctrlButtonSave ctrlAddEventHandler ["ButtonClick","[ctrlparent (_this select 0), 'ButtonSave'] call VANA_fnc_ArsenalTreeView;"];
 
 		_ctrlButtonLoad = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENAL_CONTROLSBAR_BUTTONLOAD;
-		_ctrlButtonLoad ctrlAddEventHandler ["buttonclick","[ctrlparent (_this select 0), 'ButtonLoad'] call VANA_fnc_ArsenalTreeView;"];
+		_ctrlButtonLoad ctrlAddEventHandler ["ButtonClick","[ctrlparent (_this select 0), 'ButtonLoad'] call VANA_fnc_ArsenalTreeView;"];
 
 		_ctrlTemplateOKButton = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENAL_TEMPLATE_BUTTONOK;
-		_ctrlTemplateOKButton ctrlAddEventHandler ["buttonclick","[ctrlparent (_this select 0), 'ButtonTemplateOK'] call VANA_fnc_ArsenalTreeView;"];
+		_ctrlTemplateOKButton ctrlAddEventHandler ["ButtonClick","[ctrlparent (_this select 0), 'ButtonTemplateOK'] call VANA_fnc_ArsenalTreeView;"];
 
 		_ctrlButtonTabCreate = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENAL_VANA_ButtonTabCreate;
-		_ctrlButtonTabCreate ctrlAddEventHandler ["buttonclick","[ctrlparent (_this select 0), 'Create'] call VANA_fnc_ArsenalTreeView;"];
+		_ctrlButtonTabCreate ctrlAddEventHandler ["ButtonClick","[ctrlparent (_this select 0), 'Create'] call VANA_fnc_ArsenalTreeView;"];
 
 		_ctrlButtonRename = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENAL_VANA_ButtonRename;
-		_ctrlButtonRename ctrlAddEventHandler ["buttonclick","[ctrlparent (_this select 0), 'Rename'] spawn VANA_fnc_ArsenalTreeView;"];
+		_ctrlButtonRename ctrlAddEventHandler ["ButtonClick","[ctrlparent (_this select 0), 'Rename'] spawn VANA_fnc_ArsenalTreeView;"];
 
 		_ctrlDeleteButton = _arsenalDisplay displayCtrl IDC_RSCDISPLAYARSENAL_TEMPLATE_BUTTONDELETE;
-		_ctrlDeleteButton ctrlAddEventHandler ["buttonclick","[ctrlparent (_this select 0), 'Delete'] spawn VANA_fnc_ArsenalTreeView;"];
+		_ctrlDeleteButton ctrlAddEventHandler ["ButtonClick","[ctrlparent (_this select 0), 'Delete'] spawn VANA_fnc_ArsenalTreeView;"];
 
 		//Load and Sort treeview
 		[_ctrlTV] call VANA_fnc_tvLoadData;

@@ -266,21 +266,21 @@ switch _mode do {
 
 		_display displayaddeventhandler ["mousebuttondown", "with uiNamespace do {['MouseButtonDown', _this] call BIS_fnc_arsenal;};"];
 		_display displayaddeventhandler ["mousebuttonup", "with uiNamespace do {['MouseButtonUp', _this] call BIS_fnc_arsenal;};"];
-		//_display displayaddeventhandler ["mousezchanged", "with uiNamespace do {['MouseZChanged', _this] call BIS_fnc_arsenal;};"];
+		//_display displayaddeventhandler ["MouseZChanged", "with uiNamespace do {['MouseZChanged', _this] call BIS_fnc_arsenal;};"];
 		//_display displayaddeventhandler ["keydown", "with (uiNamespace) do {['KeyDown', _this] call BIS_fnc_arsenal;};"]; //VANA - Disabled this
-		//_display displayaddeventhandler ["mousemoving", "with (uiNamespace) do {['Loop', _this] call BIS_fnc_arsenal;};"];
-		//_display displayaddeventhandler ["mouseholding", "with (uiNamespace) do {['Loop', _this] call BIS_fnc_arsenal;};"];
+		//_display displayaddeventhandler ["MouseMoving", "with (uiNamespace) do {['Loop', _this] call BIS_fnc_arsenal;};"];
+		//_display displayaddeventhandler ["MouseHolding", "with (uiNamespace) do {['Loop', _this] call BIS_fnc_arsenal;};"];
 
 		_ctrlMouseArea = _display displayCtrl IDC_RSCDISPLAYARSENAL_MOUSEAREA;
-		_ctrlMouseArea ctrlAddEventHandler ["mousemoving", "with uiNamespace do {['Mouse', _this] call BIS_fnc_arsenal;};"];
-		_ctrlMouseArea ctrlAddEventHandler ["mouseholding", "with uiNamespace do {['Mouse', _this] call BIS_fnc_arsenal;};"];
-		_ctrlMouseArea ctrlAddEventHandler ["mousebuttonclick", "with uiNamespace do {['TabDeselect', [ctrlparent (_this select 0), _this select 1]] call BIS_fnc_arsenal;};"];
-		_ctrlMouseArea ctrlAddEventHandler ["mousezchanged", "with uiNamespace do {['MouseZChanged', _this] call BIS_fnc_arsenal;};"];
+		_ctrlMouseArea ctrlAddEventHandler ["MouseMoving", "with uiNamespace do {['Mouse', _this] call BIS_fnc_arsenal;};"];
+		_ctrlMouseArea ctrlAddEventHandler ["MouseHolding", "with uiNamespace do {['Mouse', _this] call BIS_fnc_arsenal;};"];
+		_ctrlMouseArea ctrlAddEventHandler ["MouseButtonClick", "with uiNamespace do {['TabDeselect', [ctrlparent (_this select 0), _this select 1]] call BIS_fnc_arsenal;};"];
+		_ctrlMouseArea ctrlAddEventHandler ["MouseZChanged", "with uiNamespace do {['MouseZChanged', _this] call BIS_fnc_arsenal;};"];
 		ctrlSetFocus _ctrlMouseArea;
 
 		_ctrlMouseBlock = _display displayCtrl IDC_RSCDISPLAYARSENAL_MOUSEBLOCK;
 		_ctrlMouseBlock ctrlEnable false;
-		_ctrlMouseBlock ctrlAddEventHandler ["setfocus", {_this spawn {disableserialization; (_this select 0) ctrlEnable false; (_this select 0) ctrlEnable true;};}];
+		_ctrlMouseBlock ctrlAddEventHandler ["SetFocus", {_this spawn {disableserialization; (_this select 0) ctrlEnable false; (_this select 0) ctrlEnable true;};}];
 
 		_ctrlMessage = _display displayCtrl IDC_RSCDISPLAYARSENAL_MESSAGE;
 		_ctrlMessage ctrlsetfade 1;
@@ -297,52 +297,52 @@ switch _mode do {
 
 		//--- UI event handlers
 		_ctrlButtonInterface = _display displayCtrl IDC_RSCDISPLAYARSENAL_CONTROLSBAR_BUTTONINTERFACE;
-		_ctrlButtonInterface ctrlAddEventHandler ["buttonclick", "with uiNamespace do {['buttonInterface', [ctrlparent (_this select 0)]] call BIS_fnc_arsenal;};"];
+		_ctrlButtonInterface ctrlAddEventHandler ["ButtonClick", "with uiNamespace do {['buttonInterface', [ctrlparent (_this select 0)]] call BIS_fnc_arsenal;};"];
 
 		_ctrlButtonRandom = _display displayCtrl IDC_RSCDISPLAYARSENAL_CONTROLSBAR_BUTTONRANDOM;
-		_ctrlButtonRandom ctrlAddEventHandler ["buttonclick", format ["with uiNamespace do {['buttonRandom', [ctrlparent (_this select 0)]] call %1;};", _function]];
+		_ctrlButtonRandom ctrlAddEventHandler ["ButtonClick", format ["with uiNamespace do {['buttonRandom', [ctrlparent (_this select 0)]] call %1;};", _function]];
 
 		_ctrlButtonSave = _display displayCtrl IDC_RSCDISPLAYARSENAL_CONTROLSBAR_BUTTONSAVE;
-		//_ctrlButtonSave ctrlAddEventHandler ["buttonclick", "with uiNamespace do {['buttonSave', [ctrlparent (_this select 0)]] call BIS_fnc_arsenal;};"]; VANA - Disabled this
+		//_ctrlButtonSave ctrlAddEventHandler ["ButtonClick", "with uiNamespace do {['buttonSave', [ctrlparent (_this select 0)]] call BIS_fnc_arsenal;};"]; VANA - Disabled this
 
 		_ctrlButtonLoad = _display displayCtrl IDC_RSCDISPLAYARSENAL_CONTROLSBAR_BUTTONLOAD;
-		//_ctrlButtonLoad ctrlAddEventHandler ["buttonclick", "with uiNamespace do {['buttonLoad', [ctrlparent (_this select 0)]] call BIS_fnc_arsenal;};"]; VANA - Disabled this
+		//_ctrlButtonLoad ctrlAddEventHandler ["ButtonClick", "with uiNamespace do {['buttonLoad', [ctrlparent (_this select 0)]] call BIS_fnc_arsenal;};"]; VANA - Disabled this
 
 		_ctrlButtonExport = _display displayCtrl IDC_RSCDISPLAYARSENAL_CONTROLSBAR_BUTTONEXPORT;
-		_ctrlButtonExport ctrlAddEventHandler ["buttonclick", format ["with uiNamespace do {['buttonExport', [ctrlparent (_this select 0), 'init']] call %1;};", _function]];
+		_ctrlButtonExport ctrlAddEventHandler ["ButtonClick", format ["with uiNamespace do {['buttonExport', [ctrlparent (_this select 0), 'init']] call %1;};", _function]];
 		_ctrlButtonExport ctrlEnable !ismultiplayer;
 
 		_ctrlButtonImport = _display displayCtrl IDC_RSCDISPLAYARSENAL_CONTROLSBAR_BUTTONIMPORT;
-		_ctrlButtonImport ctrlAddEventHandler ["buttonclick", format ["with uiNamespace do {['buttonImport', [ctrlparent (_this select 0), 'init']] call %1;};", _function]];
+		_ctrlButtonImport ctrlAddEventHandler ["ButtonClick", format ["with uiNamespace do {['buttonImport', [ctrlparent (_this select 0), 'init']] call %1;};", _function]];
 
 		_ctrlButtonOK = _display displayCtrl IDC_RSCDISPLAYARSENAL_CONTROLSBAR_BUTTONOK;
-		_ctrlButtonOK ctrlAddEventHandler ["buttonclick", format ["with uiNamespace do {['buttonOK', [ctrlparent (_this select 0), 'init']] call %1;};", _function]];
+		_ctrlButtonOK ctrlAddEventHandler ["ButtonClick", format ["with uiNamespace do {['buttonOK', [ctrlparent (_this select 0), 'init']] call %1;};", _function]];
 
 		_ctrlButtonTry = _display displayCtrl IDC_RSCDISPLAYARSENAL_CONTROLSBAR_BUTTONTRY;
-		_ctrlButtonTry ctrlAddEventHandler ["buttonclick", "with uiNamespace do {['buttonTry', [ctrlparent (_this select 0)]] call BIS_fnc_garage;};"];
+		_ctrlButtonTry ctrlAddEventHandler ["ButtonClick", "with uiNamespace do {['buttonTry', [ctrlparent (_this select 0)]] call BIS_fnc_garage;};"];
 
 		_ctrlArrowLeft = _display displayCtrl IDC_RSCDISPLAYARSENAL_ARROWLEFT;
-		_ctrlArrowLeft ctrlAddEventHandler ["buttonclick", "with uiNamespace do {['buttonCargo', [ctrlparent (_this select 0), -1]] call BIS_fnc_arsenal;};"];
+		_ctrlArrowLeft ctrlAddEventHandler ["ButtonClick", "with uiNamespace do {['buttonCargo', [ctrlparent (_this select 0), -1]] call BIS_fnc_arsenal;};"];
 
 		_ctrlArrowRight = _display displayCtrl IDC_RSCDISPLAYARSENAL_ARROWRIGHT;
-		_ctrlArrowRight ctrlAddEventHandler ["buttonclick", "with uiNamespace do {['buttonCargo', [ctrlparent (_this select 0), +1]] call BIS_fnc_arsenal;};"];
+		_ctrlArrowRight ctrlAddEventHandler ["ButtonClick", "with uiNamespace do {['buttonCargo', [ctrlparent (_this select 0), +1]] call BIS_fnc_arsenal;};"];
 
 
 		_ctrlTemplateButtonOK = _display displayCtrl IDC_RSCDISPLAYARSENAL_TEMPLATE_BUTTONOK;
-		// _ctrlTemplateButtonOK ctrlAddEventHandler ["buttonclick", format ["with uiNamespace do {['buttonTemplateOK', [ctrlparent (_this select 0)]] call %1;};", _function]]; VANA - Disabled this
+		// _ctrlTemplateButtonOK ctrlAddEventHandler ["ButtonClick", format ["with uiNamespace do {['buttonTemplateOK', [ctrlparent (_this select 0)]] call %1;};", _function]]; VANA - Disabled this
 
 
 		_ctrlTemplateButtonCancel = _display displayCtrl IDC_RSCDISPLAYARSENAL_TEMPLATE_BUTTONCANCEL;
-		_ctrlTemplateButtonCancel ctrlAddEventHandler ["buttonclick", "with uiNamespace do {['buttonTemplateCancel', [ctrlparent (_this select 0)]] call BIS_fnc_arsenal;};"];
+		_ctrlTemplateButtonCancel ctrlAddEventHandler ["ButtonClick", "with uiNamespace do {['buttonTemplateCancel', [ctrlparent (_this select 0)]] call BIS_fnc_arsenal;};"];
 
 
 		_ctrlTemplateButtonDelete = _display displayCtrl IDC_RSCDISPLAYARSENAL_TEMPLATE_BUTTONDELETE;
-		//_ctrlTemplateButtonDelete ctrlAddEventHandler ["buttonclick", "with uiNamespace do {['buttonTemplateDelete', [ctrlparent (_this select 0)]] call BIS_fnc_arsenal;};"]; VANA - Disabled this
+		//_ctrlTemplateButtonDelete ctrlAddEventHandler ["ButtonClick", "with uiNamespace do {['buttonTemplateDelete', [ctrlparent (_this select 0)]] call BIS_fnc_arsenal;};"]; VANA - Disabled this
 
 		_ctrlTemplateValue = _display displayCtrl IDC_RSCDISPLAYARSENAL_TEMPLATE_VALUENAME;
 		/* VANA - Disabled this
-		_ctrlTemplateValue ctrlAddEventHandler ["lbselchanged", "with uiNamespace do {['templateSelChanged', [ctrlparent (_this select 0)]] call BIS_fnc_arsenal;};"];
-		_ctrlTemplateValue ctrlAddEventHandler ["lbdblclick", format ["with uiNamespace do {['buttonTemplateOK', [ctrlparent (_this select 0)]] call %1;};", _function]];
+		_ctrlTemplateValue ctrlAddEventHandler ["LBSelChanged", "with uiNamespace do {['templateSelChanged', [ctrlparent (_this select 0)]] call BIS_fnc_arsenal;};"];
+		_ctrlTemplateValue ctrlAddEventHandler ["LBDblClick", format ["with uiNamespace do {['buttonTemplateOK', [ctrlparent (_this select 0)]] call %1;};", _function]];
 		*/
 
 		//--- Menus
@@ -366,13 +366,13 @@ switch _mode do {
 				_ctrlTab = _display displayCtrl (IDC_RSCDISPLAYARSENAL_TAB + _idc);
 				_mode = ["TabSelectRight", "TabSelectLeft"] select (_idc in [IDCS_LEFT]);
 				{
-					_x ctrlAddEventHandler ["buttonclick", format ["with uiNamespace do {['%2', [ctrlparent (_this select 0), %1]] call %3;};", _idc, _mode, _function]];
-					_x ctrlAddEventHandler ["mousezchanged", "with uiNamespace do {['MouseZChanged', _this] call BIS_fnc_arsenal;};"];
+					_x ctrlAddEventHandler ["ButtonClick", format ["with uiNamespace do {['%2', [ctrlparent (_this select 0), %1]] call %3;};", _idc, _mode, _function]];
+					_x ctrlAddEventHandler ["MouseZChanged", "with uiNamespace do {['MouseZChanged', _this] call BIS_fnc_arsenal;};"];
 				} foreach [_ctrlIcon, _ctrlTab];
 
 				_sort = _sortValues param [_idc, 0];
 				_ctrlSort = _display displayCtrl (IDC_RSCDISPLAYARSENAL_SORT + _idc);
-				_ctrlSort ctrlAddEventHandler ["lbselchanged", format ["with uiNamespace do {['lbSort', [_this, %1]] call BIS_fnc_arsenal;};", _idc]];
+				_ctrlSort ctrlAddEventHandler ["LBSelChanged", format ["with uiNamespace do {['lbSort', [_this, %1]] call BIS_fnc_arsenal;};", _idc]];
 				_ctrlSort lbsetcursel _sort;
 				_sortValues set [_idc, _sort];
 
@@ -382,8 +382,8 @@ switch _mode do {
 				_ctrlList ctrlsetfontheight (_gridH * 0.8);
 				_ctrlList ctrlcommit 0;
 
-				_ctrlList ctrlAddEventHandler ["lbselchanged", format ["with uiNamespace do {['SelectItem', [ctrlparent (_this select 0), (_this select 0), %1]] call %2;};", _idc, _function]];
-				_ctrlList ctrlAddEventHandler ["lbdblclick", format ["with uiNamespace do {['ShowItem', [ctrlparent (_this select 0), (_this select 0), %1]] spawn BIS_fnc_arsenal;};", _idc]];
+				_ctrlList ctrlAddEventHandler ["LBSelChanged", format ["with uiNamespace do {['SelectItem', [ctrlparent (_this select 0), (_this select 0), %1]] call %2;};", _idc, _function]];
+				_ctrlList ctrlAddEventHandler ["LBDblClick", format ["with uiNamespace do {['ShowItem', [ctrlparent (_this select 0), (_this select 0), %1]] spawn BIS_fnc_arsenal;};", _idc]];
 
 				_ctrlListDisabled = _display displayCtrl (IDC_RSCDISPLAYARSENAL_LISTDISABLED + _idc);
 				_ctrlListDisabled ctrlEnable false;
@@ -397,7 +397,7 @@ switch _mode do {
 		['SelectItem', [_display, controlNull, -1]] call (uiNamespace getVariable _function);
 
 		_ctrlButtonClose = _display displayCtrl IDC_RSCDISPLAYARSENAL_CONTROLSBAR_BUTTONCLOSE;
-		_ctrlButtonClose ctrlAddEventHandler ["buttonclick", "with uiNamespace do {['buttonClose', [ctrlparent (_this select 0)]] spawn BIS_fnc_arsenal;}; true"];
+		_ctrlButtonClose ctrlAddEventHandler ["ButtonClick", "with uiNamespace do {['buttonClose', [ctrlparent (_this select 0)]] spawn BIS_fnc_arsenal;}; true"];
 
 		if (is3DEN) then {
 			_ctrlButtonClose ctrlSetText localize "STR_DISP_CANCEL";
@@ -440,7 +440,7 @@ switch _mode do {
 				{
 					_ctrl = _display displayCtrl (_x select 0);
 					_ctrlBackground = _display displayCtrl (_x select 1);
-					_ctrl ctrlAddEventHandler ["buttonclick", "with uiNamespace do {['buttonSpace', _this] spawn BIS_fnc_arsenal;}; true"];
+					_ctrl ctrlAddEventHandler ["ButtonClick", "with uiNamespace do {['buttonSpace', _this] spawn BIS_fnc_arsenal;}; true"];
 					if (_foreachindex == BIS_fnc_arsenal_type) then {
 						_ctrl ctrlEnable false;
 						_ctrl ctrlSetTextcolor [1, 1, 1, 1];
@@ -462,10 +462,10 @@ switch _mode do {
 					_ctrl = _display displayCtrl (_tab + _x);
 					_ctrl ctrlShow false;
 					_ctrl ctrlEnable false;
-					_ctrl ctrlremovealleventhandlers "buttonclick";
-					_ctrl ctrlremovealleventhandlers "mousezchanged";
-					_ctrl ctrlremovealleventhandlers "lbselchanged";
-					_ctrl ctrlremovealleventhandlers "lbdblclick";
+					_ctrl ctrlremovealleventhandlers "ButtonClick";
+					_ctrl ctrlremovealleventhandlers "MouseZChanged";
+					_ctrl ctrlremovealleventhandlers "LBSelChanged";
+					_ctrl ctrlremovealleventhandlers "LBDblClick";
 					_ctrl ctrlsetposition [0, 0, 0, 0];
 					_ctrl ctrlcommit 0;
 				} foreach [IDC_RSCDISPLAYARSENAL_TAB, IDC_RSCDISPLAYARSENAL_ICON, IDC_RSCDISPLAYARSENAL_ICONBACKGROUND];
@@ -505,7 +505,7 @@ switch _mode do {
 
 		//--- Camera reset
 		["Mouse", [controlNull, 0, 0]] call BIS_fnc_arsenal;
-		BIS_fnc_arsenal_draw3D = addMissionEventHandler ["draw3D", {with (uiNamespace) do {['draw3D', _this] call BIS_fnc_arsenal;};}];
+		BIS_fnc_arsenal_Draw3D = addMissionEventHandler ["Draw3D", {with (uiNamespace) do {['draw3D', _this] call BIS_fnc_arsenal;};}];
 
 		setacctime (missionNamespace getVariable ["BIS_fnc_arsenal_acctime", 1]);
 	};
