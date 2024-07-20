@@ -11,6 +11,7 @@ class CfgFunctions
 			class arsenal;
 			class arsenalTreeView;
 			class hidePopup;
+			class searchTreeView;
 			class tvCount;
 			class tvCreateLoadout;
 			class tvCreateTab;

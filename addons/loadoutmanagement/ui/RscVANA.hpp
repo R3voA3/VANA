@@ -2,6 +2,7 @@
 #include "\v\vana\addons\loadoutmanagement\defines.inc"
 
 class BackgroundButtonOK;
+class ctrlButtonPictureKeepAspect;
 class RscBackgroundGUI;
 class RscBackgroundGUITop;
 class RscButtonMenu;
@@ -14,9 +15,8 @@ class RscEdit;
 class RscPictureKeepAspect;
 class RscStructuredText;
 class RscText;
-class RscTree;
-
 class RscTitle;
+class RscTree;
 
 class RscVANAPictureButton: RscButtonMenu
 {
@@ -48,25 +48,11 @@ class RscDisplayArsenal
 			{
 				class ValueName: RscTree
 				{
-					idc = 35119;
-					x = QUOTE(0.5 * GUI_GRID_CENTER_W);
-					y = QUOTE(1.6 * GUI_GRID_CENTER_H);
-					w = QUOTE(19 * GUI_GRID_CENTER_W);
-					h = QUOTE(17.5 * GUI_GRID_CENTER_H);
-					color[] = {0.95, 0.95, 0.95, 1};
-					colorDisabled[] = {1, 1, 1, 0.25};
+					// idc = 35119;
+					idcSearch = IDC_RSCDISPLAYARSENAL_VANA_EDIT_SEARCH;
+					y = QUOTE(2.8 * GUI_GRID_CENTER_H);
+					h = QUOTE(16.3 * GUI_GRID_CENTER_H);
 					colorLines[] = {1,1,1,1};
-					colorPicture[] = {1, 1, 1, 1};
-					colorPictureDisabled[] = {1, 1, 1, 1};
-					colorPictureSelected[] = {1, 1, 1, 1};
-					colorText[] = {1, 1, 1, 1};
-					disableKeyboardSearch = 0;
-					expandOnDoubleclick = 0;
-					font = "RobotoCondensed";
-					multiselectEnabled = 0;
-					shadow = 0;
-					sizeEx = QUOTE(0.8 * GUI_GRID_CENTER_H);
-					style = 16;
 				};
 				class TextName: RscText //Relocation of vanilla UI
 				{
@@ -88,6 +74,24 @@ class RscDisplayArsenal
 					w = QUOTE(13.5 * GUI_GRID_CENTER_W);
 					h = QUOTE(GUI_GRID_CENTER_H);
 					sizeEx = QUOTE(0.8 * GUI_GRID_CENTER_H);
+				};
+				class VANA_EditSearch: EditName
+				{
+					idc = IDC_RSCDISPLAYARSENAL_VANA_EDIT_SEARCH;
+					x = QUOTE(0.5 * GUI_GRID_CENTER_W);
+					y = QUOTE(1.6 * GUI_GRID_CENTER_H);
+					w = QUOTE(8 * GUI_GRID_CENTER_W);
+					onEditChanged = "_this call VANA_fnc_searchTreeView";
+				};
+				class VANA_ButtonSearch: ctrlButtonPictureKeepAspect
+				{
+					idc = IDC_RSCDISPLAYARSENAL_VANA_BUTTON_SEARCH;
+					text = "a3\3den\data\displays\display3den\search_start_ca.paa";
+					x = QUOTE(8.5 * GUI_GRID_CENTER_W);
+					y = QUOTE(1.6 * GUI_GRID_CENTER_H);
+					w = QUOTE(GUI_GRID_CENTER_W);
+					h = QUOTE(GUI_GRID_CENTER_H);
+					onButtonClick = "_this call VANA_fnc_searchTreeView";
 				};
 				class VANA_TitlePicture: RscPictureKeepAspect
 				{
@@ -140,6 +144,11 @@ class RscDisplayArsenal
 					colorBackgroundPressed[] ={0, 0, 0, 0.8};
 					colorBackgroundDisabled[] ={0, 0, 0, 0.8};
 				};
+				delete Column1;
+				delete Column2;
+				delete Column3;
+				delete Column4;
+				delete Column5;
 			};
 		};
 		class VANA_UIPopupControlGroup: RscControlsGroupNoScrollbars
