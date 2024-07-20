@@ -1,4 +1,4 @@
-params ['_display'];
+params ["_display"];
 
 if !(_display getVariable ['Vana_Initialised', true]) then
 {
