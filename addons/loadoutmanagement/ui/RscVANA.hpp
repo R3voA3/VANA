@@ -53,19 +53,20 @@ class RscDisplayArsenal
 					y = QUOTE(1.6 * GUI_GRID_CENTER_H);
 					w = QUOTE(19 * GUI_GRID_CENTER_W);
 					h = QUOTE(17.5 * GUI_GRID_CENTER_H);
+					color[] = {0.95, 0.95, 0.95, 1};
+					colorDisabled[] = {1, 1, 1, 0.25};
+					colorLines[] = {1,1,1,1};
+					colorPicture[] = {1, 1, 1, 1};
+					colorPictureDisabled[] = {1, 1, 1, 1};
+					colorPictureSelected[] = {1, 1, 1, 1};
+					colorText[] = {1, 1, 1, 1};
+					disableKeyboardSearch = 0;
+					expandOnDoubleclick = 0;
+					font = "RobotoCondensed";
+					multiselectEnabled = 0;
+					shadow = 0;
 					sizeEx = QUOTE(0.8 * GUI_GRID_CENTER_H);
 					style = 16;
-					shadow = 0;
-					font = "RobotoCondensed";
-					color[] = {0.95, 0.95, 0.95, 1};
-					colorText[] = {1, 1, 1, 1};
-					colorDisabled[] = {1, 1, 1, 0.25};
-					colorPicture[] = {1, 1, 1, 1};
-					colorPictureSelected[] = {1, 1, 1, 1};
-					colorPictureDisabled[] = {1, 1, 1, 1};
-					disableKeyboardSearch = 0;
-					multiselectEnabled = 0;
-					expandOnDoubleclick = 0;
 
 					class ScrollBar: ScrollBar
 					{
