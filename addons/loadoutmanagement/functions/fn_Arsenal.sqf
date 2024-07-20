@@ -74,11 +74,11 @@ _fullVersion = missionNamespace getVariable ["BIS_fnc_arsenal_fullArsenal", fals
 	_types set [IDC_RSCDISPLAYARSENAL_TAB_CARGOMISC, ["FirstAidKit", "Medikit", "MineDetector", "Toolkit"]];
 
 #define STATS_WEAPONS\
-	["reloadtime", "dispersion", "maxzeroing", "hit", "mass", "initSpeed"],\
+	["reloadtime", "dispersion", "maxzeroing", "hit", "mass", "initSpeed"], \
 	[true, true, false, true, false, false]
 
 #define STATS_EQUIPMENT\
-	["passthrough", "armor", "maximumLoad", "mass"],\
+	["passthrough", "armor", "maximumLoad", "mass"], \
 	[false, false, false, false]
 
 switch _mode do {

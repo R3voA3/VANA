@@ -1,8 +1,8 @@
 name = "VANA - Loadout Management";
 author = "Eathox, modified by R3vo"
-tooltip = "$STR_VANA_Tooltip";
-tooltipOwned = "$STR_VANA_TooltipOwned";
-overviewText = "$STR_VANA_OverviewText";
+tooltip = "$STR_VANA_TITLE";
+tooltipOwned = "$STR_VANA_TITLE";
+overviewText = "$STR_VANA_TITLE";
 overview = "$STR_VANA_Overview";
 actionName = "$STR_VANA_ActionName";
 picture = "v\vana\addons\loadoutmanagement\data\picture_ca.paa";

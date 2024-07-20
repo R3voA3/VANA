@@ -4,7 +4,7 @@ params
 [
 	["_ctrlTV", controlNull, [controlNull]],
 	["_arguments", [], [[]]],
-	["_exportDataArray", [], [[],0]],
+	["_exportDataArray", [], [[], 0]],
 	["_checkSubTv", true, [true]],
 	["_count", false, [false]]
 ];

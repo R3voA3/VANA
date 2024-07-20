@@ -1,6 +1,5 @@
-#define QUOTE(var1) #var1
-
 #include "\a3\ui_f\hpp\defineCommonGrids.inc"
+#include "\v\vana\addons\loadoutmanagement\defines.inc"
 
 class BackgroundButtonOK;
 class RscBackgroundGUI;
@@ -77,7 +76,7 @@ class RscDisplayArsenal
 				{
 					idc = 34621;
 					style = 1;
-					text = "$STR_VANA_TextName_Text";
+					text = "$STR_VANA_TEXTNAME_TEXT";
 					x = QUOTE(-2 * GUI_GRID_CENTER_W);
 					y = QUOTE(19.6 * GUI_GRID_CENTER_H);
 					w = QUOTE(5.5 * GUI_GRID_CENTER_W);
@@ -105,7 +104,7 @@ class RscDisplayArsenal
 				};
 				class VANA_DecorativeBar: RscBackgroundGUI
 				{
-					idc = 978001;
+					idc = IDC_RSCDISPLAYARSENAL_VANA_DECORATIVEBAR;
 					show = 0;
 					x = QUOTE(17 * GUI_GRID_CENTER_W);
 					y = QUOTE(19.6 * GUI_GRID_CENTER_H);
@@ -115,9 +114,9 @@ class RscDisplayArsenal
 				};
 				class VANA_ButtonCreate: RscVANAPictureButton
 				{
-					idc = 978002;
+					idc = IDC_RSCDISPLAYARSENAL_VANA_BUTTONTABCREATE;
 					text = "a3\3den\data\displays\display3den\panelleft\entitylist_layer_ca.paa";
-					tooltip = "$STR_VANA_ButtonCreate_ToolTip";
+					tooltip = "$STR_VANA_BUTTONCREATE_TOOLTIP";
 					x = QUOTE(18.5 * GUI_GRID_CENTER_W);
 					y = QUOTE(19.6 * GUI_GRID_CENTER_H);
 					w = QUOTE(GUI_GRID_CENTER_W);
@@ -125,16 +124,16 @@ class RscDisplayArsenal
 				};
 				class VANA_ButtonRename: VANA_ButtonCreate
 				{
-					idc = 978003;
+					idc = IDC_RSCDISPLAYARSENAL_VANA_BUTTONRENAME;
 					text = "a3\3den\data\displays\display3den\panelright\customcomposition_edit_ca.paa";
-					tooltip = "$STR_VANA_ButtonRename_ToolTip";
+					tooltip = "$STR_VANA_BUTTONRENAME_TOOLTIP";
 					x = QUOTE(17.3  * GUI_GRID_CENTER_W);
 				};
 				class VANA_DelConfirmToggle: RscCheckBox
 				{
-					idc = 978004;
+					idc = IDC_RSCDISPLAYARSENAL_VANA_DELCONFIRMTOGGLE;
 					default = 0;
-					tooltip = "$STR_VANA_TempCheckbox_ToolTip";
+					tooltip = "$STR_VANA_TEMPCHECKBOX_TOOLTIP";
 					x = QUOTE(5 * GUI_GRID_CENTER_W);
 					y = QUOTE(21.2 * GUI_GRID_CENTER_H);
 					w = QUOTE(GUI_GRID_CENTER_W);
@@ -149,7 +148,7 @@ class RscDisplayArsenal
 		};
 		class VANA_UIPopupControlGroup: RscControlsGroupNoScrollbars
 		{
-			idc = 979000;
+			idc = IDC_RSCDISPLAYARSENALPOPUP_VANA_UIPOPUPCONTROLGROUP;
 			x = QUOTE(10.6 * GUI_GRID_CENTER_W + GUI_GRID_CENTER_X);
 			y = QUOTE(7 * GUI_GRID_CENTER_H + GUI_GRID_CENTER_Y);
 			w = QUOTE(18.8 * GUI_GRID_CENTER_W);
@@ -158,8 +157,8 @@ class RscDisplayArsenal
 			{
 				class VANA_Title: RscTitle
 				{
-					idc = 979001;
-					text = "$STR_VANA_Title_Text";
+					idc = IDC_RSCDISPLAYARSENALPOPUP_VANA_TITLE;
+					text = "$STR_VANA_TITLE_TEXT";
 					x = 0;
 					y = 0;
 					w = QUOTE(18.8 * GUI_GRID_CENTER_W);
@@ -191,8 +190,8 @@ class RscDisplayArsenal
 				};
 				class VANA_Text: RscStructuredText
 				{
-					idc = 979004;
-					text = "$STR_VANA_Text_Text";
+					idc = IDC_RSCDISPLAYARSENALPOPUP_VANA_TEXT;
+					text = "$STR_VANA_TEXT_TEXT";
 					y = QUOTE(1.3 * GUI_GRID_CENTER_H);
 					w = QUOTE(18.8 * GUI_GRID_CENTER_W);
 					h = QUOTE(2 * GUI_GRID_CENTER_H);
@@ -200,7 +199,7 @@ class RscDisplayArsenal
 				};
 				class VANA_ButtonCancel: RscButtonMenuCancel
 				{
-					idc = 979005;
+					idc = IDC_RSCDISPLAYARSENALPOPUP_VANA_BUTTONCANCEL;
 					onButtonClick = "_this call VANA_fnc_hidePopup";
 					y = QUOTE(3.8 * GUI_GRID_CENTER_H);
 					w = QUOTE(6.2 * GUI_GRID_CENTER_W);
@@ -208,13 +207,13 @@ class RscDisplayArsenal
 				};
 				class VANA_ButtonOK: VANA_ButtonCancel
 				{
-					idc = 979007;
-					text = "$STR_VANA_ButtonOK_Text";
+					idc = IDC_RSCDISPLAYARSENALPOPUP_VANA_BUTTONOK;
+					text = "$STR_VANA_BUTTONOK_TEXT";
 					x = QUOTE(12.6 * GUI_GRID_CENTER_W);
 				};
 				class VANA_TogglePopup: RscCheckBox
 				{
-					idc = 979008;
+					idc = IDC_RSCDISPLAYARSENALPOPUP_VANA_TOGGLEPOPUP;
 					show = 0;
 					default = 0;
 					x = QUOTE(0.GUI_GRID_CENTER_W);
@@ -224,9 +223,9 @@ class RscDisplayArsenal
 				};
 				class VANA_CheckboxText: RscText
 				{
-					idc = 979009;
+					idc = IDC_RSCDISPLAYARSENALPOPUP_VANA_CHECKBOXTEXT;
 					show = 0;
-					text = "$STR_VANA_CheckboxText_Text";
+					text = "$STR_VANA_CHECKBOXTEXT_TEXT";
 					x = QUOTE(0.8 * GUI_GRID_CENTER_W);
 					y = QUOTE(2.66 * GUI_GRID_CENTER_H);
 					w = QUOTE(3.8 * GUI_GRID_CENTER_W);
@@ -235,10 +234,10 @@ class RscDisplayArsenal
 				};
 				class VANA_HintText: RscText
 				{
-					idc = 979010;
+					idc = IDC_RSCDISPLAYARSENALPOPUP_VANA_HINTTEXT;
 					show = 0;
 					style = 1;
-					text = "$STR_VANA_HintText_Text";
+					text = "$STR_VANA_HINTTEXT_TEXT";
 					x = QUOTE(9.25 * GUI_GRID_CENTER_W);
 					y = QUOTE(2.66 * GUI_GRID_CENTER_H);
 					w = QUOTE(9.55 * GUI_GRID_CENTER_W);
@@ -247,7 +246,7 @@ class RscDisplayArsenal
 				};
 				class VANA_RenameEdit: RscEdit
 				{
-					idc = 979011;
+					idc = IDC_RSCDISPLAYARSENALPOPUP_VANA_RENAMEEDIT;
 					show = 0;
 					x = QUOTE(0.3 * GUI_GRID_CENTER_W);
 					y = QUOTE(2.45 * GUI_GRID_CENTER_H);
@@ -259,7 +258,7 @@ class RscDisplayArsenal
 		};
 		class VANA_Mouseblock: RscBackgroundGUI
 		{
-			idc = 978090;
+			idc = IDC_RSCDISPLAYARSENAL_VANA_MOUSEBLOCK;
 			show = 0;
 			style = 16;
 			x = QUOTE(safezoneX);

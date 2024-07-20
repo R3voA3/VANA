@@ -3,7 +3,7 @@ disableserialization;
 #define CONDITION(LIST)	(_fullVersion || {"%ALL" in LIST} || {{_item == _x} count LIST > 0})
 
 #define GETVIRTUALCARGO\
-	private ["_virtualItemCargo","_virtualWeaponCargo","_virtualMagazineCargo","_virtualBackpackCargo"];\
+	private ["_virtualItemCargo", "_virtualWeaponCargo", "_virtualMagazineCargo", "_virtualBackpackCargo"];\
 	_virtualItemCargo =\
 		(missionNamespace call BIS_fnc_getVirtualItemCargo) +\
 		(_cargo call BIS_fnc_getVirtualItemCargo) +\
@@ -12,16 +12,16 @@ disableserialization;
 		primaryweaponitems _center +\
 		secondaryweaponitems _center +\
 		handgunitems _center +\
-		[uniform _center,vest _center,headgear _center,goggles _center];\
+		[uniform _center, vest _center, headgear _center, goggles _center];\
 	_virtualWeaponCargo = [];\
 	{\
 		private ["_weapon"];\
 		_weapon = _x call BIS_fnc_baseWeapon;\
-		_virtualWeaponCargo set [count _virtualWeaponCargo,_weapon];\
+		_virtualWeaponCargo set [count _virtualWeaponCargo, _weapon];\
 		{\
 			private ["_item"];\
 			_item = getText (_x >> "item");\
-			if !(_item in _virtualItemCargo) then {_virtualItemCargo set [count _virtualItemCargo,_item];};\
+			if !(_item in _virtualItemCargo) then {_virtualItemCargo set [count _virtualItemCargo, _item];};\
 		} foreach ((configFile >> "cfgweapons" >> _x >> "linkeditems") call BIS_fnc_returnchildren);\
 	} foreach ((missionNamespace call BIS_fnc_getVirtualWeaponCargo) + (_cargo call BIS_fnc_getVirtualWeaponCargo) + weapons _center + [binocular _center]);\
 	_virtualMagazineCargo = (missionNamespace call BIS_fnc_getVirtualMagazineCargo) + (_cargo call BIS_fnc_getVirtualMagazineCargo) + magazines _center;\
@@ -29,7 +29,7 @@ disableserialization;
 
 #define MarkTv\
 	private _loadoutPosistion = _x select 1;\
-	_ctrlTV tvSetColor [_loadoutPosistion, [1,1,1,0.25]];\
+	_ctrlTV tvSetColor [_loadoutPosistion, [1, 1, 1, 0.25]];\
 	_ctrlTV tvSetValue [_loadoutPosistion, -1];
 
 params
@@ -42,14 +42,14 @@ params
 	"_cargo"
 ];
 
-_fullVersion = missionNamespace getVariable ["BIS_fnc_arsenal_fullArsenal",false];
-_loadoutData = profileNamespace getVariable ["BIS_fnc_saveInventory_Data",[]];
-_center = (missionNamespace getVariable ["BIS_fnc_arsenal_center",player]);
-_cargo = (missionNamespace getVariable ["BIS_fnc_arsenal_Cargo",objNull]);
+_fullVersion = missionNamespace getVariable ["BIS_fnc_arsenal_fullArsenal", false];
+_loadoutData = profileNamespace getVariable ["BIS_fnc_saveInventory_Data", []];
+_center = (missionNamespace getVariable ["BIS_fnc_arsenal_center", player]);
+_cargo = (missionNamespace getVariable ["BIS_fnc_arsenal_Cargo", objNull]);
 
 GETVIRTUALCARGO
 {
-	Params ["_loadoutName","_inventoryData","_inventoryDataWeapons","_inventoryDataMagazines","_inventoryDataItems","_inventoryDataBackpacks"];
+	Params ["_loadoutName", "_inventoryData", "_inventoryDataWeapons", "_inventoryDataMagazines", "_inventoryDataItems", "_inventoryDataBackpacks"];
 	_loadoutName = _x select 0;
 
 	if (_loadoutName in _loadoutData) then
@@ -74,7 +74,7 @@ GETVIRTUALCARGO
 			(_inventoryData select 2 select 1) //Backpack items
 		) - [""];
 
-		if ({_item = _x; !CONDITION(_virtualItemCargo + _virtualMagazineCargo) || {isClass(configFile >> _x >> _item)} count ["cfgweapons","cfgglasses","cfgmagazines"] == 0} count _inventoryDataMagazines > 0) exitWith {MarkTv};
+		if ({_item = _x; !CONDITION(_virtualItemCargo + _virtualMagazineCargo) || {isClass(configFile >> _x >> _item)} count ["cfgweapons", "cfgglasses", "cfgmagazines"] == 0} count _inventoryDataMagazines > 0) exitWith {MarkTv};
 
 		//Third Phase Validation
 		_inventoryDataItems =
@@ -90,7 +90,7 @@ GETVIRTUALCARGO
 			(_inventoryData select 9) //Assigned items
 		) - [""];
 
-		if ({_item = _x; !CONDITION(_virtualItemCargo + _virtualMagazineCargo) || {isClass(configFile >> _x >> _item)} count ["cfgweapons","cfgglasses","cfgmagazines"] == 0} count _inventoryDataItems > 0) exitWith {MarkTv};
+		if ({_item = _x; !CONDITION(_virtualItemCargo + _virtualMagazineCargo) || {isClass(configFile >> _x >> _item)} count ["cfgweapons", "cfgglasses", "cfgmagazines"] == 0} count _inventoryDataItems > 0) exitWith {MarkTv};
 
 		//Forth Phase Validation
 		_inventoryDataBackpacks = [_inventoryData select 2 select 0] - [""];

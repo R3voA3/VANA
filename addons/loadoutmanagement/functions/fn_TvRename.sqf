@@ -20,7 +20,7 @@ _ctrlTV tvSetText [_path, _name];
 if (_tvData == "tvloadout") then
 {
 	//rename loadout in profile data
-	private _loadoutData = profileNamespace getVariable ["BIS_fnc_saveInventory_data",[]];
+	private _loadoutData = profileNamespace getVariable ["BIS_fnc_saveInventory_data", []];
 	private _index = _loadoutData find _tvName;
 
 	_loadoutData set [_index, _name];

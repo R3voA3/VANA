@@ -23,7 +23,7 @@ _ctrlTV tvSort [_parentTv, false];
 private _targetTVChildren = [_ctrlTV, [_parentTv, "All"], [], false] call VANA_fnc_tvGetData;
 
 {
-	_x params ["_tvName","_tvPosition", "_type"];
+	_x params ["_tvName", "_tvPosition", "_type"];
 
 	switch (toLower _type) do
 	{
