@@ -67,11 +67,6 @@ class RscDisplayArsenal
 					shadow = 0;
 					sizeEx = QUOTE(0.8 * GUI_GRID_CENTER_H);
 					style = 16;
-
-					class ScrollBar: ScrollBar
-					{
-						color[] = {0.95, 0.95, 0.95, 1};
-					};
 				};
 				class TextName: RscText //Relocation of vanilla UI
 				{
